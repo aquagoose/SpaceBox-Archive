@@ -1,0 +1,12 @@
+D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Utilities\bin\Debug\net5.0\Cubic.Utilities.deps.json
+D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Utilities\bin\Debug\net5.0\Cubic.Utilities.dll
+D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Utilities\bin\Debug\net5.0\ref\Cubic.Utilities.dll
+D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Utilities\bin\Debug\net5.0\Cubic.Utilities.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Utilities\obj\Debug\net5.0\Cubic.Utilities.csprojAssemblyReference.cache
+D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Utilities\obj\Debug\net5.0\Cubic.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Utilities\obj\Debug\net5.0\Cubic.Utilities.AssemblyInfoInputs.cache
+D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Utilities\obj\Debug\net5.0\Cubic.Utilities.AssemblyInfo.cs
+D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Utilities\obj\Debug\net5.0\Cubic.Utilities.csproj.CoreCompileInputs.cache
+D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Utilities\obj\Debug\net5.0\Cubic.Utilities.dll
+D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Utilities\obj\Debug\net5.0\ref\Cubic.Utilities.dll
+D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Utilities\obj\Debug\net5.0\Cubic.Utilities.pdb

@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "Z+U743F66kfgRm0Wt/AHoIMlkQToWKt0zsob2uVyEaSjq+n4pE1S1oWRt4eflIOSnY+3MEjTm9lZQ5ypG0NV/g==",
+  "success": true,
+  "projectFilePath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Platforms.Windows\\SpaceBox.Platforms.Windows.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ollie\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\opentk\\4.6.4\\opentk.4.6.4.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\opentk.compute\\4.6.4\\opentk.compute.4.6.4.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\opentk.core\\4.6.4\\opentk.core.4.6.4.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\opentk.graphics\\4.6.4\\opentk.graphics.4.6.4.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\opentk.input\\4.6.4\\opentk.input.4.6.4.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\opentk.mathematics\\4.6.4\\opentk.mathematics.4.6.4.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\opentk.openal\\4.6.4\\opentk.openal.4.6.4.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\opentk.redist.glfw\\3.3.0-pre20200830200122\\opentk.redist.glfw.3.3.0-pre20200830200122.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\opentk.windowing.common\\4.6.4\\opentk.windowing.common.4.6.4.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\opentk.windowing.desktop\\4.6.4\\opentk.windowing.desktop.4.6.4.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\opentk.windowing.graphicslibraryframework\\4.6.4\\opentk.windowing.graphicslibraryframework.4.6.4.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
