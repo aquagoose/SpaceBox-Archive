@@ -18,3 +18,7 @@ D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\obj\Debug\net5.0\SpaceBox.pdb
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Cubic.Utilities.dll
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Cubic.Utilities.pdb
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Images\ismlogo.png
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Images\Icon.bmp
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Cubic.GUI.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Cubic.GUI.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Fonts\arial.ttf

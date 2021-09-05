@@ -4,13 +4,16 @@
         <TargetFramework>net5.0</TargetFramework>
         <AssemblyName>SpaceBox</AssemblyName>
         <RootNamespace>Spacebox</RootNamespace>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="ImGui.NET" Version="1.78.0" />
       <PackageReference Include="OpenTK" Version="4.6.4" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Cubic.GUI\Cubic.GUI.csproj" />
       <ProjectReference Include="..\Cubic.Render\Cubic.Render.csproj" />
     </ItemGroup>
 
@@ -22,6 +25,12 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
       <None Update="Content\Textures\Images\ismlogo.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Content\Textures\Images\Icon.bmp">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Content\Fonts\arial.ttf">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>

@@ -9,5 +9,10 @@ namespace Cubic.Utilities
         {
             return new Vector2(size.Width, size.Height);
         }
+
+        public static System.Numerics.Vector2 ToSystemNumericsVector2(this Vector2 vector2)
+        {
+            return new System.Numerics.Vector2(vector2.X, vector2.Y);
+        }
     }
 }

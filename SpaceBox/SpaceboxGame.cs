@@ -1,6 +1,9 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
+using Cubic.GUI;
 using Cubic.Render;
 using Cubic.Utilities;
+using ImGuiNET;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
@@ -11,9 +14,16 @@ namespace Spacebox
 {
     public class SpaceboxGame : GameWindow
     {
-        public SpriteRenderer SpriteBatch;
+        private bool _disposed;
+        
+        public SpriteBatch SpriteBatch;
+
+        public UIManager UiManager;
 
         private Scene _activeScene;
+
+        private ImGuiRenderer _imGuiRenderer;
+        public ImFontPtr Arial;
 
         public SpaceboxGame(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings) : base(gameWindowSettings, nativeWindowSettings) { }
 
@@ -21,13 +31,23 @@ namespace Spacebox
         {
             base.OnLoad();
             
+            Time.Start();
+            
             GL.ClearColor(Color.Black);
 
-            SpriteBatch = new SpriteRenderer(this);
-
-            _activeScene = new IntroScene(this);
-            _activeScene.Initialize();
+            SpriteBatch = new SpriteBatch(this);
+            UiManager = new UIManager(SpriteBatch);
             
+            //_activeScene = new IntroScene(this);
+            _activeScene = new MenuScene(this);
+            _activeScene.Initialize();
+
+            _imGuiRenderer = new ImGuiRenderer(this);
+
+            ImGuiIOPtr io = ImGui.GetIO();
+            Arial = io.Fonts.AddFontFromFileTTF("Content/Fonts/arial.ttf", 20);
+            _imGuiRenderer.RecreateFontDeviceTexture();
+
             // Only show the window once initialization has completed.
             CenterWindow();
             IsVisible = true;
@@ -37,7 +57,15 @@ namespace Spacebox
         {
             base.OnUpdateFrame(args);
             
+            Time.Update();
+
+            Input.Update(KeyboardState, MouseState);
+            
+            _imGuiRenderer.Update(Time.DeltaTime);
+
             _activeScene.Update();
+            
+            UiManager.Update();
         }
 
         protected override void OnRenderFrame(FrameEventArgs args)
@@ -48,6 +76,10 @@ namespace Spacebox
 
             _activeScene.Draw();
             
+            UiManager.Draw();
+            
+            _imGuiRenderer.Render();
+
             SwapBuffers();
         }
 
@@ -56,18 +88,35 @@ namespace Spacebox
             base.OnResize(e);
             
             GL.Viewport(0, 0, e.Width, e.Height);
+            
+            //Console.WriteLine("Resize");
+            //OnRenderFrame(new FrameEventArgs(Time.DeltaTime));
         }
 
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
+
+            if (_disposed)
+                return;
             
             if (disposing)
             {
                 _activeScene.Dispose();
                 SpriteBatch.Dispose();
+                _imGuiRenderer.Dispose();
                 DisposeManager.DisposeAll();
             }
+
+            _disposed = true;
+        }
+
+        public void SetScene(Scene scene)
+        {
+            _activeScene.Dispose();
+            UiManager.Clear();
+            _activeScene = scene;
+            _activeScene.Initialize();
         }
     }
 }

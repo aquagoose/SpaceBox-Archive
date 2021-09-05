@@ -7,7 +7,7 @@ using OpenTK.Windowing.Desktop;
 
 namespace Cubic.Render
 {
-    public class SpriteRenderer : IDisposable
+    public class SpriteBatch : IDisposable
     {
         // All a Sprite really is, is a textured quad!
         // It's still rendered in 3D space, the GPU only supports rendering in 3D.
@@ -38,7 +38,7 @@ namespace Cubic.Render
 
         private bool _begun;
         
-        public SpriteRenderer(NativeWindow window)
+        public SpriteBatch(NativeWindow window)
         {
             _vao = GL.GenVertexArray();
             GL.BindVertexArray(_vao);
@@ -86,6 +86,8 @@ namespace Cubic.Render
             _begun = true;
             _spriteShader.Use();
             _spriteShader.SetUniform("uTransform", transform == default ? Matrix4.Identity : transform);
+            GL.Enable(EnableCap.Blend);
+            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
         }
 
         public void End()
@@ -130,6 +132,7 @@ namespace Cubic.Render
         public void Dispose()
         {
             _spriteShader.Dispose();
+            Console.WriteLine("SpriteBatch disposed.");
         }
     }
 }

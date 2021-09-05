@@ -42,3 +42,12 @@ D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\obj\Debug\net5.0
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\Cubic.Utilities.dll
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\Cubic.Utilities.pdb
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\Content\Textures\Images\ismlogo.png
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\Content\Textures\Images\Icon.bmp
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\ImGui.NET.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\runtimes\linux-x64\native\libcimgui.so
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\runtimes\osx-x64\native\libcimgui.dylib
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\runtimes\win-x64\native\cimgui.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\runtimes\win-x86\native\cimgui.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\Cubic.GUI.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\Cubic.GUI.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\Content\Fonts\arial.ttf

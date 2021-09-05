@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cubic.Render", "Cubic.Rende
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cubic.Utilities", "Cubic.Utilities\Cubic.Utilities.csproj", "{F1C7B71A-52F6-4F70-969B-EF1AE5D46C85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cubic.GUI", "Cubic.GUI\Cubic.GUI.csproj", "{64B84390-A4C3-4275-95A1-4316D94D78D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{F1C7B71A-52F6-4F70-969B-EF1AE5D46C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1C7B71A-52F6-4F70-969B-EF1AE5D46C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1C7B71A-52F6-4F70-969B-EF1AE5D46C85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64B84390-A4C3-4275-95A1-4316D94D78D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64B84390-A4C3-4275-95A1-4316D94D78D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64B84390-A4C3-4275-95A1-4316D94D78D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64B84390-A4C3-4275-95A1-4316D94D78D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

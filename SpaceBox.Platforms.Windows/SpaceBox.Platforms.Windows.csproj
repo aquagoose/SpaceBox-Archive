@@ -5,6 +5,7 @@
         <TargetFramework>net5.0</TargetFramework>
         <AssemblyName>SpaceBox.Platforms.Windows</AssemblyName>
         <RootNamespace>Spacebox.Platforms.Windows</RootNamespace>
+        <ApplicationIcon>Icon.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>
