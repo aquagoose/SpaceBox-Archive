@@ -358,7 +358,7 @@ void main()
             if (wasCullingEnabled)
                 GL.Enable(EnableCap.CullFace);
             if (wasDepthTestEnabled)
-                GL.Enable(EnableCap.CullFace);
+                GL.Enable(EnableCap.DepthTest);
         }
         
         public void Dispose()

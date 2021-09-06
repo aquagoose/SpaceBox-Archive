@@ -35,7 +35,7 @@ namespace Spacebox.Scenes
             base.Update();
 
             // The amount of time it takes for the image to fade, in seconds.
-            const float fadeTime = 1;
+            const float fadeTime = 0.2f;
             // Times[0] is the time until the image starts to fade in after scene has loaded
             // Times[1] is the time the image will display for until fade out
             // Times[2] is the time the scene will change after the image has faded out.
