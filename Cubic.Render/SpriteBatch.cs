@@ -32,6 +32,8 @@ namespace Cubic.Render
         private int _ebo;
 
         private Shader _spriteShader;
+
+        private Shader _activeShader;
         
         public int Width { get; private set; }
         public int Height { get; private set; }
@@ -79,13 +81,17 @@ namespace Cubic.Render
             Height = e.Size.Y;
         }
 
-        public void Begin(Matrix4 transform = default)
+        public void Begin(Matrix4 transform = default, Shader shader = null)
         {
             if (_begun)
                 throw new Exception("SpriteBatch End() must be called before Begin() can be called again.");
             _begun = true;
-            _spriteShader.Use();
-            _spriteShader.SetUniform("uTransform", transform == default ? Matrix4.Identity : transform);
+            if (shader == null)
+                _activeShader = _spriteShader;
+            else
+                _activeShader = shader;
+            _activeShader.Use();
+            _activeShader.SetUniform("uTransform", transform == default ? Matrix4.Identity : transform);
             GL.Enable(EnableCap.Blend);
             GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
         }
@@ -122,8 +128,8 @@ namespace Cubic.Render
                             Matrix4.CreateTranslation(-origin.X * scale.X, -origin.Y * scale.Y, 0) *
                             Matrix4.CreateRotationZ(rotation) *
                             Matrix4.CreateTranslation(new Vector3(position));
-            _spriteShader.SetUniform("uModel", model);
-            _spriteShader.SetUniform("uColor", color);
+            _activeShader.SetUniform("uModel", model);
+            _activeShader.SetUniform("uColor", color);
             
             GL.BindVertexArray(_vao);
             GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.UnsignedInt, 0);

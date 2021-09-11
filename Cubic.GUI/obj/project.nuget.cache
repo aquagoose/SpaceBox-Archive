@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "mgNg58bnCjkwxInI/q0xg6FWbRm/sWajuoCdEVZrWxe1Yev1wfZjPznfrT7R+Ih/T9JXTe6Kf9LSp0GGvw4aSQ==",
+  "dgSpecHash": "Kz7NhxXQaAQ2tsQ+ddM7ntR3To28J3vWIBlUNBL9mj0Od1snG9Vi3aggMMHNLyqcmMMSGCx1ZE8oqrbC3nOzdA==",
   "success": true,
-  "projectFilePath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.GUI\\Cubic.GUI.csproj",
+  "projectFilePath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.GUI\\Cubic.GUI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ollie\\.nuget\\packages\\freetypesharp\\1.1.3\\freetypesharp.1.1.3.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\imgui.net\\1.78.0\\imgui.net.1.78.0.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",

@@ -64,7 +64,7 @@ namespace Spacebox
             _imGuiRenderer.Update(Time.DeltaTime);
 
             _activeScene.Update();
-            
+
             UiManager.Update();
         }
 
@@ -76,9 +76,10 @@ namespace Spacebox
 
             _activeScene.Draw();
             
+            _imGuiRenderer.Render();
+            
             UiManager.Draw();
             
-            _imGuiRenderer.Render();
 
             SwapBuffers();
         }

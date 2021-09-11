@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "40Pi2fDnSyOq7ZDkncq8HWgKPIr5fKTFNM2lw0UmDCZ1h7PemgtqruU3DoJM79uNkn/TQ1756bfu9GXwt6+KIQ==",
+  "dgSpecHash": "/fyOBUYzZc7dhiX5QShrc2eYAfPN70hqnSO1f+k1BXmbX5feW5WZsgzCyFcXxPwfNNxnN0YdwrYEP/FE2CK4EQ==",
   "success": true,
-  "projectFilePath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox\\SpaceBox.csproj",
+  "projectFilePath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox\\SpaceBox.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ollie\\.nuget\\packages\\freetypesharp\\1.1.3\\freetypesharp.1.1.3.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\imgui.net\\1.78.0\\imgui.net.1.78.0.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
