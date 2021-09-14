@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YAQVPfCuWPxswI3+IvwwSKFSIgv7vEs86IOJBNkiCAWOlQ95Z4AZe0y8dCuujzAvcS8B93LZ2RdrbTg8I1uLSw==",
+  "dgSpecHash": "QfiRujU3hAxDbslN3dwmzzvQSP8L2S/oxOQY2gcWBryDWjJd1U17tcg0ZEcQVp3OXXWfYBKOvQBSS7e21YFRJg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Platforms.Windows\\SpaceBox.Platforms.Windows.csproj",
+  "projectFilePath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Platforms.Windows\\SpaceBox.Platforms.Windows.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ollie\\.nuget\\packages\\freetypesharp\\1.1.3\\freetypesharp.1.1.3.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\imgui.net\\1.78.0\\imgui.net.1.78.0.nupkg.sha512",

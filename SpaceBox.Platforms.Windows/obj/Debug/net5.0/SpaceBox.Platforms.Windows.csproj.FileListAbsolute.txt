@@ -113,3 +113,17 @@ C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\runtimes\win10-arm64\native\freetype.dll
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\runtimes\win10-x64\native\freetype.dll
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\runtimes\win10-x86\native\freetype.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\FreeTypeSharp.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\runtimes\linux-x64\native\libfreetype.so
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\runtimes\osx\native\libfreetype.dylib
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\runtimes\win-x64\native\freetype.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\runtimes\win-x86\native\freetype.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\runtimes\win10-arm\native\freetype.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\runtimes\win10-arm64\native\freetype.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\runtimes\win10-x64\native\freetype.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\runtimes\win10-x86\native\freetype.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\Content\Textures\Images\spaceboxlogo.png
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\Content\Textures\Images\loading2.png
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\SpaceBox.GUI.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\SpaceBox.GUI.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\Content\Textures\Images\Menu\spacebox-blurred.jpg

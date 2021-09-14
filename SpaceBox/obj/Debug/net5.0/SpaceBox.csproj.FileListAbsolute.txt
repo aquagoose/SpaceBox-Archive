@@ -46,3 +46,8 @@ C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\obj\Debug\net5.0\SpaceBox.csproj.C
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\obj\Debug\net5.0\SpaceBox.dll
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\obj\Debug\net5.0\ref\SpaceBox.dll
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\obj\Debug\net5.0\SpaceBox.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Images\spaceboxlogo.png
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Images\loading2.png
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\SpaceBox.GUI.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\SpaceBox.GUI.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Images\Menu\spacebox-blurred.jpg

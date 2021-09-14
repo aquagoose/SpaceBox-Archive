@@ -16,6 +16,10 @@ namespace Cubic.GUI
         private Dictionary<string, UIElement> _elements;
         private List<UIElement> _reversedUiElements;
 
+        /// <summary>
+        /// A reference resolution, used for scaling the UI.
+        /// </summary>
+        public Size ReferenceResolution { get; set; } = new Size(1280, 720);
         public UITheme Theme { get; set; }
 
         public SpriteBatch SpriteBatch;

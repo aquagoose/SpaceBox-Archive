@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using OpenTK.Mathematics;
+using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Common.Input;
 using OpenTK.Windowing.Desktop;
 using Image = OpenTK.Windowing.Common.Input.Image;
@@ -33,6 +34,7 @@ namespace Spacebox.Platforms.Windows
                 StartVisible = false,
                 NumberOfSamples = 8, // 8x MSAA
                 //WindowBorder = WindowBorder.Fixed // Uncomment as necessary
+                //WindowState = WindowState.Fullscreen,
                 Icon = new WindowIcon(new Image(icon.Width, icon.Height, image))
             };
             
