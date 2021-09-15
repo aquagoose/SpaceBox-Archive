@@ -12,6 +12,8 @@ namespace Cubic.GUI
         
         public Color TextColor { get; set; }
         public int TextSize { get; set; }
+        
+        public bool ButtonExecuteOnRelease { get; set; }
 
         public UITheme()
         {
@@ -24,6 +26,7 @@ namespace Cubic.GUI
             
             TextColor = Color.White;
             TextSize = 48;
+            ButtonExecuteOnRelease = true;
         }
     }
 }

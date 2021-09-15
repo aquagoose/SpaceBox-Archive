@@ -1,13 +1,24 @@
 ﻿using System.Drawing;
 using Cubic.Utilities;
+using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
+using Font = Cubic.GUI.Fonts.Font;
 
 namespace Cubic.GUI
 {
     public class Button : UIElement
     {
+        public event ButtonOnClick OnClick;
+        
         private FillRectangle _rectangle;
         private BorderRectangle _border;
+        private Font _font;
+        private bool _isClicked;
+        
+        public int FontSize { get; set; }
+        public string Text { get; set; }
+        
+        public bool ExecuteOnRelease { get; set; }
         
         public Button(UIManager manager, Position position, Size size) : base(manager, position, size,
             Color.White)
@@ -15,6 +26,15 @@ namespace Cubic.GUI
             _rectangle = new FillRectangle(manager, position, size, manager.Theme.BackColor);
             _border = new BorderRectangle(manager, position, size, manager.Theme.BorderWidth,
                 manager.Theme.BorderColor);
+            ExecuteOnRelease = manager.Theme.ButtonExecuteOnRelease;
+        }
+
+        public Button(UIManager manager, Position position, Size size, string text, string fontPath, int fontSize) :
+            this(manager, position, size)
+        {
+            _font = new Font(fontPath, SpriteBatch);
+            Text = text;
+            FontSize = fontSize;
         }
 
         protected internal override void Update(ref bool mouseTaken)
@@ -25,11 +45,29 @@ namespace Cubic.GUI
             {
                 _rectangle.Color = UiManager.Theme.HoverColor;
                 if (Input.IsMouseButtonDown(MouseButton.Left))
+                {
                     _rectangle.Color = UiManager.Theme.ClickColor;
+                    if (!_isClicked)
+                    {
+                        _isClicked = true;
+                        if (!ExecuteOnRelease)
+                            OnClick?.Invoke();
+                    }
+                }
+                else if (_isClicked && ExecuteOnRelease)
+                {
+                    _isClicked = false;
+                    OnClick?.Invoke();
+                }
+                else
+                    _isClicked = false;
             }
             else
+            {
                 _rectangle.Color = UiManager.Theme.BackColor;
-            
+                _isClicked = false;
+            }
+
             _rectangle.Update(ref mouseTaken);
             _border.Update(ref mouseTaken);
         }
@@ -38,6 +76,11 @@ namespace Cubic.GUI
         {
             _rectangle.Draw();
             _border.Draw();
+            _font?.DrawString((uint) FontSize, Text,
+                Position.ScreenPosition + Size.ToVector2() / 2f - _font.MeasureString((uint) FontSize, Text) / 2f,
+                Vector2.One, Color.White);
         }
+
+        public delegate void ButtonOnClick();
     }
 }

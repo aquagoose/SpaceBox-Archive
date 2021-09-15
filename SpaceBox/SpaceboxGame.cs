@@ -38,8 +38,8 @@ namespace Spacebox
             SpriteBatch = new SpriteBatch(this);
             UiManager = new UIManager(SpriteBatch);
             
-            //_activeScene = new IntroScene(this);
-            _activeScene = new MenuScene(this);
+            _activeScene = new IntroScene(this);
+            //_activeScene = new MenuScene(this);
             _activeScene.Initialize();
 
             _imGuiRenderer = new ImGuiRenderer(this);
@@ -62,7 +62,7 @@ namespace Spacebox
 
             Input.Update(KeyboardState, MouseState);
             
-            //_imGuiRenderer.Update(Time.DeltaTime);
+            _imGuiRenderer.Update(Time.DeltaTime);
 
             _activeScene.Update();
 
@@ -77,21 +77,17 @@ namespace Spacebox
 
             _activeScene.Draw();
 
-            //_imGuiRenderer.Render();
+            _imGuiRenderer.Render();
 
             SwapBuffers();
         }
 
         protected override void OnResize(ResizeEventArgs e)
         {
-            Console.WriteLine(e.Width);
-            Console.WriteLine(e.Height);
+            base.OnResize(e);
+            
             GL.Viewport(0, 0, e.Width, e.Height);
             
-            base.OnResize(e);
-
-
-
             //Console.WriteLine("Resize");
             //OnRenderFrame(new FrameEventArgs(Time.DeltaTime));
         }

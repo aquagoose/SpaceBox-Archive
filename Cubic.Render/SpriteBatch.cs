@@ -69,10 +69,12 @@ namespace Cubic.Render
             GL.EnableVertexAttribArray(texCoordLocation);
             GL.VertexAttribPointer(texCoordLocation, 2, VertexAttribPointerType.Float, false, 4 * sizeof(float),
                 2 * sizeof(float));
+
+            _activeShader = _spriteShader;
             
-            GL.BindVertexArray(0);
-            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
-            GL.BindBuffer(BufferTarget.ElementArrayBuffer, 0);
+            //GL.BindVertexArray(0);
+            //GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+            //GL.BindBuffer(BufferTarget.ElementArrayBuffer, 0);
 
             window.Resize += WindowOnResize;
             Width = window.ClientSize.X;
@@ -81,8 +83,8 @@ namespace Cubic.Render
 
         private void WindowOnResize(ResizeEventArgs e)
         {
-            Console.WriteLine(e.Size);
-            _spriteShader?.SetUniform("uProjection",
+            _activeShader.Use();
+            _activeShader.SetUniform("uProjection",
                 Matrix4.CreateOrthographicOffCenter(0, e.Width, e.Height, 0, -1, 1));
             Width = e.Width;
             Height = e.Height;
@@ -94,9 +96,9 @@ namespace Cubic.Render
             if (_begun)
                 throw new Exception("SpriteBatch End() must be called before Begin() can be called again.");
             _begun = true;
-            //_activeShader = shader ?? _spriteShader;
-            _spriteShader.Use();
-            _spriteShader.SetUniform("uTransform", transform == default ? Matrix4.Identity : transform);
+            _activeShader = shader ?? _spriteShader;
+            _activeShader.Use();
+            _activeShader.SetUniform("uTransform", transform == default ? Matrix4.Identity : transform);
             GL.Enable(EnableCap.Blend);
             GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
         }
@@ -124,7 +126,7 @@ namespace Cubic.Render
             if (!_begun)
                 throw new Exception("SpriteBatch Begin() must be called before Draw() can be called.");
             
-            _spriteShader.Use();
+            _activeShader.Use();
             texture.Bind();
             // These matrices attempt to replicate the MonoGame/XNA SpriteBatch.
             // For some reason, the screen scale is always twice as big as it should be, however dividing it by 2 seems
@@ -135,8 +137,8 @@ namespace Cubic.Render
                             Matrix4.CreateTranslation(-origin.X * scale.X, -origin.Y * scale.Y, 0) *
                             Matrix4.CreateRotationZ(rotation) *
                             Matrix4.CreateTranslation(new Vector3(position));
-            _spriteShader.SetUniform("uModel", model);
-            _spriteShader.SetUniform("uColor", color);
+            _activeShader.SetUniform("uModel", model);
+            _activeShader.SetUniform("uColor", color);
             
             GL.BindVertexArray(_vao);
             GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.UnsignedInt, 0);
