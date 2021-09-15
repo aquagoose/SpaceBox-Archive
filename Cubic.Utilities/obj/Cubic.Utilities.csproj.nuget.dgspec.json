@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj": {}
+    "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj": {}
   },
   "projects": {
-    "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj": {
+    "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj",
+        "projectUniqueName": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj",
         "projectName": "Cubic.Utilities",
-        "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj",
+        "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj",
         "packagesPath": "C:\\Users\\ollie\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\obj\\",
+        "outputPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,7 +40,7 @@
           "dependencies": {
             "OpenTK": {
               "target": "Package",
-              "version": "[4.6.4, )"
+              "version": "[4.6.7, )"
             }
           },
           "imports": [
@@ -64,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

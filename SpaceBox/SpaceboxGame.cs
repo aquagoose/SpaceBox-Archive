@@ -62,7 +62,7 @@ namespace Spacebox
 
             Input.Update(KeyboardState, MouseState);
             
-            _imGuiRenderer.Update(Time.DeltaTime);
+            //_imGuiRenderer.Update(Time.DeltaTime);
 
             _activeScene.Update();
 
@@ -73,24 +73,25 @@ namespace Spacebox
         {
             base.OnRenderFrame(args);
             
-            GL.Clear(ClearBufferMask.ColorBufferBit);
+            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
 
             _activeScene.Draw();
-            
-            _imGuiRenderer.Render();
-            
-            UiManager.Draw();
-            
+
+            //_imGuiRenderer.Render();
 
             SwapBuffers();
         }
 
         protected override void OnResize(ResizeEventArgs e)
         {
-            base.OnResize(e);
-            
+            Console.WriteLine(e.Width);
+            Console.WriteLine(e.Height);
             GL.Viewport(0, 0, e.Width, e.Height);
             
+            base.OnResize(e);
+
+
+
             //Console.WriteLine("Resize");
             //OnRenderFrame(new FrameEventArgs(Time.DeltaTime));
         }

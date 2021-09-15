@@ -24,7 +24,7 @@ namespace Cubic.GUI
 
         public Position(float x, float y) : this(new Vector2(x, y)) { }
 
-        internal void Update(SpriteBatch batch)
+        public void Update(SpriteBatch batch)
         {
             switch (DockType)
             {

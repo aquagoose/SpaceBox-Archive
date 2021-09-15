@@ -51,3 +51,10 @@ D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\SpaceBox.GUI.dll
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\SpaceBox.GUI.pdb
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Images\Menu\spacebox-blurred.jpg
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Images\loading2.png
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Images\Menu\spacebox-blurred.jpg
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Images\spaceboxlogo.png
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\SpaceBox.GUI.dll
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\SpaceBox.GUI.pdb
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Shaders\2D\Font.frag
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Shaders\2D\Font.vert

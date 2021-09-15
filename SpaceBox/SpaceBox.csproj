@@ -9,7 +9,7 @@
 
     <ItemGroup>
       <PackageReference Include="ImGui.NET" Version="1.78.0" />
-      <PackageReference Include="OpenTK" Version="4.6.4" />
+      <PackageReference Include="OpenTK" Version="4.6.7" />
     </ItemGroup>
 
     <ItemGroup>
@@ -41,6 +41,12 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
       <None Update="Content\Textures\Images\Menu\spacebox-blurred.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Content\Shaders\2D\Font.frag">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Content\Shaders\2D\Font.vert">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>

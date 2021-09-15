@@ -69,7 +69,7 @@ namespace Cubic.GUI
         public void Draw(Matrix4 transform = default, bool begun = false)
         {
             if (!begun)
-                SpriteBatch.Begin(transform);
+                SpriteBatch.Begin();
             
             foreach (KeyValuePair<string, UIElement> element in _elements)
                 element.Value.Draw();

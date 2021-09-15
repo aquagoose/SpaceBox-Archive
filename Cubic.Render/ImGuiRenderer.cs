@@ -37,6 +37,8 @@ namespace Cubic.Render
 
         private readonly List<char> _pressedChars;
 
+        private Keys[] _keysList;
+
         public ImGuiRenderer(NativeWindow window)
         {
             _scaleFactor = Vector2.One;
@@ -48,6 +50,7 @@ namespace Cubic.Render
             window.TextInput += PressChar;
 
             _pressedChars = new List<char>();
+            _keysList = (Keys[])Enum.GetValues(typeof(Keys));
 
             IntPtr context = ImGui.CreateContext();
             ImGui.SetCurrentContext(context);
@@ -209,7 +212,7 @@ void main()
             io.MouseWheel = Input.MouseScroll.Y - Input.MouseState.PreviousScroll.Y;
             io.MouseWheelH = Input.MouseScroll.X - Input.MouseState.PreviousScroll.X;
 
-            foreach (Keys key in Enum.GetValues(typeof(Keys)))
+            foreach (Keys key in _keysList)
             {
                 if ((int) key > 0)
                     io.KeysDown[(int) key] = Input.IsKeyDown(key);
