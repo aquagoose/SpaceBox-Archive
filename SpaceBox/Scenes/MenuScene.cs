@@ -41,34 +41,39 @@ namespace Spacebox.Scenes
 
             const int gap = 10;
             
-            Button continueButton = new Button(Game.UiManager, new Position(50, 250), new Size(232, 100), "Continue",
-                "Content/Fonts/arial.ttf", 56);
+            Button continueButton = new Button(Game.UiManager, new Position(DockType.BottomLeft, new Vector2(50, -470)),
+                new Size(232, 100), "Continue", fontSize: 48);
             //continueButton.OnClick += () => Console.WriteLine("click");
 
             Button newGameButton = new Button(Game.UiManager,
-                new Position(continueButton.Position.Offset.X,
-                    continueButton.Position.Offset.Y + continueButton.Size.Height + gap), new Size(232, 50), "New Game",
-                "Content/Fonts/arial.ttf", 40);
+                new Position(DockType.BottomLeft,
+                    new Vector2(continueButton.Position.Offset.X,
+                        continueButton.Position.Offset.Y + continueButton.Size.Height + gap)), new Size(232, 50),
+                "New Game");
             
             Button loadGameButton = new Button(Game.UiManager,
-                new Position(newGameButton.Position.Offset.X,
-                    newGameButton.Position.Offset.Y + newGameButton.Size.Height + gap), new Size(232, 50), "Load Game",
-                "Content/Fonts/arial.ttf", 40);
+                new Position(DockType.BottomLeft,
+                    new Vector2(newGameButton.Position.Offset.X,
+                        newGameButton.Position.Offset.Y + newGameButton.Size.Height + gap)), new Size(232, 50),
+                "Load Game");
             
             Button multiplayerButton = new Button(Game.UiManager,
-                new Position(loadGameButton.Position.Offset.X,
-                    loadGameButton.Position.Offset.Y + loadGameButton.Size.Height + gap), new Size(232, 50), "Multiplayer",
-                "Content/Fonts/arial.ttf", 40);
+                new Position(DockType.BottomLeft,
+                    new Vector2(loadGameButton.Position.Offset.X,
+                        loadGameButton.Position.Offset.Y + loadGameButton.Size.Height + gap)), new Size(232, 50),
+                "Multiplayer");
             
             Button settingsButton = new Button(Game.UiManager,
-                new Position(multiplayerButton.Position.Offset.X,
-                    multiplayerButton.Position.Offset.Y + multiplayerButton.Size.Height + gap), new Size(232, 50), "Settings",
-                "Content/Fonts/arial.ttf", 40);
+                new Position(DockType.BottomLeft,
+                    new Vector2(multiplayerButton.Position.Offset.X,
+                        multiplayerButton.Position.Offset.Y + multiplayerButton.Size.Height + gap)), new Size(232, 50),
+                "Settings");
             
             Button quitButton = new Button(Game.UiManager,
-                new Position(settingsButton.Position.Offset.X,
-                    settingsButton.Position.Offset.Y + settingsButton.Size.Height + gap), new Size(232, 50), "Quit",
-                "Content/Fonts/arial.ttf", 40);
+                new Position(DockType.BottomLeft,
+                    new Vector2(settingsButton.Position.Offset.X,
+                        settingsButton.Position.Offset.Y + settingsButton.Size.Height + gap)), new Size(232, 50),
+                "Quit");
             quitButton.OnClick += () => Game.Close();
             
             Game.UiManager.Add("continueButton", continueButton);

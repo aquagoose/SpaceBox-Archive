@@ -70,10 +70,13 @@ namespace Cubic.GUI
         {
             if (!begun)
                 SpriteBatch.Begin();
-            
+
             foreach (KeyValuePair<string, UIElement> element in _elements)
-                element.Value.Draw();
-            
+            {
+                if (element.Value.Visible)
+                    element.Value.Draw();
+            }
+
             if (!begun)
                 SpriteBatch.End();
         }

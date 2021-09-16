@@ -19,22 +19,18 @@ namespace Cubic.GUI
         public string Text { get; set; }
         
         public bool ExecuteOnRelease { get; set; }
-        
-        public Button(UIManager manager, Position position, Size size) : base(manager, position, size,
-            Color.White)
+
+        public Button(UIManager manager, Position position, Size size, string text = "", string fontPath = null,
+            int fontSize = default) : base(manager, position, size, Color.White)
         {
             _rectangle = new FillRectangle(manager, position, size, manager.Theme.BackColor);
             _border = new BorderRectangle(manager, position, size, manager.Theme.BorderWidth,
                 manager.Theme.BorderColor);
             ExecuteOnRelease = manager.Theme.ButtonExecuteOnRelease;
-        }
-
-        public Button(UIManager manager, Position position, Size size, string text, string fontPath, int fontSize) :
-            this(manager, position, size)
-        {
-            _font = new Font(fontPath, SpriteBatch);
+            
+            _font = new Font(fontPath ?? UiManager.Theme.DefaultFontPath, SpriteBatch);
             Text = text;
-            FontSize = fontSize;
+            FontSize = fontSize == default ? UiManager.Theme.TextSize : fontSize;
         }
 
         protected internal override void Update(ref bool mouseTaken)

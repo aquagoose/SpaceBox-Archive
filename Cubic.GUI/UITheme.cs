@@ -14,6 +14,8 @@ namespace Cubic.GUI
         public int TextSize { get; set; }
         
         public bool ButtonExecuteOnRelease { get; set; }
+        
+        public string DefaultFontPath { get; set; }
 
         public UITheme()
         {
@@ -25,8 +27,10 @@ namespace Cubic.GUI
             BorderWidth = 2;
             
             TextColor = Color.White;
-            TextSize = 48;
+            TextSize = 32;
             ButtonExecuteOnRelease = true;
+
+            DefaultFontPath = "Content/Fonts/arial.ttf";
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using Cubic.GUI;
 using Cubic.Render;
 using Cubic.Utilities;
 using OpenTK.Graphics.OpenGL4;
@@ -26,7 +27,7 @@ namespace Spacebox.Scenes
         private float _startTime;
 
         private bool _hasLoaded;
-        
+
         public IntroScene(SpaceboxGame game) : base(game) { }
 
         public override void Initialize()
@@ -39,9 +40,14 @@ namespace Spacebox.Scenes
             _spaceboxLogo = new Texture2D("Content/Textures/Images/spaceboxlogo.png", autoDispose: false);
             
             _load = new Texture2D("Content/Textures/Images/loading2.png", autoDispose: false);
+            
+            Game.UiManager.Add("loading", new Label(Game.UiManager, new Position(DockType.BottomRight, new Vector2(-435, -75)), "Loading, please wait...")
+            {
+                Visible = false
+            });
 
             _currentLogo = _ismLogo;
-            
+
             _startTime = Time.ElapsedSeconds;
             _alpha = 0;
         }
@@ -67,10 +73,12 @@ namespace Spacebox.Scenes
                 else if (!_hasLoaded)
                 {
                     _rotAlpha = 1;
+                    Game.UiManager.GetElement<Label>("loading").Visible = true;
                     if (Input.IsKeyDown(Keys.Space))
                     {
                         _hasLoaded = true;
                         _rotAlpha = 0;
+                        Game.UiManager.GetElement<Label>("loading").Visible = false;
                         _startTime = Time.ElapsedSeconds - (times[0] + times[1]);
                     }
                 }
@@ -109,6 +117,8 @@ namespace Spacebox.Scenes
                 scale);
             
             Game.SpriteBatch.End();
+            
+            Game.UiManager.Draw();
         }
 
         public override void Unload()
