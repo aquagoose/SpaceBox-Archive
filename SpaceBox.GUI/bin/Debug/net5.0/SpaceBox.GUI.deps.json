@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v5.0": {
       "SpaceBox.GUI/1.0.0": {
         "dependencies": {
-          "Cubic.GUI": "1.0.0"
+          "Cubic.GUI": "1.0.0",
+          "OpenTK": "4.6.7",
+          "SpaceBox.Data": "1.0.0"
         },
         "runtime": {
           "SpaceBox.GUI.dll": {}
@@ -310,6 +312,14 @@
         "runtime": {
           "Cubic.Utilities.dll": {}
         }
+      },
+      "SpaceBox.Data/1.0.0": {
+        "dependencies": {
+          "OpenTK": "4.6.7"
+        },
+        "runtime": {
+          "SpaceBox.Data.dll": {}
+        }
       }
     }
   },
@@ -463,6 +473,11 @@
       "sha512": ""
     },
     "Cubic.Utilities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SpaceBox.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

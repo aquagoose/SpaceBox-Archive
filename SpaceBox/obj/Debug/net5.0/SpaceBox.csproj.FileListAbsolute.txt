@@ -63,3 +63,6 @@ D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Shaders\2
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Fonts\inversionz.ttf
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Fonts\inversionz.ttf
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Fonts\spaceship2100.ttf
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Fonts\spaceship2100.ttf
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\SpaceBox.Data.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\SpaceBox.Data.pdb

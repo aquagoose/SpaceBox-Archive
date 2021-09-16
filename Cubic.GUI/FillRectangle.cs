@@ -18,11 +18,18 @@ namespace Cubic.GUI
         {
             // Here, we create a 1x1 texture, as it's just a solid colour and doing this saves memory.
             // Then in the draw method we just stretch it out to the desired size!
-            _texture = new Texture2D(1, 1, new[] { Color.White }, mipmap: false);
+            _texture = new Texture2D(1, 1, new[] { Color.White }, mipmap: false, autoDispose: false);
         }
         protected internal override void Draw()
         {
             SpriteBatch.Draw(_texture, Position.ScreenPosition, Color, Rotation, Origin, Size.ToVector2());
+        }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+            
+            _texture.Dispose();
         }
     }
 }

@@ -146,6 +146,9 @@ namespace Cubic.Render
 
         public void Dispose()
         {
+            GL.DeleteVertexArray(_vao);
+            GL.DeleteBuffer(_vbo);
+            GL.DeleteBuffer(_ebo);
             _spriteShader.Dispose();
             Console.WriteLine("SpriteBatch disposed.");
         }

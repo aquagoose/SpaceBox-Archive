@@ -25,5 +25,12 @@ namespace Cubic.GUI
         {
             _font.DrawString((uint) FontSize, Text, Position.ScreenPosition, Vector2.One, Color);
         }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+            
+            _font.Dispose();
+        }
     }
 }

@@ -22,5 +22,12 @@ namespace Cubic.GUI
         {
             SpriteBatch.Draw(_texture, Position.ScreenPosition, Color, Rotation, Origin, Scale);
         }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+            
+            _texture.Dispose();
+        }
     }
 }

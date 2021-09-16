@@ -1,8 +1,10 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Common.Input;
 using OpenTK.Windowing.Desktop;
+using SpaceBox.Data;
 using Image = OpenTK.Windowing.Common.Input.Image;
 
 namespace Spacebox.Platforms.Windows
@@ -25,22 +27,30 @@ namespace Spacebox.Platforms.Windows
                 }
             }
 
+            SpaceboxConfig config = Config.GetSpaceBoxConfig("spacebox.cfg");
+            if (config == null)
+            {
+                Console.WriteLine("SpaceBox config is missing! Creating new config.");
+                config = new SpaceboxConfig();
+                Config.SaveSpaceBoxConfig(config, "spacebox.cfg");
+            }
+
             GameWindowSettings gameWindowSettings = GameWindowSettings.Default;
 
             NativeWindowSettings nativeWindowSettings = new NativeWindowSettings()
             {
-                Size = new Vector2i(1280, 720),
+                Size = new Vector2i(config.Display.Resolution.Width, config.Display.Resolution.Height),
                 Title = "SpaceBox",
                 StartVisible = false,
                 NumberOfSamples = 8, // 8x MSAA
                 //WindowBorder = WindowBorder.Fixed // Uncomment as necessary
-                //WindowState = WindowState.Fullscreen,
+                WindowState = config.Display.Fullscreen ? WindowState.Fullscreen : WindowState.Normal,
                 Icon = new WindowIcon(new Image(icon.Width, icon.Height, image))
             };
             
             icon.Dispose();
 
-            using (SpaceboxGame game = new SpaceboxGame(gameWindowSettings, nativeWindowSettings))
+            using (SpaceboxGame game = new SpaceboxGame(gameWindowSettings, nativeWindowSettings, config))
                 game.Run();
         }
     }

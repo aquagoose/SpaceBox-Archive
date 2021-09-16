@@ -27,11 +27,18 @@ namespace Cubic.GUI
                 }
             }
 
-            _texture = new Texture2D(size.Width, size.Height, pixels, mipmap: false);
+            _texture = new Texture2D(size.Width, size.Height, pixels, mipmap: false, autoDispose: false);
         }
         protected internal override void Draw()
         {
             SpriteBatch.Draw(_texture, Position.ScreenPosition, Color, Rotation, Origin, Vector2.One);
+        }
+
+        public override void Dispose()
+        {
+            _texture.Dispose();
+            
+            base.Dispose();
         }
     }
 }

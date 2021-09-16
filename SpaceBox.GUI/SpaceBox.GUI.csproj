@@ -6,6 +6,11 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Cubic.GUI\Cubic.GUI.csproj" />
+      <ProjectReference Include="..\SpaceBox.Data\SpaceBox.Data.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="OpenTK" Version="4.6.7" />
     </ItemGroup>
 
 </Project>

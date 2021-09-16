@@ -13,6 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\SpaceBox.Data\SpaceBox.Data.csproj" />
       <ProjectReference Include="..\SpaceBox\SpaceBox.csproj" />
     </ItemGroup>
 

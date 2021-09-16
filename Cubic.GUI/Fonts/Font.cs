@@ -203,6 +203,16 @@ namespace Cubic.GUI.Fonts
         
         public void Dispose()
         {
+            foreach (KeyValuePair<char, Character> c in _characters)
+            {
+                GL.DeleteTexture(c.Value.TexId);
+                Console.WriteLine($"Deleting font texture '{c.Value.TexId}'");
+            }
+            _shader.Dispose();
+            
+            GL.DeleteVertexArray(_vao);
+            GL.DeleteBuffer(_vbo);
+
             FT.FT_Done_Face(_facePtr);
             _library.Dispose();
             GC.SuppressFinalize(this);

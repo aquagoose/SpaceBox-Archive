@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using Cubic.Render;
 using Cubic.Utilities;
 using OpenTK.Mathematics;
@@ -9,7 +10,7 @@ namespace Cubic.GUI
     /// <summary>
     /// Represents the base UI element, including the major logic to make sure each UI element interacts with each other correctly.
     /// </summary>
-    public abstract class UIElement
+    public abstract class UIElement : IDisposable
     {
         protected UIManager UiManager { get; }
         
@@ -102,5 +103,9 @@ namespace Cubic.GUI
         }
 
         protected internal abstract void Draw();
+        public virtual void Dispose()
+        {
+            GC.SuppressFinalize(this);
+        }
     }
 }

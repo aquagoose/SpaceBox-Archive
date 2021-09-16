@@ -36,3 +36,5 @@ C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.GUI\obj\Debug\net5.0\SpaceBox.GUI.
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.GUI\obj\Debug\net5.0\SpaceBox.GUI.dll
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.GUI\obj\Debug\net5.0\ref\SpaceBox.GUI.dll
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.GUI\obj\Debug\net5.0\SpaceBox.GUI.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.GUI\bin\Debug\net5.0\SpaceBox.Data.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.GUI\bin\Debug\net5.0\SpaceBox.Data.pdb

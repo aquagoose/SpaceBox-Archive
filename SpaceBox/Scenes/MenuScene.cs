@@ -10,6 +10,7 @@ using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using SpaceBox.GUI;
+using SpaceBox.GUI.Imgui;
 using Vector2 = OpenTK.Mathematics.Vector2;
 using Font = Cubic.GUI.Fonts.Font;
 
@@ -23,6 +24,8 @@ namespace Spacebox.Scenes
         private int _currentRes;
 
         private MenuImageSystem _system;
+
+        private SettingsWindow _window;
 
         private Font _font;
 
@@ -43,7 +46,7 @@ namespace Spacebox.Scenes
             
             Button continueButton = new Button(Game.UiManager, new Position(DockType.BottomLeft, new Vector2(50, -470)),
                 new Size(232, 100), "Continue", fontSize: 48);
-            //continueButton.OnClick += () => Console.WriteLine("click");
+            continueButton.OnClick += () => Game.SetScene(new MainScene(Game));
 
             Button newGameButton = new Button(Game.UiManager,
                 new Position(DockType.BottomLeft,
@@ -68,6 +71,7 @@ namespace Spacebox.Scenes
                     new Vector2(multiplayerButton.Position.Offset.X,
                         multiplayerButton.Position.Offset.Y + multiplayerButton.Size.Height + gap)), new Size(232, 50),
                 "Settings");
+            settingsButton.OnClick += () => _window.ShouldShow = true;
             
             Button quitButton = new Button(Game.UiManager,
                 new Position(DockType.BottomLeft,
@@ -82,11 +86,34 @@ namespace Spacebox.Scenes
             Game.UiManager.Add("multiplayerButton", multiplayerButton);
             Game.UiManager.Add("settingsButton", settingsButton);
             Game.UiManager.Add("quitButton", quitButton);
+
+            Game.UiManager.Add("spaceText",
+                new Label(Game.UiManager, new Position(50, 50), "space", "Content/Fonts/inversionz.ttf", 128));
+            Game.UiManager.Add("boxText",
+                new Label(Game.UiManager, new Position(50, 130), "box", "Content/Fonts/inversionz.ttf", 128));
+
+            Game.UiManager.Add("fillRect",
+                new FillRectangle(Game.UiManager, new Position(0, 0), Size.Empty, Color.FromArgb(128, 0, 0, 0))
+                {
+                    Visible = false
+                });
+
+            _window = new SettingsWindow(SpaceboxGame.Config);
         }
 
         public override void Update()
         {
             base.Update();
+
+            FillRectangle fillRect = Game.UiManager.GetElement<FillRectangle>("fillRect");
+            
+            fillRect.Size =
+                new Size(Game.SpriteBatch.Width, Game.SpriteBatch.Height);
+
+            if (_window.ShouldShow)
+                fillRect.Visible = true;
+            else
+                fillRect.Visible = false;
         }
 
         public override void Draw()
@@ -95,8 +122,11 @@ namespace Spacebox.Scenes
             
             Game.UiManager.Draw();
 
-            _font.DrawString(128, "space", new Vector2(50, 50), Vector2.One, Color.White);
-            _font.DrawString(128, "box", new Vector2(50, 130), Vector2.One, Color.White);
+            //_font.DrawString(128, "space", new Vector2(50, 50), Vector2.One, Color.White);
+            //_font.DrawString(128, "box", new Vector2(50, 130), Vector2.One, Color.White);
+            
+            if (_window.ShouldShow)
+                _window.Display();
         }
     }
 }

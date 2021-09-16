@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Reflection;
 using Cubic.GUI;
 using Cubic.Render;
 using Cubic.Utilities;
@@ -8,6 +9,8 @@ using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
+using SpaceBox.Data;
+using SpaceBox.GUI.Imgui;
 using Spacebox.Scenes;
 
 namespace Spacebox
@@ -18,6 +21,8 @@ namespace Spacebox
         
         public SpriteBatch SpriteBatch;
 
+        public static SpaceboxConfig Config;
+
         public UIManager UiManager;
 
         private Scene _activeScene;
@@ -25,7 +30,11 @@ namespace Spacebox
         private ImGuiRenderer _imGuiRenderer;
         public ImFontPtr Arial;
 
-        public SpaceboxGame(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings) : base(gameWindowSettings, nativeWindowSettings) { }
+        public SpaceboxGame(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings,
+            SpaceboxConfig config) : base(gameWindowSettings, nativeWindowSettings)
+        {
+            Config = config;
+        }
 
         protected override void OnLoad()
         {
@@ -38,20 +47,22 @@ namespace Spacebox
             SpriteBatch = new SpriteBatch(this);
             UiManager = new UIManager(SpriteBatch);
             
-            _activeScene = new IntroScene(this);
-            //_activeScene = new MenuScene(this);
+            //_activeScene = new IntroScene(this);
+            _activeScene = new MenuScene(this);
             _activeScene.Initialize();
 
             _imGuiRenderer = new ImGuiRenderer(this);
 
             ImGuiIOPtr io = ImGui.GetIO();
-            Arial = io.Fonts.AddFontFromFileTTF("Content/Fonts/arial.ttf", 20);
+            ImGuiConfig.Fonts.Add("arial", io.Fonts.AddFontFromFileTTF("Content/Fonts/arial.ttf", 20));
             _imGuiRenderer.RecreateFontDeviceTexture();
 
             // Only show the window once initialization has completed.
             if (WindowState != WindowState.Fullscreen)
                 CenterWindow();
             IsVisible = true;
+
+            
         }
 
         protected override void OnUpdateFrame(FrameEventArgs args)

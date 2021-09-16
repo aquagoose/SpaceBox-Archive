@@ -78,5 +78,14 @@ namespace Cubic.GUI
         }
 
         public delegate void ButtonOnClick();
+
+        public override void Dispose()
+        {
+            _rectangle.Dispose();
+            _border.Dispose();
+            _font.Dispose();
+            
+            base.Dispose();
+        }
     }
 }

@@ -23,6 +23,11 @@ namespace Cubic.GUI
         public UITheme Theme { get; set; }
 
         public SpriteBatch SpriteBatch;
+
+        // True if the lists are being iterated through.
+        private bool _isIterating;
+        // True if the list should clear on the next update frame.
+        private bool _shouldClear;
         
         public UIManager(SpriteBatch batch)
         {
@@ -43,8 +48,17 @@ namespace Cubic.GUI
 
         public void Clear()
         {
-            _elements.Clear();
-            _reversedUiElements.Clear();
+            if (!_isIterating)
+            {
+                // It's easier to iterate through the reversed elements because we don't need to worry about the stupid
+                // keyvaluepair stuff.
+                foreach (UIElement element in _reversedUiElements)
+                    element.Dispose();
+                _elements.Clear();
+                _reversedUiElements.Clear();
+            }
+            else
+                _shouldClear = true;
         }
 
         private void ReverseUiELements()
@@ -61,9 +75,24 @@ namespace Cubic.GUI
 
         public void Update()
         {
+            _isIterating = true;
+            
             bool mouseTaken = false;
             foreach (UIElement element in _reversedUiElements)
-                element.Update(ref mouseTaken);
+            {
+                if (element.Visible)
+                    element.Update(ref mouseTaken);
+            }
+
+            _isIterating = false;
+
+            if (_shouldClear)
+            {
+                foreach (UIElement element in _reversedUiElements)
+                    element.Dispose();
+                _elements.Clear();
+                _reversedUiElements.Clear();
+            }
         }
 
         public void Draw(Matrix4 transform = default, bool begun = false)
@@ -71,11 +100,15 @@ namespace Cubic.GUI
             if (!begun)
                 SpriteBatch.Begin();
 
+            _isIterating = true;
+            
             foreach (KeyValuePair<string, UIElement> element in _elements)
             {
                 if (element.Value.Visible)
                     element.Value.Draw();
             }
+
+            _isIterating = false;
 
             if (!begun)
                 SpriteBatch.End();

@@ -35,6 +35,7 @@ namespace Spacebox.Scenes
         {
             Unload();
             GC.SuppressFinalize(this);
+            Console.WriteLine("Scene disposed.");
         }
     }
 }

@@ -9,7 +9,8 @@
       "SpaceBox.Platforms.Windows/1.0.0": {
         "dependencies": {
           "OpenTK": "4.6.7",
-          "SpaceBox": "1.0.0"
+          "SpaceBox": "1.0.0",
+          "SpaceBox.Data": "1.0.0"
         },
         "runtime": {
           "SpaceBox.Platforms.Windows.dll": {}
@@ -318,15 +319,26 @@
           "Cubic.Render": "1.0.0",
           "ImGui.NET": "1.78.0",
           "OpenTK": "4.6.7",
+          "SpaceBox.Data": "1.0.0",
           "SpaceBox.GUI": "1.0.0"
         },
         "runtime": {
           "SpaceBox.dll": {}
         }
       },
+      "SpaceBox.Data/1.0.0": {
+        "dependencies": {
+          "OpenTK": "4.6.7"
+        },
+        "runtime": {
+          "SpaceBox.Data.dll": {}
+        }
+      },
       "SpaceBox.GUI/1.0.0": {
         "dependencies": {
-          "Cubic.GUI": "1.0.0"
+          "Cubic.GUI": "1.0.0",
+          "OpenTK": "4.6.7",
+          "SpaceBox.Data": "1.0.0"
         },
         "runtime": {
           "SpaceBox.GUI.dll": {}
@@ -489,6 +501,11 @@
       "sha512": ""
     },
     "SpaceBox/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SpaceBox.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
