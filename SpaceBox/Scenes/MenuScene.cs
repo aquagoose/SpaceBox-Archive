@@ -98,7 +98,7 @@ namespace Spacebox.Scenes
                     Visible = false
                 });
 
-            _window = new SettingsWindow(SpaceboxGame.Config);
+            _window = new SettingsWindow(SpaceboxGame.Config, Game);
         }
 
         public override void Update()

@@ -216,6 +216,7 @@ namespace Cubic.GUI.Fonts
             FT.FT_Done_Face(_facePtr);
             _library.Dispose();
             GC.SuppressFinalize(this);
+            Console.WriteLine("Font disposed.");
         }
 
         private struct Character

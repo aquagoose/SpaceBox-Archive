@@ -33,7 +33,7 @@ namespace Cubic.Render
 
         private Texture2D _fontTexture;
 
-        private Vector2 _scaleFactor;
+        public Vector2 ScaleFactor;
 
         private readonly List<char> _pressedChars;
 
@@ -41,7 +41,7 @@ namespace Cubic.Render
 
         public ImGuiRenderer(NativeWindow window)
         {
-            _scaleFactor = Vector2.One;
+            ScaleFactor = Vector2.One;
             
             _windowWidth = window.ClientSize.X;
             _windowHeight = window.ClientSize.Y;
@@ -194,8 +194,8 @@ void main()
         private void SetPerFrameImGuiData(float deltaSeconds)
         {
             ImGuiIOPtr io = ImGui.GetIO();
-            io.DisplaySize = new Vector2(_windowWidth / _scaleFactor.X, _windowHeight / _scaleFactor.Y);
-            io.DisplayFramebufferScale = _scaleFactor;
+            io.DisplaySize = new Vector2(_windowWidth / ScaleFactor.X, _windowHeight / ScaleFactor.Y);
+            io.DisplayFramebufferScale = ScaleFactor;
             io.DeltaTime = deltaSeconds;
         }
 
@@ -207,7 +207,7 @@ void main()
             io.MouseDown[1] = Input.IsMouseButtonDown(MouseButton.Right);
             io.MouseDown[2] = Input.IsMouseButtonDown(MouseButton.Middle);
 
-            io.MousePos = Input.MousePosition.ToSystemNumericsVector2();
+            io.MousePos = Input.MousePosition.ToSystemNumericsVector2() / ScaleFactor;
 
             io.MouseWheel = Input.MouseScroll.Y - Input.MouseState.PreviousScroll.Y;
             io.MouseWheelH = Input.MouseScroll.X - Input.MouseState.PreviousScroll.X;

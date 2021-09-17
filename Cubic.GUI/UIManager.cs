@@ -23,6 +23,8 @@ namespace Cubic.GUI
         public UITheme Theme { get; set; }
 
         public SpriteBatch SpriteBatch;
+        
+        public Vector2 UiScale { get; private set; }
 
         // True if the lists are being iterated through.
         private bool _isIterating;
@@ -36,6 +38,17 @@ namespace Cubic.GUI
 
             Theme = new UITheme();
             SpriteBatch = batch;
+            
+            SpriteBatch.Resized += SpriteBatchOnResized;
+        }
+
+        private void SpriteBatchOnResized()
+        {
+            Size winSize = new Size(SpriteBatch.Width, SpriteBatch.Height);
+            float refSize = winSize.Width > winSize.Height ? winSize.Height : winSize.Width;
+            UiScale = new Vector2(refSize / (winSize.Width > winSize.Height
+                ? ReferenceResolution.Height
+                : ReferenceResolution.Width));
         }
 
         public void Add(string name, UIElement element)

@@ -10,3 +10,15 @@ D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Debug\net5.0\SpaceBox.Dat
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Debug\net5.0\SpaceBox.Data.dll
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Debug\net5.0\ref\SpaceBox.Data.dll
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Debug\net5.0\SpaceBox.Data.pdb
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Debug\net5.0\SpaceBox.Data.deps.json
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Debug\net5.0\SpaceBox.Data.dll
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Debug\net5.0\ref\SpaceBox.Data.dll
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Debug\net5.0\SpaceBox.Data.pdb
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Debug\net5.0\SpaceBox.Data.csproj.AssemblyReference.cache
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Debug\net5.0\SpaceBox.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Debug\net5.0\SpaceBox.Data.AssemblyInfoInputs.cache
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Debug\net5.0\SpaceBox.Data.AssemblyInfo.cs
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Debug\net5.0\SpaceBox.Data.csproj.CoreCompileInputs.cache
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Debug\net5.0\SpaceBox.Data.dll
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Debug\net5.0\ref\SpaceBox.Data.dll
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Debug\net5.0\SpaceBox.Data.pdb

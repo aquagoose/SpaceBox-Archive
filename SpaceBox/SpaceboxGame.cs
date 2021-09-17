@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Numerics;
 using System.Reflection;
 using Cubic.GUI;
 using Cubic.Render;
@@ -47,8 +48,8 @@ namespace Spacebox
             SpriteBatch = new SpriteBatch(this);
             UiManager = new UIManager(SpriteBatch);
             
-            //_activeScene = new IntroScene(this);
-            _activeScene = new MenuScene(this);
+            _activeScene = new IntroScene(this);
+            //_activeScene = new MenuScene(this);
             _activeScene.Initialize();
 
             _imGuiRenderer = new ImGuiRenderer(this);
@@ -62,7 +63,9 @@ namespace Spacebox
                 CenterWindow();
             IsVisible = true;
 
-            
+            TryGetCurrentMonitorDpi(out float hDpi, out float vDpi);
+            Console.WriteLine(hDpi);
+            Console.WriteLine(vDpi);
         }
 
         protected override void OnUpdateFrame(FrameEventArgs args)
@@ -98,7 +101,16 @@ namespace Spacebox
             base.OnResize(e);
             
             GL.Viewport(0, 0, e.Width, e.Height);
+
+            Size winSize = new Size(UiManager.SpriteBatch.Width, UiManager.SpriteBatch.Height);
+            float refSize = winSize.Width > winSize.Height ? winSize.Height : winSize.Width;
+
+            _imGuiRenderer.ScaleFactor = new System.Numerics.Vector2(refSize / (winSize.Width > winSize.Height
+                ? UiManager.ReferenceResolution.Height
+                : UiManager.ReferenceResolution.Width));
             
+            Console.WriteLine(ImGui.GetIO().DisplaySize);
+
             //Console.WriteLine("Resize");
             //OnRenderFrame(new FrameEventArgs(Time.DeltaTime));
         }
@@ -113,6 +125,7 @@ namespace Spacebox
             if (disposing)
             {
                 _activeScene.Dispose();
+                UiManager.Clear();
                 SpriteBatch.Dispose();
                 _imGuiRenderer.Dispose();
                 DisposeManager.DisposeAll();
