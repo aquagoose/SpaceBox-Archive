@@ -2,6 +2,7 @@
 using System.Drawing;
 using Cubic.Render;
 using Cubic.Utilities;
+using OpenTK.Mathematics;
 
 namespace Cubic.GUI
 {
@@ -22,7 +23,8 @@ namespace Cubic.GUI
         }
         protected internal override void Draw()
         {
-            SpriteBatch.Draw(_texture, Position.ScreenPosition, Color, Rotation, Origin, Size.ToVector2());
+            Vector2 scale = IgnoreScale ? Vector2.One : UiManager.UiScale;
+            SpriteBatch.Draw(_texture, Position.ScreenPosition, Color, Rotation, Origin, Size.ToVector2() * scale);
         }
 
         public override void Dispose()

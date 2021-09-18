@@ -19,7 +19,7 @@ namespace Cubic.GUI
         /// <summary>
         /// A reference resolution, used for scaling the UI.
         /// </summary>
-        public Size ReferenceResolution { get; set; } = new Size(1280, 720);
+        public Size ReferenceResolution { get; set; } = new Size(1920, 1080);
         public UITheme Theme { get; set; }
 
         public SpriteBatch SpriteBatch;

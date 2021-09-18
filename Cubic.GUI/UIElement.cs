@@ -51,6 +51,11 @@ namespace Cubic.GUI
         public bool Disabled { get; set; } = false;
 
         /// <summary>
+        /// If true, the element will ignore all scaling by the UI.
+        /// </summary>
+        public bool IgnoreScale { get; set; } = false;
+
+        /// <summary>
         /// If true, this element was the one that was most recently clicked on. Items such as text boxes will use this extensively.
         /// </summary>
         public bool Focused { get; set; } = false;
@@ -69,7 +74,7 @@ namespace Cubic.GUI
             Size = size;
             Color = color;
             SpriteBatch = manager.SpriteBatch;
-            Position.Update(SpriteBatch);
+            Position.Update(UiManager);
         }
         
         /// <summary>
@@ -81,8 +86,9 @@ namespace Cubic.GUI
         {
             if (!Disabled && !MouseTransparent)
             {
-                if (Input.MousePosition.X >= Position.X && Input.MousePosition.X <= Position.X + Size.Width &&
-                    Input.MousePosition.Y >= Position.Y && Input.MousePosition.Y <= Position.Y + Size.Height &&
+                Vector2 scale = IgnoreScale ? Vector2.One : UiManager.UiScale;
+                if (Input.MousePosition.X >= Position.X && Input.MousePosition.X <= Position.X + Size.Width * scale.X &&
+                    Input.MousePosition.Y >= Position.Y && Input.MousePosition.Y <= Position.Y + Size.Height * scale.Y &&
                     !mouseTaken)
                 {
                     mouseTaken = true;
@@ -99,7 +105,7 @@ namespace Cubic.GUI
                 }
             }
             
-            Position.Update(SpriteBatch);
+            Position.Update(UiManager);
         }
 
         protected internal abstract void Draw();

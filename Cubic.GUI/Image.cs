@@ -20,7 +20,8 @@ namespace Cubic.GUI
         
         protected internal override void Draw()
         {
-            SpriteBatch.Draw(_texture, Position.ScreenPosition, Color, Rotation, Origin, Scale);
+            Vector2 scale = IgnoreScale ? Vector2.One : UiManager.UiScale;
+            SpriteBatch.Draw(_texture, Position.ScreenPosition, Color, Rotation, Origin, Scale * scale);
         }
 
         public override void Dispose()

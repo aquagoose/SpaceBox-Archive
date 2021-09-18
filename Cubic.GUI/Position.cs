@@ -24,24 +24,27 @@ namespace Cubic.GUI
 
         public Position(float x, float y) : this(new Vector2(x, y)) { }
 
-        public void Update(SpriteBatch batch)
+        public void Update(UIManager manager)
         {
+            SpriteBatch batch = manager.SpriteBatch;
+            Vector2 scale = manager.UiScale;
+            
             switch (DockType)
             {
                 case DockType.TopLeft:
-                    ScreenPosition = Offset;
+                    ScreenPosition = Offset * scale;
                     break;
                 case DockType.TopRight:
-                    ScreenPosition = new Vector2(batch.Width, 0) + Offset;
+                    ScreenPosition = new Vector2(batch.Width, 0) + Offset * scale;
                     break;
                 case DockType.BottomLeft:
-                    ScreenPosition = new Vector2(0, batch.Height) + Offset;
+                    ScreenPosition = new Vector2(0, batch.Height) + Offset * scale;
                     break;
                 case DockType.BottomRight:
-                    ScreenPosition = new Vector2(batch.Width, batch.Height) + Offset;
+                    ScreenPosition = new Vector2(batch.Width, batch.Height) + Offset * scale;
                     break;
                 case DockType.Center:
-                    ScreenPosition = new Vector2(batch.Width, batch.Height) / 2f + Offset;
+                    ScreenPosition = new Vector2(batch.Width, batch.Height) / 2f + Offset * scale;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

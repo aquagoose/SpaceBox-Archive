@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using Cubic.Utilities;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
@@ -72,9 +73,9 @@ namespace Cubic.GUI
         {
             _rectangle.Draw();
             _border.Draw();
-            _font?.DrawString((uint) FontSize, Text,
-                Position.ScreenPosition + Size.ToVector2() / 2f - _font.MeasureString((uint) FontSize, Text) / 2f,
-                Vector2.One, Color.White);
+            _font?.DrawString((uint) (FontSize * UiManager.UiScale.X), Text,
+                Position.ScreenPosition + Size.ToVector2() * UiManager.UiScale / 2f -
+                _font.MeasureString((uint) (FontSize * UiManager.UiScale.X), Text) / 2f, Vector2.One, Color.White);
         }
 
         public delegate void ButtonOnClick();

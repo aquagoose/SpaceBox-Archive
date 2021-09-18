@@ -23,7 +23,7 @@ namespace Cubic.GUI
 
         protected internal override void Draw()
         {
-            _font.DrawString((uint) FontSize, Text, Position.ScreenPosition, Vector2.One, Color);
+            _font.DrawString((uint) (FontSize * UiManager.UiScale.X), Text, Position.ScreenPosition, Vector2.One, Color);
         }
 
         public override void Dispose()

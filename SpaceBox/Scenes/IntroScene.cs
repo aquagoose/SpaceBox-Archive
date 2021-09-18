@@ -111,10 +111,10 @@ namespace Spacebox.Scenes
 
             Vector2 scale = new Vector2(1 / 8f);
             Game.SpriteBatch.Draw(_load,
-                new Vector2(Game.SpriteBatch.Width - _load.Width * scale.X,
-                    Game.SpriteBatch.Height - _load.Height * scale.Y),
+                new Vector2(Game.SpriteBatch.Width - _load.Width * scale.X * Game.UiManager.UiScale.X,
+                    Game.SpriteBatch.Height - _load.Height * scale.Y * Game.UiManager.UiScale.Y),
                 Color.FromArgb((int) (_rotAlpha * 255f), Color.White), _rot, new Vector2(_load.Width, _load.Height) / 2,
-                scale);
+                scale * Game.UiManager.UiScale);
             
             Game.SpriteBatch.End();
             

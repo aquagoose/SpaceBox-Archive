@@ -95,7 +95,8 @@ namespace Spacebox.Scenes
             Game.UiManager.Add("fillRect",
                 new FillRectangle(Game.UiManager, new Position(0, 0), Size.Empty, Color.FromArgb(128, 0, 0, 0))
                 {
-                    Visible = false
+                    Visible = false,
+                    IgnoreScale = true
                 });
 
             _window = new SettingsWindow(SpaceboxGame.Config, Game);

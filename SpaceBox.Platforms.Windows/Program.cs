@@ -43,7 +43,7 @@ namespace Spacebox.Platforms.Windows
                 Title = "SpaceBox",
                 StartVisible = false,
                 NumberOfSamples = 8, // 8x MSAA
-                WindowBorder = WindowBorder.Fixed, // Uncomment as necessary
+                //WindowBorder = WindowBorder.Fixed, // Uncomment as necessary
                 WindowState = config.Display.Fullscreen ? WindowState.Fullscreen : WindowState.Normal,
                 Icon = new WindowIcon(new Image(icon.Width, icon.Height, image))
             };

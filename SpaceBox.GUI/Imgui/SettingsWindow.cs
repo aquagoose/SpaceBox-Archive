@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Reflection;
 using Cubic.Render;
 using Cubic.Utilities;
@@ -88,7 +89,10 @@ namespace SpaceBox.GUI.Imgui
                 int i = 0;
                 foreach (VideoMode mode in modes)
                 {
-                    resolutions.Add(new Vector2i(mode.Width, mode.Height));
+                    Vector2i resolution = new Vector2i(mode.Width, mode.Height);
+                    if (resolutions.Contains(resolution))
+                        continue;
+                    resolutions.Add(resolution);
                     resolutionStr.Add($"{mode.Width}x{mode.Height}");
                     if (mode.Width == window.ClientSize.X && mode.Height == window.ClientSize.Y)
                         _selectedResolution = i;
