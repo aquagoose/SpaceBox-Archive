@@ -48,8 +48,8 @@ namespace Spacebox
             SpriteBatch = new SpriteBatch(this);
             UiManager = new UIManager(SpriteBatch);
             
-            _activeScene = new IntroScene(this);
-            //_activeScene = new MenuScene(this);
+            //_activeScene = new IntroScene(this);
+            _activeScene = new MenuScene(this);
             _activeScene.Initialize();
 
             _imGuiRenderer = new ImGuiRenderer(this);

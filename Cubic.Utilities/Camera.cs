@@ -22,8 +22,8 @@ namespace Cubic.Utilities
             Position = position;
             AspectRatio = aspectRatio;
         }
-        
-        public Vector3 Position { get; set; }
+
+        public Vector3 Position;
         
         public float AspectRatio { private get; set; }
 
@@ -72,5 +72,12 @@ namespace Cubic.Utilities
             _right = Vector3.Normalize(Vector3.Cross(_front, Vector3.UnitY));
             _up = Vector3.Normalize(Vector3.Cross(_right, _front));
         }
+
+        public void Move(Vector3 move)
+        {
+            Position += move + _front;
+        }
+
+        public void Move(float x = 0, float y = 0, float z = 0) => Move(new Vector3(x, y, z));
     }
 }

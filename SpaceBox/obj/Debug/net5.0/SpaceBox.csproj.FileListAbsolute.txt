@@ -71,3 +71,13 @@ C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\SpaceBox.Data.pdb
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Shaders\Model.frag
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Shaders\Model.vert
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Blocks\grass.jpg
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Blocks\wood.jpg
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Shaders\Skybox.frag
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Shaders\Skybox.vert
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Skybox\back.png
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Skybox\front.png
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Skybox\left.png
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Skybox\right.png
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Skybox\bottom.png
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Skybox\top.png
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\crosshair.png

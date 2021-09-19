@@ -24,6 +24,8 @@ namespace Cubic.Utilities
 
         public static Vector2 MouseScroll => _mouseState.Scroll;
 
+        public static Vector2 MouseDelta => _mouseState.Delta;
+
         /// <summary>
         /// Update the input manager. <b>You should only call this ONCE in your application per-frame.</b>
         /// </summary>

@@ -15,6 +15,7 @@ namespace Cubic.GUI
     {
         private Dictionary<string, UIElement> _elements;
         private List<UIElement> _reversedUiElements;
+        private Dictionary<string, UIElement> _elementsToAdd;
 
         /// <summary>
         /// A reference resolution, used for scaling the UI.
@@ -34,6 +35,7 @@ namespace Cubic.GUI
         public UIManager(SpriteBatch batch)
         {
             _elements = new Dictionary<string, UIElement>();
+            _elementsToAdd = new Dictionary<string, UIElement>();
             _reversedUiElements = new List<UIElement>();
 
             Theme = new UITheme();
@@ -55,8 +57,13 @@ namespace Cubic.GUI
         {
             if (_elements.ContainsKey(name))
                 throw new Exception("The given UI element has already been added. Please choose a different name.");
-            _elements.Add(name, element);
-            ReverseUiELements();
+            if (_isIterating)
+                _elementsToAdd.Add(name, element);
+            else
+            {
+                _elements.Add(name, element);
+                ReverseUiELements();
+            }
         }
 
         public void Clear()
@@ -106,6 +113,16 @@ namespace Cubic.GUI
                 _elements.Clear();
                 _reversedUiElements.Clear();
             }
+
+            if (_elementsToAdd.Count > 0)
+            {
+                foreach (KeyValuePair<string, UIElement> element in _elementsToAdd)
+                    _elements.Add(element.Key, element.Value);
+                _elementsToAdd.Clear();
+                ReverseUiELements();
+            }
+            
+            //Console.WriteLine(_elements.Count);
         }
 
         public void Draw(Matrix4 transform = default, bool begun = false)
