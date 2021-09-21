@@ -31,6 +31,7 @@ namespace Spacebox
         public UIManager UiManager;
 
         private Scene _activeScene;
+        private Scene _transitionScene;
 
         private ImGuiRenderer _imGuiRenderer;
         public ImFontPtr Arial;
@@ -52,8 +53,8 @@ namespace Spacebox
             SpriteBatch = new SpriteBatch(this);
             UiManager = new UIManager(SpriteBatch);
             
-            //_activeScene = new IntroScene(this);
-            _activeScene = new MenuScene(this);
+            _activeScene = new IntroScene(this);
+            //_activeScene = new MenuScene(this);
             _activeScene.Initialize();
 
             _imGuiRenderer = new ImGuiRenderer(this);
@@ -107,6 +108,16 @@ namespace Spacebox
 
                 Console.WriteLine($"Saved screenshot.");
             }
+
+            if (_transitionScene != null)
+            {
+                Console.WriteLine("Transition");
+                _activeScene.Dispose();
+                UiManager.Clear();
+                _activeScene = _transitionScene;
+                _transitionScene = null;
+                _activeScene.Initialize();
+            }
         }
 
         protected override void OnRenderFrame(FrameEventArgs args)
@@ -134,8 +145,6 @@ namespace Spacebox
             _imGuiRenderer.ScaleFactor = new System.Numerics.Vector2(refSize / (winSize.Width > winSize.Height
                 ? UiManager.ReferenceResolution.Height
                 : UiManager.ReferenceResolution.Width));
-            
-            Console.WriteLine(ImGui.GetIO().DisplaySize);
 
             //Console.WriteLine("Resize");
             //OnRenderFrame(new FrameEventArgs(Time.DeltaTime));
@@ -162,10 +171,7 @@ namespace Spacebox
 
         public void SetScene(Scene scene)
         {
-            _activeScene.Dispose();
-            UiManager.Clear();
-            _activeScene = scene;
-            _activeScene.Initialize();
+            _transitionScene = scene;
         }
     }
 }

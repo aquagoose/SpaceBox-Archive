@@ -171,3 +171,4 @@ C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\Content\Textures\Skybox\right.png
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\Content\Textures\Skybox\top.png
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\Content\Textures\Blocks\stainless-steel.jpg
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0\Content\Textures\Blocks\stainless-steel.jpg

@@ -37,6 +37,9 @@ namespace Spacebox.Scenes
         {
             base.Initialize();
             
+            GL.Disable(EnableCap.DepthTest);
+            Game.CursorVisible = true;
+
             GL.ClearColor(Color.FromArgb(178, 178, 178));
 
             _font = new Font("Content/Fonts/inversionz.ttf", Game.SpriteBatch);

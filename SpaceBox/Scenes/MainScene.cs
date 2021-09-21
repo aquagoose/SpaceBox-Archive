@@ -257,9 +257,6 @@ namespace Spacebox.Scenes
                 _camera.Position += _camSpeed * _camera.Up * Time.DeltaTime;
             if (Input.IsKeyDown(_input.CrouchOrJetpackDown))
                 _camera.Position -= _camSpeed * _camera.Up * Time.DeltaTime;
-            
-            if (Input.IsKeyPressed(Keys.Escape))
-                Game.Close();
 
             _camera.Yaw += Input.MouseDelta.X * mouseRot;
             _camera.Pitch -= Input.MouseDelta.Y * mouseRot;
@@ -394,6 +391,9 @@ namespace Spacebox.Scenes
 
             if (Input.IsKeyPressed(Keys.Tab))
                 _hide = !_hide;
+            
+            if (Input.IsKeyPressed(Keys.Escape))
+                Game.SetScene(new MenuScene(Game));
         }
 
         public override void Draw()
