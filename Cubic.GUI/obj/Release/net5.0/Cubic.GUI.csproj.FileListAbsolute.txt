@@ -1,0 +1,17 @@
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\bin\Release\net5.0\Cubic.GUI.deps.json
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\bin\Release\net5.0\Cubic.GUI.dll
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\bin\Release\net5.0\ref\Cubic.GUI.dll
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\bin\Release\net5.0\Cubic.GUI.pdb
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\bin\Release\net5.0\Cubic.Render.dll
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\bin\Release\net5.0\Cubic.Utilities.dll
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\bin\Release\net5.0\Cubic.Render.pdb
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\bin\Release\net5.0\Cubic.Utilities.pdb
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\obj\Release\net5.0\Cubic.GUI.csproj.AssemblyReference.cache
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\obj\Release\net5.0\Cubic.GUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\obj\Release\net5.0\Cubic.GUI.AssemblyInfoInputs.cache
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\obj\Release\net5.0\Cubic.GUI.AssemblyInfo.cs
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\obj\Release\net5.0\Cubic.GUI.csproj.CoreCompileInputs.cache
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\obj\Release\net5.0\Cubic.GUI.csproj.CopyComplete
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\obj\Release\net5.0\Cubic.GUI.dll
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\obj\Release\net5.0\ref\Cubic.GUI.dll
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\obj\Release\net5.0\Cubic.GUI.pdb

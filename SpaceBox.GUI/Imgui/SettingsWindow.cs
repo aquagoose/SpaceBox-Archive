@@ -176,7 +176,7 @@ namespace SpaceBox.GUI.Imgui
                                 _config.Display.Fullscreen = _fullscreen;
                                 _config.Display.Resolution = new Size(_resolutions[_selectedResolution].X,
                                     _resolutions[_selectedResolution].Y);
-                                Config.SaveSpaceBoxConfig(_config, "spacebox.cfg");
+                                Data.Data.SaveSpaceBoxConfig(_config, "spacebox.cfg");
                             }
                             ImGui.SameLine();
                             if (ImGui.Button("No"))

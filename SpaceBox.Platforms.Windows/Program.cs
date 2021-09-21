@@ -27,12 +27,12 @@ namespace Spacebox.Platforms.Windows
                 }
             }
 
-            SpaceboxConfig config = Config.GetSpaceBoxConfig("spacebox.cfg");
+            SpaceboxConfig config = Data.GetSpaceBoxConfig("spacebox.cfg");
             if (config == null)
             {
                 Console.WriteLine("SpaceBox config is missing! Creating new config.");
                 config = new SpaceboxConfig();
-                Config.SaveSpaceBoxConfig(config, "spacebox.cfg");
+                Data.SaveSpaceBoxConfig(config, "spacebox.cfg");
             }
 
             GameWindowSettings gameWindowSettings = GameWindowSettings.Default;
@@ -41,9 +41,9 @@ namespace Spacebox.Platforms.Windows
             {
                 Size = new Vector2i(config.Display.Resolution.Width, config.Display.Resolution.Height),
                 Title = "SpaceBox",
-                StartVisible = false,
+                StartVisible = config.Display.Fullscreen,
                 NumberOfSamples = 32, // 8x MSAA
-                //WindowBorder = WindowBorder.Fixed, // Uncomment as necessary
+                WindowBorder = WindowBorder.Fixed, // Uncomment as necessary
                 WindowState = config.Display.Fullscreen ? WindowState.Fullscreen : WindowState.Normal,
                 Icon = new WindowIcon(new Image(icon.Width, icon.Height, image))
             };

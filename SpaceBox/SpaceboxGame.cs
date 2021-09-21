@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Numerics;
 using System.Reflection;
 using Cubic.GUI;
@@ -10,9 +12,11 @@ using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
+using OpenTK.Windowing.GraphicsLibraryFramework;
 using SpaceBox.Data;
 using SpaceBox.GUI.Imgui;
 using Spacebox.Scenes;
+using PixelFormat = OpenTK.Graphics.OpenGL4.PixelFormat;
 
 namespace Spacebox
 {
@@ -58,14 +62,12 @@ namespace Spacebox
             ImGuiConfig.Fonts.Add("arial", io.Fonts.AddFontFromFileTTF("Content/Fonts/arial.ttf", 20));
             _imGuiRenderer.RecreateFontDeviceTexture();
 
+            Console.WriteLine(WindowState);
+            
             // Only show the window once initialization has completed.
             if (WindowState != WindowState.Fullscreen)
                 CenterWindow();
             IsVisible = true;
-
-            TryGetCurrentMonitorDpi(out float hDpi, out float vDpi);
-            Console.WriteLine(hDpi);
-            Console.WriteLine(vDpi);
         }
 
         protected override void OnUpdateFrame(FrameEventArgs args)
@@ -81,6 +83,30 @@ namespace Spacebox
             _activeScene.Update();
 
             UiManager.Update();
+            
+            if (Input.IsKeyPressed(Keys.F4))
+            {
+                //byte[] bytes = new byte[Game.ClientSize.X * Game.ClientSize.Y * 4];
+
+                Bitmap bitmap = new Bitmap(ClientSize.X, ClientSize.Y);
+                BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                    ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+                
+                GL.ReadPixels(0, 0, ClientSize.X, ClientSize.Y, PixelFormat.Bgra, PixelType.UnsignedByte,
+                    data.Scan0);
+                
+                bitmap.UnlockBits(data);
+                
+                bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
+
+                DateTime now = DateTime.Now;
+                
+                bitmap.Save(Path.Combine(Data.SpaceBoxFolderLocation, Data.SpaceBoxFolderName, "Screenshots",
+                    $"Screenshot_{now.Year}{now.Month}{now.Day}_{now.Hour}{now.Minute}{now.Second}.jpg"));
+                bitmap.Dispose();
+
+                Console.WriteLine($"Saved screenshot.");
+            }
         }
 
         protected override void OnRenderFrame(FrameEventArgs args)

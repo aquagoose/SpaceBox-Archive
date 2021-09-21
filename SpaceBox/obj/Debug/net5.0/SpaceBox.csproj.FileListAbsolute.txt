@@ -81,3 +81,17 @@ D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Skybox\bottom.png
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Skybox\top.png
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\crosshair.png
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Shaders\Model.frag
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Shaders\Model.vert
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Shaders\Skybox.frag
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Shaders\Skybox.vert
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Blocks\grass.jpg
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Blocks\wood.jpg
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\crosshair.png
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Skybox\back.png
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Skybox\bottom.png
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Skybox\front.png
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Skybox\left.png
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Skybox\right.png
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Skybox\top.png
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Textures\Blocks\stainless-steel.jpg

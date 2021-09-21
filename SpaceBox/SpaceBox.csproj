@@ -101,6 +101,9 @@
       <None Update="Content\Textures\crosshair.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+      <None Update="Content\Textures\Blocks\stainless-steel.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

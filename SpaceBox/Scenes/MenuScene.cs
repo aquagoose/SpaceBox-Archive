@@ -9,10 +9,12 @@ using ImGuiNET;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
+using SpaceBox.Data;
 using SpaceBox.GUI;
 using SpaceBox.GUI.Imgui;
 using Vector2 = OpenTK.Mathematics.Vector2;
 using Font = Cubic.GUI.Fonts.Font;
+using Vector3 = OpenTK.Mathematics.Vector3;
 
 namespace Spacebox.Scenes
 {
@@ -26,6 +28,8 @@ namespace Spacebox.Scenes
         private MenuImageSystem _system;
 
         private SettingsWindow _window;
+        private NewGameWindow _newGameWindow;
+        private LoadGameWindow _loadGameWindow;
 
         private Font _font;
 
@@ -46,19 +50,21 @@ namespace Spacebox.Scenes
             
             Button continueButton = new Button(Game.UiManager, new Position(DockType.BottomLeft, new Vector2(50, -470)),
                 new Size(232, 100), "Continue", fontSize: 48);
-            continueButton.OnClick += () => Game.SetScene(new MainScene(Game));
+            continueButton.OnClick += () => Game.SetScene(new MainScene(Game, ""));
 
             Button newGameButton = new Button(Game.UiManager,
                 new Position(DockType.BottomLeft,
                     new Vector2(continueButton.Position.Offset.X,
                         continueButton.Position.Offset.Y + continueButton.Size.Height + gap)), new Size(232, 50),
                 "New Game");
+            newGameButton.OnClick += () => _newGameWindow.ShouldShow = true;
             
             Button loadGameButton = new Button(Game.UiManager,
                 new Position(DockType.BottomLeft,
                     new Vector2(newGameButton.Position.Offset.X,
                         newGameButton.Position.Offset.Y + newGameButton.Size.Height + gap)), new Size(232, 50),
                 "Load Game");
+            loadGameButton.OnClick += () => _loadGameWindow.ShouldShow = true;
             
             Button multiplayerButton = new Button(Game.UiManager,
                 new Position(DockType.BottomLeft,
@@ -100,6 +106,8 @@ namespace Spacebox.Scenes
                 });
 
             _window = new SettingsWindow(SpaceboxGame.Config, Game);
+            _newGameWindow = new NewGameWindow();
+            _loadGameWindow = new LoadGameWindow();
         }
 
         public override void Update()
@@ -111,10 +119,31 @@ namespace Spacebox.Scenes
             fillRect.Size =
                 new Size(Game.SpriteBatch.Width, Game.SpriteBatch.Height);
 
-            if (_window.ShouldShow)
+            if (_window.ShouldShow || _newGameWindow.ShouldShow || _loadGameWindow.ShouldShow)
                 fillRect.Visible = true;
             else
                 fillRect.Visible = false;
+            
+            if (_window.ShouldShow)
+                _window.Display();
+
+            if (_newGameWindow.ShouldShow)
+            {
+                if (_newGameWindow.Display())
+                {
+                    Data.SaveWorld(_newGameWindow.WorldName, Vector3.Zero, Vector3.Zero, new List<Vector3>());
+                    Game.SetScene(new MainScene(Game, _newGameWindow.WorldName));
+                }
+            }
+
+            if (_loadGameWindow.ShouldShow)
+            {
+                if (_loadGameWindow.Display())
+                {
+                    SaveGame game = Data.LoadSave(_loadGameWindow.WorldFiles[_loadGameWindow.SelectedWorld]);
+                    Game.SetScene(new MainScene(Game, save: game));
+                }
+            }
         }
 
         public override void Draw()
@@ -125,9 +154,6 @@ namespace Spacebox.Scenes
 
             //_font.DrawString(128, "space", new Vector2(50, 50), Vector2.One, Color.White);
             //_font.DrawString(128, "box", new Vector2(50, 130), Vector2.One, Color.White);
-            
-            if (_window.ShouldShow)
-                _window.Display();
         }
     }
 }

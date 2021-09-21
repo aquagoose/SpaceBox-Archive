@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using Cubic.GUI;
 using Cubic.Render;
 using Cubic.Utilities;
@@ -9,14 +12,23 @@ using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using SpaceBox.Data;
 using Image = Cubic.GUI.Image;
+using PixelFormat = OpenTK.Graphics.OpenGL4.PixelFormat;
 
 namespace Spacebox.Scenes
 {
     public class MainScene : Scene
     {
         private Camera _camera;
-        
-        public MainScene(SpaceboxGame game) : base(game) { }
+        private string _worldName;
+        private SaveGame _save;
+
+        public MainScene(SpaceboxGame game, string worldName = "", SaveGame save = null) : base(game)
+        {
+            _worldName = worldName;
+            _save = save;
+            if (save != null)
+                _worldName = save.WorldName;
+        }
 
         private readonly float[] _vertices =
         {
@@ -132,6 +144,12 @@ namespace Spacebox.Scenes
             GL.ClearColor(Color.Black);
 
             _camera = new Camera(new Vector3(0), Game.ClientSize.X / (float) Game.ClientSize.Y);
+            if (_save != null)
+            {
+                _camera.Position = _save.PlayerPosition;
+                _camera.Yaw = _save.PlayerRotation.X;
+                _camera.Pitch = _save.PlayerRotation.Y;
+            }
 
             _vao = GL.GenVertexArray();
             GL.BindVertexArray(_vao);
@@ -168,8 +186,8 @@ namespace Spacebox.Scenes
             GL.VertexAttribPointer(normalsLocation, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float),
                 3 * sizeof(float));
 
-            //_texture = new Texture2D("Content/Textures/Blocks/wood.jpg");
-            _texture = new Texture2D(@"D:\Users\ollie\Downloads\testthing.jpg");
+            _texture = new Texture2D("Content/Textures/Blocks/stainless-steel.jpg");
+            //_texture = new Texture2D(@"D:\Users\ollie\Downloads\testthing.jpg");
             
             GL.BindVertexArray(0);
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
@@ -192,8 +210,16 @@ namespace Spacebox.Scenes
                 "Content/Textures/Skybox/back.png"
             });
 
-            _cubeStuffs = new List<Vector3>();
-            _cubeStuffs.Add(Vector3.Zero);
+            if (_save != null)
+            {
+                _cubeStuffs = new List<Vector3>(_save.BlockPositions);
+            }
+            else
+            {
+                _cubeStuffs = new List<Vector3>();
+                _cubeStuffs.Add(Vector3.Zero);
+            }
+
             _cubeDist = 5;
 
             _input = SpaceboxGame.Config.Input;
@@ -245,6 +271,13 @@ namespace Spacebox.Scenes
             {
                 _camSpeed += Input.MouseState.ScrollDelta.Y;
                 _camSpeed = MathHelper.Clamp(_camSpeed, 0, 2000);
+
+                if (Input.IsKeyPressed(Keys.H) && _worldName != "")
+                {
+                    Data.SaveWorld(_worldName, _camera.Position, new Vector3(_camera.Yaw, _camera.Pitch, 0),
+                        _cubeStuffs);
+                    Console.WriteLine("Saved");
+                }
             }
             else
             {
@@ -400,7 +433,7 @@ namespace Spacebox.Scenes
             {
                 Game.SpriteBatch.Begin();
                 Game.SpriteBatch.Draw(_crosshair, new Vector2(Game.SpriteBatch.Width, Game.SpriteBatch.Height) / 2,
-                    Color.White, 0, _crosshair.Size.ToVector2() / 2, new Vector2(0.05f));
+                    Color.White, 0, _crosshair.Size.ToVector2() / 2, new Vector2(0.05f) * Game.UiManager.UiScale);
                 Game.SpriteBatch.End();
             }
         }
