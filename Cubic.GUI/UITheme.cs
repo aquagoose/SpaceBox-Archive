@@ -30,7 +30,7 @@ namespace Cubic.GUI
             TextSize = 32;
             ButtonExecuteOnRelease = true;
 
-            DefaultFontPath = "Content/Fonts/arial.ttf";
+            DefaultFontPath = "Content/Fonts/daggersquare.otf";
         }
     }
 }

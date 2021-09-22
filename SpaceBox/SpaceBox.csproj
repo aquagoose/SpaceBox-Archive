@@ -104,6 +104,9 @@
       <None Update="Content\Textures\Blocks\stainless-steel.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+      <None Update="Content\Fonts\daggersquare.otf">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

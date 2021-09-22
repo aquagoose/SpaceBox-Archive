@@ -59,7 +59,7 @@ namespace Spacebox
             _imGuiRenderer = new ImGuiRenderer(this);
             
             ImGuiIOPtr io = ImGui.GetIO();
-            ImGuiConfig.Fonts.Add("arial", io.Fonts.AddFontFromFileTTF("Content/Fonts/arial.ttf", 20));
+            ImGuiConfig.Fonts.Add("arial", io.Fonts.AddFontFromFileTTF("Content/Fonts/daggersquare.otf", 20));
             _imGuiRenderer.RecreateFontDeviceTexture();
             
             if (WindowState == WindowState.Fullscreen)

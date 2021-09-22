@@ -180,3 +180,4 @@ C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\obj\Debug\net5.0
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\obj\Debug\net5.0-windows\ref\SpaceBox.Platforms.Windows.dll
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\obj\Debug\net5.0-windows\SpaceBox.Platforms.Windows.pdb
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\obj\Debug\net5.0-windows\SpaceBox.Platforms.Windows.genruntimeconfig.cache
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\Content\Fonts\daggersquare.otf
