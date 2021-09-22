@@ -69,8 +69,8 @@ namespace Spacebox
             if (WindowState != WindowState.Fullscreen)
                 CenterWindow();
             
-            _activeScene = new IntroScene(this);
-            //_activeScene = new MenuScene(this);
+            //_activeScene = new IntroScene(this);
+            _activeScene = new MenuScene(this);
             _activeScene.Initialize();
 
             Console.WriteLine(WindowState);

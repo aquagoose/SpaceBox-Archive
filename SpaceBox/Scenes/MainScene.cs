@@ -22,6 +22,10 @@ namespace Spacebox.Scenes
         private string _worldName;
         private SaveGame _save;
 
+        private Label _label;
+        private float _startTime;
+        private int _labelDuration;
+
         public MainScene(SpaceboxGame game, string worldName = "", SaveGame save = null) : base(game)
         {
             _worldName = worldName;
@@ -227,6 +231,15 @@ namespace Spacebox.Scenes
             _crosshair = new Texture2D("Content/Textures/crosshair.png");
 
             _camSpeed = 2f;
+
+            _label = new Label(Game.UiManager, new Position(DockType.Center, Vector2.Zero))
+            {
+                Visible = false
+            };
+            
+            Game.UiManager.Add("label", _label);
+            
+            ShowLabel("Hi! Welcome to SpaceBox.", 5);
         }
 
         public override void Update()
@@ -280,6 +293,7 @@ namespace Spacebox.Scenes
                 Data.SaveWorld(_worldName, _camera.Position, new Vector3(_camera.Yaw, _camera.Pitch, 0),
                     _cubeStuffs);
                 Console.WriteLine("Saved");
+                ShowLabel("Saved game.", 5);
             }
 
             _cubeStuffs[0] = _camera.Position + _camera.Front * _cubeDist;
@@ -394,8 +408,20 @@ namespace Spacebox.Scenes
             if (Input.IsKeyPressed(Keys.Tab))
                 _hide = !_hide;
             
+            if (Input.IsKeyPressed(_input.TakeScreenshot))
+                ShowLabel("Screenshot saved.", 5);
+            
             if (Input.IsKeyPressed(Keys.Escape))
                 Game.SetScene(new MenuScene(Game));
+
+            if (_label.Visible)
+            {
+                if (Time.ElapsedSeconds - _startTime >= _labelDuration)
+                {
+                    _label.Visible = false;
+                    _label.Text = "";
+                }
+            }
         }
 
         public override void Draw()
@@ -437,7 +463,19 @@ namespace Spacebox.Scenes
                 Game.SpriteBatch.Draw(_crosshair, new Vector2(Game.SpriteBatch.Width, Game.SpriteBatch.Height) / 2,
                     Color.White, 0, _crosshair.Size.ToVector2() / 2, new Vector2(0.05f) * Game.UiManager.UiScale);
                 Game.SpriteBatch.End();
+                Game.UiManager.Draw();
             }
+        }
+
+        public void ShowLabel(string text, int duration)
+        {
+            const float labelOffsetY = 300;
+            _label.Text = text;
+            _label.Position = new Position(DockType.Center,
+                -_label.MeasureString(text) / 2 + new Vector2(0, labelOffsetY));
+            _label.Visible = true;
+            _startTime = Time.ElapsedSeconds;
+            _labelDuration = duration;
         }
     }
 }

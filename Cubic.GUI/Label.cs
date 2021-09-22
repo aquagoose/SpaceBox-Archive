@@ -32,5 +32,7 @@ namespace Cubic.GUI
             
             _font.Dispose();
         }
+
+        public Vector2 MeasureString(string text) => _font.MeasureString((uint)FontSize, text);
     }
 }

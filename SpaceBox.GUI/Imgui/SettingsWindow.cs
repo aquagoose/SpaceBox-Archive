@@ -85,6 +85,7 @@ namespace SpaceBox.GUI.Imgui
             unsafe
             {
                 VideoMode[] modes = GLFW.GetVideoModes(GLFW.GetPrimaryMonitor());
+                VideoMode* currentVideoMode = GLFW.GetVideoMode(GLFW.GetPrimaryMonitor());
                 List<Vector2i> resolutions = new List<Vector2i>();
                 List<string> resolutionStr = new List<string>();
                 int i = 0;
@@ -94,7 +95,8 @@ namespace SpaceBox.GUI.Imgui
                     if (resolutions.Contains(resolution))
                         continue;
                     resolutions.Add(resolution);
-                    resolutionStr.Add($"{mode.Width}x{mode.Height}");
+                    resolutionStr.Add(
+                        $"{mode.Width}x{mode.Height}{(mode.Width == currentVideoMode->Width && mode.Height == currentVideoMode->Height ? "*" : "")}");
                     if (mode.Width == window.ClientSize.X && mode.Height == window.ClientSize.Y)
                         _selectedResolution = i;
                     i++;
@@ -126,6 +128,8 @@ namespace SpaceBox.GUI.Imgui
                             case "Display":
                                 ImGui.Combo("Resolution", ref _selectedResolution, _videoResolutions,
                                     _videoResolutions.Length);
+                                if (ImGui.IsItemHovered())
+                                    ImGui.SetTooltip("Set the game's resolution. The resolution indicated with an asterisk (*) is your native resolution.");
                                 ImGui.Checkbox("Fullscreen", ref _fullscreen);
                                 break;
                             case "Input":
