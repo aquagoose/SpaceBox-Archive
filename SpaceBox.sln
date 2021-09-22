@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBox.GUI", "SpaceBox.GU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBox.Data", "SpaceBox.Data\SpaceBox.Data.csproj", "{65E818FC-B7E7-403A-97C5-C76914109411}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cubic.Forms", "Cubic.Forms\Cubic.Forms.csproj", "{3E35EE8D-461D-4A60-960B-3AAB7FFD23F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{65E818FC-B7E7-403A-97C5-C76914109411}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65E818FC-B7E7-403A-97C5-C76914109411}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65E818FC-B7E7-403A-97C5-C76914109411}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E35EE8D-461D-4A60-960B-3AAB7FFD23F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E35EE8D-461D-4A60-960B-3AAB7FFD23F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E35EE8D-461D-4A60-960B-3AAB7FFD23F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E35EE8D-461D-4A60-960B-3AAB7FFD23F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -41,6 +41,7 @@ namespace SpaceBox.GUI.Imgui
             _config = config;
             _window = window;
             _originalFullscreen = config.Display.Fullscreen;
+            _fullscreen = config.Display.Fullscreen;
             
             _categories = new List<string>();
             foreach (PropertyInfo info in config.GetType().GetProperties())
@@ -151,8 +152,9 @@ namespace SpaceBox.GUI.Imgui
                         ImGui.SameLine();
                         if (ImGui.Button("Apply"))
                         {
-                            if (_selectedResolution != _originalResolution)
+                            if (_selectedResolution != _originalResolution || _fullscreen != _originalFullscreen)
                             {
+                                _window.WindowState = _fullscreen ? WindowState.Fullscreen : WindowState.Normal;
                                 if (!_fullscreen)
                                     _window.CenterWindow(_resolutions[_selectedResolution]);
                                 else
@@ -161,7 +163,6 @@ namespace SpaceBox.GUI.Imgui
                                 _showDialog = true;
                                 ImGui.OpenPopup("Keep this resolution?");
                             }
-                            _window.WindowState = _fullscreen ? WindowState.Fullscreen : WindowState.Normal;
                         }
                         
                         if (ImGui.BeginPopupModal("Keep this resolution?", ref _showDialog,
@@ -176,12 +177,15 @@ namespace SpaceBox.GUI.Imgui
                                 _config.Display.Fullscreen = _fullscreen;
                                 _config.Display.Resolution = new Size(_resolutions[_selectedResolution].X,
                                     _resolutions[_selectedResolution].Y);
+                                _originalFullscreen = _fullscreen;
+                                _originalResolution = _selectedResolution;
                                 Data.Data.SaveSpaceBoxConfig(_config, "spacebox.cfg");
                             }
                             ImGui.SameLine();
                             if (ImGui.Button("No"))
                             {
                                 _window.WindowState = _originalFullscreen ? WindowState.Fullscreen : WindowState.Normal;
+                                _fullscreen = _originalFullscreen;
                                 _showDialog = false;
                                 _window.CenterWindow(_resolutions[_originalResolution]);
                                 _selectedResolution = _originalResolution;
@@ -193,6 +197,7 @@ namespace SpaceBox.GUI.Imgui
                             {
                                 _window.WindowState = _originalFullscreen ? WindowState.Fullscreen : WindowState.Normal;
                                 _window.CenterWindow(_resolutions[_originalResolution]);
+                                _fullscreen = _originalFullscreen;
                                 _showDialog = false;
                                 _selectedResolution = _originalResolution;
                             }

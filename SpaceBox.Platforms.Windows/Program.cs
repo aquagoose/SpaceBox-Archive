@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Drawing;
+using Cubic.Forms;
+using Eto.Forms;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Common.Input;
 using OpenTK.Windowing.Desktop;
 using SpaceBox.Data;
 using Image = OpenTK.Windowing.Common.Input.Image;
+using WindowState = OpenTK.Windowing.Common.WindowState;
 
 namespace Spacebox.Platforms.Windows
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
             Bitmap icon = new Bitmap("Content/Textures/Images/Icon.bmp");
@@ -50,8 +54,15 @@ namespace Spacebox.Platforms.Windows
             
             icon.Dispose();
 
-            using (SpaceboxGame game = new SpaceboxGame(gameWindowSettings, nativeWindowSettings, config))
-                game.Run();
+            try
+            {
+                using (SpaceboxGame game = new SpaceboxGame(gameWindowSettings, nativeWindowSettings, config))
+                    game.Run();
+            }
+            catch (Exception e)
+            {
+                new Application(Eto.Platforms.WinForms).Run(new CrashForm(e));
+            }
         }
     }
 }

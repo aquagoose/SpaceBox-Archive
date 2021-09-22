@@ -96,6 +96,10 @@ namespace Spacebox.Scenes
             Game.UiManager.Add("settingsButton", settingsButton);
             Game.UiManager.Add("quitButton", quitButton);
 
+            Game.UiManager.Add("disable",
+                new FillRectangle(Game.UiManager, continueButton.Position, continueButton.Size,
+                    Color.FromArgb(72, Color.Black)));
+
             Game.UiManager.Add("spaceText",
                 new Label(Game.UiManager, new Position(50, 50), "space", "Content/Fonts/inversionz.ttf", 128));
             Game.UiManager.Add("boxText",

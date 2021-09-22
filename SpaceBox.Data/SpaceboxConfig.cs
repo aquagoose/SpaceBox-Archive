@@ -29,7 +29,9 @@ namespace SpaceBox.Data
                 Jump = Keys.Space,
                 Sprint = Keys.LeftShift,
                 CrouchOrJetpackDown = Keys.C,
-                JetpackToggle = Keys.V
+                JetpackToggle = Keys.V,
+                SaveGame = Keys.F5,
+                TakeScreenshot = Keys.F4
             };
         }
     }
@@ -53,5 +55,7 @@ namespace SpaceBox.Data
         public Keys Sprint { get; set; }
         public Keys CrouchOrJetpackDown { get; set; }
         public Keys JetpackToggle { get; set; }
+        public Keys SaveGame { get; set; }
+        public Keys TakeScreenshot { get; set; }
     }
 }

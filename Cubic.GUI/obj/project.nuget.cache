@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MuJlbO1bcY1EhTV/JMf0jy7i31PHBwgbPLu9lP3eZ9DWVEmXoLvQe8crCvYPD+uOHYsrrY25craph4UyLe3R0w==",
+  "dgSpecHash": "y3J++banz6kAnGLT8dfpM9HC8Mzh5xA9YaIqkA85ujNOoJg+ymwMJK+NG7Yr0LPS4ywl5VXFA1SULlFsGj8NcQ==",
   "success": true,
   "projectFilePath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.GUI\\Cubic.GUI.csproj",
   "expectedPackageFiles": [
@@ -22,7 +22,10 @@
     "C:\\Users\\ollie\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
-    "C:\\Users\\ollie\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+    "C:\\Users\\ollie\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\5.0.4\\microsoft.netcore.app.runtime.win-x64.5.0.4.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\5.0.4\\microsoft.windowsdesktop.app.runtime.win-x64.5.0.4.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\5.0.4\\microsoft.aspnetcore.app.runtime.win-x64.5.0.4.nupkg.sha512"
   ],
   "logs": []
 }

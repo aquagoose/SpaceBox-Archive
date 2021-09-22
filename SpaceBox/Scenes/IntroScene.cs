@@ -25,6 +25,7 @@ namespace Spacebox.Scenes
         private float _rot;
 
         private float _startTime;
+        private float _endTime = -1;
 
         private bool _hasLoaded;
 
@@ -56,6 +57,8 @@ namespace Spacebox.Scenes
         {
             base.Update();
 
+            Game.CursorGrabbed = true;
+            
             // The amount of time it takes for the image to fade, in seconds.
             const float fadeTime = 0.5f;
             // Times[0] is the time until the image starts to fade in after scene has loaded
@@ -74,7 +77,9 @@ namespace Spacebox.Scenes
                 {
                     _rotAlpha = 1;
                     Game.UiManager.GetElement<Label>("loading").Visible = true;
-                    if (Input.IsKeyDown(Keys.Space))
+                    if (_endTime < 0)
+                        _endTime = Time.ElapsedSeconds;
+                    if (Input.IsKeyDown(Keys.Space) || Time.ElapsedSeconds - _endTime >= 5)
                     {
                         _hasLoaded = true;
                         _rotAlpha = 0;

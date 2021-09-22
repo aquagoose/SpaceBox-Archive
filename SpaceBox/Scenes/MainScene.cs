@@ -268,18 +268,18 @@ namespace Spacebox.Scenes
             {
                 _camSpeed += Input.MouseState.ScrollDelta.Y;
                 _camSpeed = MathHelper.Clamp(_camSpeed, 0, 2000);
-
-                if (Input.IsKeyPressed(Keys.H) && _worldName != "")
-                {
-                    Data.SaveWorld(_worldName, _camera.Position, new Vector3(_camera.Yaw, _camera.Pitch, 0),
-                        _cubeStuffs);
-                    Console.WriteLine("Saved");
-                }
             }
             else
             {
                 _cubeDist += (int) Input.MouseState.ScrollDelta.Y;
-                _cubeDist = MathHelper.Clamp(_cubeDist, 2, 12);
+                _cubeDist = MathHelper.Clamp(_cubeDist, 2, 30);
+            }
+            
+            if (Input.IsKeyPressed(_input.SaveGame) && _worldName != "")
+            {
+                Data.SaveWorld(_worldName, _camera.Position, new Vector3(_camera.Yaw, _camera.Pitch, 0),
+                    _cubeStuffs);
+                Console.WriteLine("Saved");
             }
 
             _cubeStuffs[0] = _camera.Position + _camera.Front * _cubeDist;
@@ -379,6 +379,8 @@ namespace Spacebox.Scenes
                 //Console.WriteLine(hit.Position);
                 //Console.WriteLine(hit.Normal);
 
+                // The 20 is here because the step is 0.1 so the returned normal is 0.1. Since blocks are 2 units wide,
+                // we use 20 to get a normal of 2.
                 _cubeStuffs[0] = lookingBlock + hit.Normal * 20;
             }
             

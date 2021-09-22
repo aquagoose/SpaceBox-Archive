@@ -36,10 +36,13 @@ namespace Spacebox
         private ImGuiRenderer _imGuiRenderer;
         public ImFontPtr Arial;
 
+        private NativeWindowSettings _nativeWindowSettings;
+
         public SpaceboxGame(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings,
             SpaceboxConfig config) : base(gameWindowSettings, nativeWindowSettings)
         {
             Config = config;
+            _nativeWindowSettings = nativeWindowSettings;
         }
 
         protected override void OnLoad()
@@ -53,21 +56,25 @@ namespace Spacebox
             SpriteBatch = new SpriteBatch(this);
             UiManager = new UIManager(SpriteBatch);
             
-            _activeScene = new IntroScene(this);
-            //_activeScene = new MenuScene(this);
-            _activeScene.Initialize();
-
             _imGuiRenderer = new ImGuiRenderer(this);
-
+            
             ImGuiIOPtr io = ImGui.GetIO();
             ImGuiConfig.Fonts.Add("arial", io.Fonts.AddFontFromFileTTF("Content/Fonts/arial.ttf", 20));
             _imGuiRenderer.RecreateFontDeviceTexture();
-
-            Console.WriteLine(WindowState);
+            
+            if (WindowState == WindowState.Fullscreen)
+                Size = _nativeWindowSettings.Size;
             
             // Only show the window once initialization has completed.
             if (WindowState != WindowState.Fullscreen)
                 CenterWindow();
+            
+            _activeScene = new IntroScene(this);
+            //_activeScene = new MenuScene(this);
+            _activeScene.Initialize();
+
+            Console.WriteLine(WindowState);
+            
             IsVisible = true;
         }
 
@@ -85,10 +92,8 @@ namespace Spacebox
 
             UiManager.Update();
             
-            if (Input.IsKeyPressed(Keys.F4))
+            if (Input.IsKeyPressed(Config.Input.TakeScreenshot))
             {
-                //byte[] bytes = new byte[Game.ClientSize.X * Game.ClientSize.Y * 4];
-
                 Bitmap bitmap = new Bitmap(ClientSize.X, ClientSize.Y);
                 BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
                     ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
@@ -101,12 +106,17 @@ namespace Spacebox
                 bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
 
                 DateTime now = DateTime.Now;
+
+                if (!Directory.Exists(Path.Combine(Data.SpaceBoxFolderLocation, Data.SpaceBoxFolderName,
+                    "Screenshots")))
+                    Directory.CreateDirectory(Path.Combine(Data.SpaceBoxFolderLocation, Data.SpaceBoxFolderName,
+                        "Screenshots"));
                 
                 bitmap.Save(Path.Combine(Data.SpaceBoxFolderLocation, Data.SpaceBoxFolderName, "Screenshots",
                     $"Screenshot_{now.Year}{now.Month}{now.Day}_{now.Hour}{now.Minute}{now.Second}.jpg"));
                 bitmap.Dispose();
 
-                Console.WriteLine($"Saved screenshot.");
+                Console.WriteLine("Saved screenshot.");
             }
 
             if (_transitionScene != null)
