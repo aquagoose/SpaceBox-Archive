@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5DluYLMAdxsk+ZfSyK3ZaDEHWPGLi4AbI0FXF1cVIWdInq3JsxNwMEqBWR3Ne9LJUiS0fLd18ffoS13kKpz7+g==",
+  "dgSpecHash": "0gMRDigS2BFD5B/VB/7sxmGNNyKCHVS/SsP8rbzS1OqKyHMn/a+ZC91TwjNRpbNjY11jOQulSnMWfc9NPBkMkw==",
   "success": true,
   "projectFilePath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox\\SpaceBox.csproj",
   "expectedPackageFiles": [
@@ -22,10 +22,7 @@
     "C:\\Users\\ollie\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
-    "C:\\Users\\ollie\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
-    "C:\\Users\\ollie\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\5.0.4\\microsoft.netcore.app.runtime.win-x64.5.0.4.nupkg.sha512",
-    "C:\\Users\\ollie\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\5.0.4\\microsoft.windowsdesktop.app.runtime.win-x64.5.0.4.nupkg.sha512",
-    "C:\\Users\\ollie\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\5.0.4\\microsoft.aspnetcore.app.runtime.win-x64.5.0.4.nupkg.sha512"
+    "C:\\Users\\ollie\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }
