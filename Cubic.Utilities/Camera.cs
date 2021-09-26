@@ -3,41 +3,34 @@ using OpenTK.Mathematics;
 
 namespace Cubic.Utilities
 {
-    // Taken from LearnOpenTK camera because it just works,
-    // can be changed later.
     public class Camera
     {
-        private Vector3 _front = -Vector3.UnitZ;
-        private Vector3 _up = Vector3.UnitY;
-        private Vector3 _right = Vector3.UnitX;
+        private float _fov;
+        private float _aspectRatio;
+        private float _near;
+        private float _far;
 
         private float _pitch;
+        private float _yaw;
+        private float _roll;
+        
+        private Vector3 _forward;
+        private Vector3 _right;
+        private Vector3 _up;
 
-        private float _yaw = -MathHelper.PiOver2;
-
-        private float _fov = MathHelper.PiOver2;
-
-        public Camera(Vector3 position, float aspectRatio)
-        {
-            Position = position;
-            AspectRatio = aspectRatio;
-        }
+        public Vector3 Forward => _forward;
+        public Vector3 Right => _right;
+        public Vector3 Up => _up;
 
         public Vector3 Position;
-        
-        public float AspectRatio { private get; set; }
-
-        public Vector3 Front => _front;
-        public Vector3 Up => _up;
-        public Vector3 Right => _right;
 
         public float Pitch
         {
             get => MathHelper.RadiansToDegrees(_pitch);
             set
             {
-                _pitch = MathHelper.DegreesToRadians(MathHelper.Clamp(value, -89.9f, 89.9f));
-                UpdateVectors();
+                _pitch = MathHelper.DegreesToRadians(value);
+                UpdateValues();
             }
         }
 
@@ -47,37 +40,109 @@ namespace Cubic.Utilities
             set
             {
                 _yaw = MathHelper.DegreesToRadians(value);
-                UpdateVectors();
+                UpdateValues();
+            }
+        }
+
+        public float Roll
+        {
+            get => MathHelper.RadiansToDegrees(_roll);
+            set
+            {
+                _roll = MathHelper.DegreesToRadians(value);
+                UpdateValues();
+            }
+        }
+
+        public Matrix4 ProjectionMatrix { get; private set; }
+
+        public Matrix4 ViewMatrix
+        {
+            get
+            {
+                Quaternion rot = Quaternion.FromEulerAngles(_pitch, _yaw, _roll);
+                return Matrix4.LookAt(Position, Position + Forward, Up);
+            }
+        }
+        
+        public float AspectRatio
+        {
+            get => _aspectRatio;
+            set
+            {
+                _aspectRatio = value;
+                GenerateProjectionMatrix();
+            }
+        }
+        
+        public float Near
+        {
+            get => _near;
+            set
+            {
+                _near = value;
+                GenerateProjectionMatrix();
+            }
+        }
+
+        public float Far
+        {
+            get => _far;
+            set
+            {
+                _far = value;
+                GenerateProjectionMatrix();
             }
         }
 
         public float Fov
         {
             get => MathHelper.RadiansToDegrees(_fov);
-            set => _fov = MathHelper.DegreesToRadians(MathHelper.Clamp(value, 1f, 90f));
+            set
+            {
+                _fov = MathHelper.DegreesToRadians(value);
+                GenerateProjectionMatrix();
+            }
         }
 
-        public Matrix4 ViewMatrix => Matrix4.LookAt(Position, Position + _front, _up);
-
-        public Matrix4 ProjectionMatrix => Matrix4.CreatePerspectiveFieldOfView(_fov, AspectRatio, 0.01f, 1000f);
-
-        private void UpdateVectors()
+        public Camera(Vector3 position, Vector3 rotation, float aspectRatio, float fov, float near, float far)
         {
-            _front.X = MathF.Cos(_pitch) * MathF.Cos(_yaw);
-            _front.Y = MathF.Sin(_pitch);
-            _front.Z = MathF.Cos(_pitch) * MathF.Sin(_yaw);
-
-            _front = Vector3.Normalize(_front);
-
-            _right = Vector3.Normalize(Vector3.Cross(_front, Vector3.UnitY));
-            _up = Vector3.Normalize(Vector3.Cross(_right, _front));
+            Position = position;
+            _pitch = MathHelper.DegreesToRadians(rotation.Y);
+            _yaw = MathHelper.DegreesToRadians(rotation.X);
+            _roll = MathHelper.DegreesToRadians(rotation.Z);
+            UpdateValues();
+            _aspectRatio = aspectRatio;
+            _fov = MathHelper.DegreesToRadians(fov);
+            _near = near;
+            _far = far;
+            GenerateProjectionMatrix();
         }
 
-        public void Move(Vector3 move)
+        private void GenerateProjectionMatrix()
         {
-            Position += move + _front;
+            ProjectionMatrix = Matrix4.CreatePerspectiveFieldOfView(_fov, _aspectRatio, _near, _far);
         }
 
-        public void Move(float x = 0, float y = 0, float z = 0) => Move(new Vector3(x, y, z));
+        private void UpdateValues()
+        {
+            //Quaternion rot = Quaternion.FromEulerAngles(_pitch, -_yaw, _roll);
+            //_forward = Vector3.Transform(Position, rot);
+            //_right = Vector3.Normalize(Vector3.Cross(_forward, Vector3.UnitY));
+            //_up = Vector3.Normalize(Vector3.Cross(_right, _forward));
+            //Matrix4.CreateFromQuaternion()
+            //_forward = rot * -Vector3.UnitZ;
+            //_right = rot * Vector3.UnitX;
+            //_up = rot * _right;
+            
+            _forward.X = MathF.Cos(_pitch) * MathF.Cos(_yaw);
+            _forward.Y = MathF.Sin(_pitch);
+            _forward.Z = MathF.Cos(_pitch) * MathF.Sin(_yaw);
+
+            _forward = Vector3.Normalize(_forward);
+
+            _right = Vector3.Normalize(Vector3.Cross(_forward, Vector3.UnitY));
+            _up = Vector3.Normalize(Vector3.Cross(_right, _forward));
+        }
     }
 }

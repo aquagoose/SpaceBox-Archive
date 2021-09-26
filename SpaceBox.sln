@@ -16,6 +16,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBox.Data", "SpaceBox.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cubic.Forms", "Cubic.Forms\Cubic.Forms.csproj", "{3E35EE8D-461D-4A60-960B-3AAB7FFD23F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cubic.Physics", "Cubic.Physics\Cubic.Physics.csproj", "{2A3F21AC-18EF-4D72-808B-183FE63E85AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBox.Sandbox", "SpaceBox.Sandbox\SpaceBox.Sandbox.csproj", "{509538B5-6E9B-46E1-97DD-5A339517E061}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,5 +58,13 @@ Global
 		{3E35EE8D-461D-4A60-960B-3AAB7FFD23F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E35EE8D-461D-4A60-960B-3AAB7FFD23F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E35EE8D-461D-4A60-960B-3AAB7FFD23F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A3F21AC-18EF-4D72-808B-183FE63E85AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A3F21AC-18EF-4D72-808B-183FE63E85AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A3F21AC-18EF-4D72-808B-183FE63E85AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A3F21AC-18EF-4D72-808B-183FE63E85AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{509538B5-6E9B-46E1-97DD-5A339517E061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{509538B5-6E9B-46E1-97DD-5A339517E061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{509538B5-6E9B-46E1-97DD-5A339517E061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{509538B5-6E9B-46E1-97DD-5A339517E061}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

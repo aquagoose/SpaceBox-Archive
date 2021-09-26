@@ -54,15 +54,15 @@ namespace Spacebox.Platforms.Windows
             
             icon.Dispose();
 
-            try
-            {
+            //try
+            //{
                 using (SpaceboxGame game = new SpaceboxGame(gameWindowSettings, nativeWindowSettings, config))
                     game.Run();
-            }
-            catch (Exception e)
-            {
-                new Application(Eto.Platforms.WinForms).Run(new CrashForm(e));
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //    new Application(Eto.Platforms.WinForms).Run(new CrashForm(e));
+            //}
         }
     }
 }

@@ -1,0 +1,17 @@
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\bin\Debug\net5.0\SpaceBox.Sandbox.deps.json
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\bin\Debug\net5.0\SpaceBox.Sandbox.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\bin\Debug\net5.0\ref\SpaceBox.Sandbox.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\bin\Debug\net5.0\SpaceBox.Sandbox.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\bin\Debug\net5.0\Cubic.Physics.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\bin\Debug\net5.0\Cubic.Utilities.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\bin\Debug\net5.0\Cubic.Physics.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\bin\Debug\net5.0\Cubic.Utilities.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\obj\Debug\net5.0\SpaceBox.Sandbox.csprojAssemblyReference.cache
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\obj\Debug\net5.0\SpaceBox.Sandbox.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\obj\Debug\net5.0\SpaceBox.Sandbox.AssemblyInfoInputs.cache
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\obj\Debug\net5.0\SpaceBox.Sandbox.AssemblyInfo.cs
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\obj\Debug\net5.0\SpaceBox.Sandbox.csproj.CoreCompileInputs.cache
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\obj\Debug\net5.0\SpaceBox.Sandbox.csproj.CopyComplete
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\obj\Debug\net5.0\SpaceBox.Sandbox.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\obj\Debug\net5.0\ref\SpaceBox.Sandbox.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\obj\Debug\net5.0\SpaceBox.Sandbox.pdb

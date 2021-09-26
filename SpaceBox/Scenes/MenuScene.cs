@@ -53,7 +53,7 @@ namespace Spacebox.Scenes
             
             Button continueButton = new Button(Game.UiManager, new Position(DockType.BottomLeft, new Vector2(50, -470)),
                 new Size(232, 100), "Continue", fontSize: 48);
-            continueButton.OnClick += () => Game.SetScene(new MainScene(Game, ""));
+            continueButton.OnClick += () => Game.SetScene(new MainSceneOld(Game, ""));
 
             Button newGameButton = new Button(Game.UiManager,
                 new Position(DockType.BottomLeft,
@@ -139,7 +139,7 @@ namespace Spacebox.Scenes
                 if (_newGameWindow.Display())
                 {
                     Data.SaveWorld(_newGameWindow.WorldName, Vector3.Zero, Vector3.Zero, new List<Vector3>());
-                    Game.SetScene(new MainScene(Game, _newGameWindow.WorldName));
+                    Game.SetScene(new MainSceneOld(Game, _newGameWindow.WorldName));
                 }
             }
 
@@ -148,7 +148,7 @@ namespace Spacebox.Scenes
                 if (_loadGameWindow.Display())
                 {
                     SaveGame game = Data.LoadSave(_loadGameWindow.WorldFiles[_loadGameWindow.SelectedWorld]);
-                    Game.SetScene(new MainScene(Game, save: game));
+                    Game.SetScene(new MainSceneOld(Game, save: game));
                 }
             }
         }

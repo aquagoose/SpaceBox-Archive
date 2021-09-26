@@ -181,3 +181,9 @@ C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\obj\Debug\net5.0
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\obj\Debug\net5.0-windows\SpaceBox.Platforms.Windows.pdb
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\obj\Debug\net5.0-windows\SpaceBox.Platforms.Windows.genruntimeconfig.cache
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\Content\Fonts\daggersquare.otf
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\BepuPhysics.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\BepuUtilities.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\Cubic.Physics.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\Cubic.Physics.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\SpaceBox.Sandbox.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\SpaceBox.Sandbox.pdb

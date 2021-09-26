@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="OpenTK" Version="4.6.7" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Cubic.Physics\Cubic.Physics.csproj" />
+      <ProjectReference Include="..\Cubic.Utilities\Cubic.Utilities.csproj" />
+    </ItemGroup>
+
+</Project>

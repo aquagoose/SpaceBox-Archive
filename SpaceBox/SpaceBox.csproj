@@ -8,15 +8,18 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="BepuPhysics" Version="2.3.0" />
       <PackageReference Include="ImGui.NET" Version="1.78.0" />
       <PackageReference Include="OpenTK" Version="4.6.7" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Cubic.GUI\Cubic.GUI.csproj" />
+      <ProjectReference Include="..\Cubic.Physics\Cubic.Physics.csproj" />
       <ProjectReference Include="..\Cubic.Render\Cubic.Render.csproj" />
       <ProjectReference Include="..\SpaceBox.Data\SpaceBox.Data.csproj" />
       <ProjectReference Include="..\SpaceBox.GUI\SpaceBox.GUI.csproj" />
+      <ProjectReference Include="..\SpaceBox.Sandbox\SpaceBox.Sandbox.csproj" />
     </ItemGroup>
 
     <ItemGroup>

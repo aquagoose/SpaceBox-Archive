@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "28MtVE3qc6NBf0qj5NiPgQe6sS7tqbk2QeEh2duJyjVWe6fPa85hek2SJrNnXRTc+Mu48Iy8BhQ9OwgbaLqMXw==",
+  "dgSpecHash": "aypnkK30X5KFYJbBBR+hAvXtK76Yy9/ITz2ivpzwsTvVnmuFUL2GsG9tt121dG1jFHFUFIG2wwcAEp0vTZndGw==",
   "success": true,
   "projectFilePath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Platforms.Windows\\SpaceBox.Platforms.Windows.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ollie\\.nuget\\packages\\bepuphysics\\2.3.0\\bepuphysics.2.3.0.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\bepuutilities\\2.3.0\\bepuutilities.2.3.0.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\eto.forms\\2.5.11\\eto.forms.2.5.11.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\eto.platform.windows\\2.5.11\\eto.platform.windows.2.5.11.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\freetypesharp\\1.1.3\\freetypesharp.1.1.3.nupkg.sha512",
@@ -24,7 +26,8 @@
     "C:\\Users\\ollie\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512",
-    "C:\\Users\\ollie\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\windows7apicodepack-core\\1.1.0\\windows7apicodepack-core.1.1.0.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\windows7apicodepack-shell\\1.1.0\\windows7apicodepack-shell.1.1.0.nupkg.sha512"
