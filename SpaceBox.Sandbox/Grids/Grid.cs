@@ -42,6 +42,8 @@ namespace SpaceBox.Sandbox.Grids
 
         public void GeneratePhysics()
         {
+            Physics.Simulation.Statics.Clear();
+            Physics.Simulation.Shapes.Clear();
             /*if (Blocks.Count > 1)
             {
                 foreach (Block block in Blocks)
@@ -55,7 +57,7 @@ namespace SpaceBox.Sandbox.Grids
 
             foreach (Block block in Blocks)
             {
-                Vector3 pos = Position + block.Coord;
+                Vector3 pos = Position + block.Coord * 2;
                 Quaternion orientation = Quaternion.FromEulerAngles(Orientation);
 
                 StaticHandle handle = Physics.Simulation.Statics.Add(new StaticDescription(new System.Numerics.Vector3(pos.X, pos.Y, pos.Z),

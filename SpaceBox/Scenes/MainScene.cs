@@ -206,7 +206,7 @@ namespace Spacebox.Scenes
                 
                 foreach (Block block in grid.Blocks)
                 {
-                    _shader.SetUniform("uModel", gridRot * Matrix4.CreateTranslation(gridPos + block.Coord));
+                    _shader.SetUniform("uModel", gridRot * Matrix4.CreateTranslation(gridPos + block.Coord * 2));
                     GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
                 }
             }

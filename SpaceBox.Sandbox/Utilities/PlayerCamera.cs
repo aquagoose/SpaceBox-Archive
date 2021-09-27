@@ -58,6 +58,7 @@ namespace SpaceBox.Sandbox.Utilities
                 Grid lookingGrid = null;
                 Block lookingBlock = null;
                 
+                
                 foreach (Grid grid in World.Instance.Grids)
                 {
                     foreach (Block block in grid.Blocks)
@@ -70,8 +71,8 @@ namespace SpaceBox.Sandbox.Utilities
                         //Console.WriteLine("yee");
                         lookingGrid = grid;
 
-                    //Vector3 cubePos = lookingGrid.Position + lookingBlock.Coord;
-                    //PlaceCube.Position = cubePos + hit.Normal;
+                    Vector3 cubePos = lookingGrid.Position + lookingBlock.Coord;
+                    PlaceCube.Position = cubePos + hit.Normal * 2;
                 }
                 
                 Debug.Assert(lookingGrid != null, "lookingGrid != null");
