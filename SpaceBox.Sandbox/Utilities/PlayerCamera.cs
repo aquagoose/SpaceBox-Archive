@@ -32,7 +32,7 @@ namespace SpaceBox.Sandbox.Utilities
         // X: Yaw, Y: Pitch, Z: Roll(bot.net)
         public Vector3 Rotation;
 
-        public int PlaceCubeDistance { get; set; } = 5;
+        public int PlaceCubeDistance { get; set; } = 6;
 
         public PlayerCamera(Vector3 position, Vector3 rotation, float aspectRatio, float fov, float near, float far)
         {
@@ -58,6 +58,7 @@ namespace SpaceBox.Sandbox.Utilities
                 Grid lookingGrid = null;
                 Block lookingBlock = null;
                 
+                //Console.WriteLine(hit.Collidable.StaticHandle);
                 
                 foreach (Grid grid in World.Instance.Grids)
                 {
@@ -65,13 +66,12 @@ namespace SpaceBox.Sandbox.Utilities
                     {
                         if (block.StaticHandle == hit.Collidable.StaticHandle)
                             lookingBlock = block;
-                        Console.WriteLine(hit.Collidable.StaticHandle);
                     }
                     if (lookingBlock != null)
                         //Console.WriteLine("yee");
                         lookingGrid = grid;
 
-                    Vector3 cubePos = lookingGrid.Position + lookingBlock.Coord;
+                    Vector3 cubePos = lookingGrid.Position + lookingBlock.Coord * 2;
                     PlaceCube.Position = cubePos + hit.Normal * 2;
                 }
                 

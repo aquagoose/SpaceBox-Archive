@@ -35,20 +35,23 @@ namespace Cubic.Physics
 
     public struct RaycastHitHandler : IRayHitHandler
     {
+        private bool _hasHit;
+        
         public RaycastHit Hit;
         public bool AllowTest(CollidableReference collidable)
         {
-            return true;
+            return !_hasHit;
         }
 
         public bool AllowTest(CollidableReference collidable, int childIndex)
         {
-            return true;
+            return !_hasHit;
         }
 
         public void OnRayHit(in RayData ray, ref float maximumT, float t, in System.Numerics.Vector3 normal, CollidableReference collidable,
             int childIndex)
         {
+            _hasHit = true;
             if (collidable.Mobility is CollidableMobility.Dynamic or CollidableMobility.Kinematic)
             {
                 BodyReference reference = Physics.Simulation.Bodies.GetBodyReference(collidable.BodyHandle);

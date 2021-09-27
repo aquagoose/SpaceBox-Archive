@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using Cubic.Physics;
 using Cubic.Render;
 using Cubic.Utilities;
@@ -68,6 +69,8 @@ namespace Spacebox.Scenes
         private Texture2D _texture;
         private Skybox _skybox;
 
+        private Texture2D _crosshair;
+
         private float _camSpeed;
 
         private InputConfig _input;
@@ -117,6 +120,7 @@ namespace Spacebox.Scenes
                 3 * sizeof(float));
 
             _texture = new Texture2D("Content/Textures/Blocks/stainless-steel.jpg");
+            _crosshair = new Texture2D("Content/Textures/crosshair.png");
 
             GL.BindVertexArray(0);
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
@@ -125,6 +129,8 @@ namespace Spacebox.Scenes
             Game.CursorGrabbed = true;
             
             GL.Enable(EnableCap.DepthTest);
+            GL.Enable(EnableCap.Blend);
+            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
             
             _skybox = new Skybox(new[]
             {
@@ -176,6 +182,17 @@ namespace Spacebox.Scenes
 
             _camera.Rotation.X += Input.MouseDelta.X * mouseRot;
             _camera.Rotation.Y -= Input.MouseDelta.Y * mouseRot;
+
+            _camera.PlaceCubeDistance += (int) Input.MouseState.ScrollDelta.Y;
+
+            Vector3 blockRot = _camera.PlaceCube.Rotation.ToEulerAngles();
+            
+            if (Input.IsKeyDown(Keys.PageDown))
+            {
+                blockRot.Y += 1 * Time.DeltaTime;
+            }
+            
+            _camera.PlaceCube.Rotation = Quaternion.FromEulerAngles(blockRot);
             
             _camera.Update();
             
@@ -206,7 +223,8 @@ namespace Spacebox.Scenes
                 
                 foreach (Block block in grid.Blocks)
                 {
-                    _shader.SetUniform("uModel", gridRot * Matrix4.CreateTranslation(gridPos + block.Coord * 2));
+                    _shader.SetUniform("uModel", Matrix4.CreateTranslation(block.Coord * 2) * gridRot * Matrix4.CreateTranslation(gridPos));
+                    //_shader.SetUniform("uModel", gridRot * Matrix4.CreateTranslation(gridPos) * Matrix4.CreateTranslation(block.Coord * 2));
                     GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
                 }
             }
@@ -216,6 +234,12 @@ namespace Spacebox.Scenes
                 Matrix4.CreateFromQuaternion(_camera.PlaceCube.Rotation) *
                 Matrix4.CreateTranslation(_camera.PlaceCube.Position));
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
+            
+            Game.SpriteBatch.Begin();
+            Game.SpriteBatch.Draw(_crosshair, new Vector2(Game.SpriteBatch.Width, Game.SpriteBatch.Height) / 2,
+                Color.White, 0, _crosshair.Size.ToVector2() / 2, new Vector2(0.05f) * Game.UiManager.UiScale);
+            Game.SpriteBatch.End();
+            Game.UiManager.Draw();
         }
     }
 }
