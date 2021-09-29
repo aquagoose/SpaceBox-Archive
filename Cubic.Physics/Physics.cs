@@ -9,13 +9,13 @@ namespace Cubic.Physics
 {
     public static class Physics
     {
-        private static BufferPool _bufferPool;
-        public static Simulation Simulation;
+        public static BufferPool BufferPool { get; private set; }
+        public static Simulation Simulation { get; private set; }
 
         public static void Initialize()
         {
-            _bufferPool = new BufferPool();
-            Simulation = Simulation.Create(_bufferPool, new NarrowPhaseCallbacks(),
+            BufferPool = new BufferPool();
+            Simulation = Simulation.Create(BufferPool, new NarrowPhaseCallbacks(),
                 new PoseIntegratorCallbacks(Vector3.Zero), new PositionLastTimestepper());
         }
 

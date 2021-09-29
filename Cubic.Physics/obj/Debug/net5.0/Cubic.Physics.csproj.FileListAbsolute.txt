@@ -10,3 +10,15 @@ D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Physics\obj\Debug\net5.0\Cubic.Physic
 D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Physics\obj\Debug\net5.0\Cubic.Physics.dll
 D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Physics\obj\Debug\net5.0\ref\Cubic.Physics.dll
 D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Physics\obj\Debug\net5.0\Cubic.Physics.pdb
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Physics\bin\Debug\net5.0\Cubic.Physics.deps.json
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Physics\bin\Debug\net5.0\Cubic.Physics.dll
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Physics\bin\Debug\net5.0\ref\Cubic.Physics.dll
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Physics\bin\Debug\net5.0\Cubic.Physics.pdb
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Physics\obj\Debug\net5.0\Cubic.Physics.csproj.AssemblyReference.cache
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Physics\obj\Debug\net5.0\Cubic.Physics.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Physics\obj\Debug\net5.0\Cubic.Physics.AssemblyInfoInputs.cache
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Physics\obj\Debug\net5.0\Cubic.Physics.AssemblyInfo.cs
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Physics\obj\Debug\net5.0\Cubic.Physics.csproj.CoreCompileInputs.cache
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Physics\obj\Debug\net5.0\Cubic.Physics.dll
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Physics\obj\Debug\net5.0\ref\Cubic.Physics.dll
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Physics\obj\Debug\net5.0\Cubic.Physics.pdb

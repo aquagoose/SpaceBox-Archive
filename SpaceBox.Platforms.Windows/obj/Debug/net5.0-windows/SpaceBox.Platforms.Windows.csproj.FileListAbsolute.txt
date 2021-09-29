@@ -187,3 +187,10 @@ D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\Cubic.Physics.pdb
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\SpaceBox.Sandbox.dll
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\SpaceBox.Sandbox.pdb
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\Content\Fonts\daggersquare.otf
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\BepuPhysics.dll
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\BepuUtilities.dll
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\Cubic.Physics.dll
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\SpaceBox.Sandbox.dll
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\Cubic.Physics.pdb
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\SpaceBox.Sandbox.pdb

@@ -496,31 +496,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ollie\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet": {}
+    "C:\\Users\\ollie\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj",
+      "projectUniqueName": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj",
       "projectName": "Cubic.Physics",
-      "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj",
+      "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj",
       "packagesPath": "C:\\Users\\ollie\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\obj\\",
+      "outputPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -563,7 +556,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

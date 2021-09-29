@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using BepuPhysics;
 using BepuPhysics.Collidables;
+using BepuUtilities.Memory;
 using Cubic.Physics;
 using OpenTK.Mathematics;
 
@@ -28,6 +29,7 @@ namespace SpaceBox.Sandbox.Grids
         public GridSize Size { get; set; }
         
         //public BodyReference BodyReference { get; set; }
+        public BigCompound Compound;
         
         public List<Block> Blocks;
 
@@ -38,34 +40,12 @@ namespace SpaceBox.Sandbox.Grids
             GridType = gridType;
             Size = gridSize;
             Blocks = new List<Block>();
+            Compound = new BigCompound();
         }
 
         public void GeneratePhysics()
         {
-            Physics.Simulation.Statics.Clear();
-            Physics.Simulation.Shapes.Clear();
-            /*if (Blocks.Count > 1)
-            {
-                foreach (Block block in Blocks)
-                {
-                    Physics.Simulation.Statics.Remove(block.StaticHandle);
-                    Physics.Simulation.Shapes.Remove();
-                }
-            }*/
-
-            //Physics.Simulation.Bodies.Remove(BodyReference.Handle);
-
-            foreach (Block block in Blocks)
-            {
-                Vector3 pos = Position + block.Coord * 2;
-                Quaternion orientation = Quaternion.FromEulerAngles(Orientation);
-
-                StaticHandle handle = Physics.Simulation.Statics.Add(new StaticDescription(new System.Numerics.Vector3(pos.X, pos.Y, pos.Z),
-                    new System.Numerics.Quaternion(orientation.X, orientation.Y, orientation.Z, orientation.W),
-                    new CollidableDescription(Physics.Simulation.Shapes.Add(new Box(2, 2, 2)), 0.1f)));
-
-                block.StaticHandle = handle;
-            }
+            
         }
     }
 }
