@@ -153,13 +153,13 @@ namespace Spacebox.Scenes
             
             GL.ClearColor(Color.Black);
 
-            _camera = new Camera(Vector3.Zero, Vector3.Zero, Game.ClientSize.X / (float) Game.ClientSize.Y, 90, 0.1f,
-                1000f);
+            //_camera = new Camera(Vector3.Zero, Vector3.Zero, Game.ClientSize.X / (float) Game.ClientSize.Y, 90, 0.1f,
+            //    1000f);
             if (_save != null)
             {
                 _camera.Position = _save.PlayerPosition;
-                _camera.Yaw = _save.PlayerRotation.X;
-                _camera.Pitch = _save.PlayerRotation.Y;
+                //_camera.Yaw = _save.PlayerRotation.X;
+                //_camera.Pitch = _save.PlayerRotation.Y;
             }
 
             _vao = GL.GenVertexArray();
@@ -266,14 +266,14 @@ namespace Spacebox.Scenes
             const float rotSpeed = 100f;
             const float mouseRot = 0.3f;
 
-            if (Input.IsKeyDown(Keys.Right))
+            /*if (Input.IsKeyDown(Keys.Right))
                 _camera.Yaw += rotSpeed * Time.DeltaTime;
             if (Input.IsKeyDown(Keys.Left))
                 _camera.Yaw -= rotSpeed * Time.DeltaTime;
             if (Input.IsKeyDown(Keys.Up))
                 _camera.Pitch += rotSpeed * Time.DeltaTime;
             if (Input.IsKeyDown(Keys.Down))
-                _camera.Pitch -= rotSpeed * Time.DeltaTime;
+                _camera.Pitch -= rotSpeed * Time.DeltaTime;*/
 
             if (Input.IsKeyDown(_input.MoveForward))
                 _camera.Position += _camSpeed * _camera.Forward * Time.DeltaTime;
@@ -288,8 +288,8 @@ namespace Spacebox.Scenes
             if (Input.IsKeyDown(_input.CrouchOrJetpackDown))
                 _camera.Position -= _camSpeed * _camera.Up * Time.DeltaTime;
 
-            _camera.Yaw += Input.MouseDelta.X * mouseRot;
-            _camera.Pitch -= Input.MouseDelta.Y * mouseRot;
+            //_camera.Yaw += Input.MouseDelta.X * mouseRot;
+            //_camera.Pitch -= Input.MouseDelta.Y * mouseRot;
             
             if (Input.IsMouseButtonPressed(MouseButton.Left))
                 _cubePositions.Add(_placeCube);
@@ -307,8 +307,8 @@ namespace Spacebox.Scenes
             
             if (Input.IsKeyPressed(_input.SaveGame) && _worldName != "")
             {
-                Data.SaveWorld(_worldName, _camera.Position, new Vector3(_camera.Yaw, _camera.Pitch, 0),
-                    _cubePositions);
+               // Data.SaveWorld(_worldName, _camera.Position, new Vector3(_camera.Yaw, _camera.Pitch, 0),
+               //     _cubePositions);
                 Console.WriteLine("Saved");
                 ShowLabel("Saved game.", 5);
             }

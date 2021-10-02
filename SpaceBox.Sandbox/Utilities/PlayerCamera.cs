@@ -30,24 +30,29 @@ namespace SpaceBox.Sandbox.Utilities
 
         public Vector3 Position;
         // X: Yaw, Y: Pitch, Z: Roll(bot.net)
-        public Vector3 Rotation;
+        public Quaternion Rotation
+        {
+            get => CameraBase.Rotation;
+            set => CameraBase.Rotation = value;
+        }
 
         public int PlaceCubeDistance { get; set; } = 6;
 
-        public PlayerCamera(Vector3 position, Vector3 rotation, float aspectRatio, float fov, float near, float far)
+        public PlayerCamera(Vector3 position, Quaternion rotation, float aspectRatio, float fov, float near, float far)
         {
+            CameraBase = new Camera(position, rotation, aspectRatio, fov, near, far);
             Position = position;
             Rotation = rotation;
-            CameraBase = new Camera(position, rotation, aspectRatio, fov, near, far);
             PlaceCube = new PlaceCube();
         }
 
         public void Update()
         {
             CameraBase.Position = Position;
-            CameraBase.Yaw = Rotation.X;
-            CameraBase.Pitch = Rotation.Y;
-            CameraBase.Roll = Rotation.Z;
+            //CameraBase.Yaw = Rotation.X;
+            //CameraBase.Pitch = Rotation.Y;
+            //CameraBase.Roll = Rotation.Z;
+            //CameraBase.Rotation = Rotation;
 
             PlaceCube.Position = Position + Forward * PlaceCubeDistance;
             

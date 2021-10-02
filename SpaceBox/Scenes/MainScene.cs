@@ -81,7 +81,7 @@ namespace Spacebox.Scenes
         {
             base.Initialize();
 
-            _camera = new PlayerCamera(Vector3.Zero, Vector3.Zero, Game.ClientSize.X / (float) Game.ClientSize.Y, 90,
+            _camera = new PlayerCamera(Vector3.Zero, Quaternion.Identity, Game.ClientSize.X / (float) Game.ClientSize.Y, 90,
                 0.1f, 1000f);
             
             _vao = GL.GenVertexArray();
@@ -155,45 +155,54 @@ namespace Spacebox.Scenes
         {
             base.Update();
             
-            const float rotSpeed = 100f;
-            const float mouseRot = 0.3f;
+            const float rotSpeed = 1f;
+            const float mouseRot = 0.01f;
 
-            if (Input.IsKeyDown(Keys.Right))
-                _camera.Rotation.X += rotSpeed * Time.DeltaTime;
-            if (Input.IsKeyDown(Keys.Left))
-                _camera.Rotation.X -= rotSpeed * Time.DeltaTime;
-            if (Input.IsKeyDown(Keys.Up))
-                _camera.Rotation.Y += rotSpeed * Time.DeltaTime;
-            if (Input.IsKeyDown(Keys.Down))
-                _camera.Rotation.Y -= rotSpeed * Time.DeltaTime;
+            //if (Input.IsKeyDown(Keys.Right))
+            //    _camera.Rotation.X += rotSpeed * Time.DeltaTime;
+            //if (Input.IsKeyDown(Keys.Left))
+            //    _camera.Rotation.X -= rotSpeed * Time.DeltaTime;
+            //if (Input.IsKeyDown(Keys.Up))
+            //    _camera.Rotation.Y += rotSpeed * Time.DeltaTime;
+            //if (Input.IsKeyDown(Keys.Down))
+            //    _camera.Rotation.Y -= rotSpeed * Time.DeltaTime;
+            
+            if (Input.IsKeyDown(Keys.Q))
+                _camera.Rotation *= Quaternion.FromAxisAngle(-Vector3.UnitZ, rotSpeed * Time.DeltaTime);
+            if (Input.IsKeyDown(Keys.E))
+                _camera.Rotation *= Quaternion.FromAxisAngle(Vector3.UnitZ, rotSpeed * Time.DeltaTime);
 
             if (Input.IsKeyDown(_input.MoveForward))
                 _camera.Position += _camSpeed * _camera.Forward * Time.DeltaTime;
             if (Input.IsKeyDown(_input.MoveBackward))
                 _camera.Position -= _camSpeed * _camera.Forward * Time.DeltaTime;
             if (Input.IsKeyDown(_input.StrafeLeft))
-                _camera.Position -= _camSpeed * _camera.Right * Time.DeltaTime;
-            if (Input.IsKeyDown(_input.StrafeRight))
                 _camera.Position += _camSpeed * _camera.Right * Time.DeltaTime;
+            if (Input.IsKeyDown(_input.StrafeRight))
+                _camera.Position -= _camSpeed * _camera.Right * Time.DeltaTime;
             if (Input.IsKeyDown(_input.Jump))
                 _camera.Position += _camSpeed * _camera.Up * Time.DeltaTime;
             if (Input.IsKeyDown(_input.CrouchOrJetpackDown))
                 _camera.Position -= _camSpeed * _camera.Up * Time.DeltaTime;
-
-            _camera.Rotation.X += Input.MouseDelta.X * mouseRot;
-            _camera.Rotation.Y -= Input.MouseDelta.Y * mouseRot;
+            
+            _camera.Rotation *= Quaternion.Normalize(Quaternion.FromAxisAngle(Vector3.UnitX, Input.MouseDelta.Y * mouseRot));
+            _camera.Rotation *= Quaternion.Normalize(Quaternion.FromAxisAngle(Vector3.UnitY, -Input.MouseDelta.X * mouseRot));
 
             _camera.PlaceCubeDistance += (int) Input.MouseState.ScrollDelta.Y;
-
-            Vector3 blockRot = _camera.PlaceCube.Rotation.ToEulerAngles();
+            
             
             if (Input.IsKeyDown(Keys.PageDown))
-            {
-                blockRot.Y += 1 * Time.DeltaTime;
-            }
+                _camera.PlaceCube.Rotation *= Quaternion.FromAxisAngle(Vector3.UnitY, 1 * Time.DeltaTime);
+            if (Input.IsKeyDown(Keys.Delete))
+                _camera.PlaceCube.Rotation *= Quaternion.FromAxisAngle(-Vector3.UnitY, 1 * Time.DeltaTime);
+            if (Input.IsKeyDown(Keys.Home))
+                _camera.PlaceCube.Rotation *= Quaternion.FromAxisAngle(Vector3.UnitZ, 1 * Time.DeltaTime);
+            if (Input.IsKeyDown(Keys.End))
+                _camera.PlaceCube.Rotation *= Quaternion.FromAxisAngle(-Vector3.UnitZ, 1 * Time.DeltaTime);
             
-            _camera.PlaceCube.Rotation = Quaternion.FromEulerAngles(blockRot);
-            
+            if (Input.IsKeyPressed(Keys.Escape))
+                Game.SetScene(new MenuScene(Game));
+
             _camera.Update();
             
             //Console.WriteLine(World.Instance.Grids.Count);

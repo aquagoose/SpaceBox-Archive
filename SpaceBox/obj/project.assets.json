@@ -930,47 +930,54 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ollie\\.nuget\\packages\\": {}
+    "C:\\Users\\ollie\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox\\SpaceBox.csproj",
+      "projectUniqueName": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox\\SpaceBox.csproj",
       "projectName": "SpaceBox",
-      "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox\\SpaceBox.csproj",
+      "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox\\SpaceBox.csproj",
       "packagesPath": "C:\\Users\\ollie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox\\obj\\",
+      "outputPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet"
+      ],
       "configFilePaths": [
-        "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.GUI\\Cubic.GUI.csproj": {
-              "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.GUI\\Cubic.GUI.csproj"
+            "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.GUI\\Cubic.GUI.csproj": {
+              "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.GUI\\Cubic.GUI.csproj"
             },
-            "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj": {
-              "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj"
+            "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj": {
+              "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj"
             },
-            "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Render\\Cubic.Render.csproj": {
-              "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Render\\Cubic.Render.csproj"
+            "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Render\\Cubic.Render.csproj": {
+              "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Render\\Cubic.Render.csproj"
             },
-            "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Data\\SpaceBox.Data.csproj": {
-              "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Data\\SpaceBox.Data.csproj"
+            "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Data\\SpaceBox.Data.csproj": {
+              "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Data\\SpaceBox.Data.csproj"
             },
-            "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.GUI\\SpaceBox.GUI.csproj": {
-              "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.GUI\\SpaceBox.GUI.csproj"
+            "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.GUI\\SpaceBox.GUI.csproj": {
+              "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.GUI\\SpaceBox.GUI.csproj"
             },
-            "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\SpaceBox.Sandbox.csproj": {
-              "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\SpaceBox.Sandbox.csproj"
+            "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\SpaceBox.Sandbox.csproj": {
+              "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\SpaceBox.Sandbox.csproj"
             }
           }
         }
@@ -1013,7 +1020,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

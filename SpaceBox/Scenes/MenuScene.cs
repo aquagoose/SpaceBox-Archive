@@ -53,7 +53,7 @@ namespace Spacebox.Scenes
             
             Button continueButton = new Button(Game.UiManager, new Position(DockType.BottomLeft, new Vector2(50, -470)),
                 new Size(232, 100), "Continue", fontSize: 48);
-            continueButton.OnClick += () => Game.SetScene(new MainSceneOld(Game, ""));
+            continueButton.OnClick += () => Game.SetScene(new MainScene(Game));
 
             Button newGameButton = new Button(Game.UiManager,
                 new Position(DockType.BottomLeft,
@@ -97,7 +97,13 @@ namespace Spacebox.Scenes
             Game.UiManager.Add("quitButton", quitButton);
 
             Game.UiManager.Add("disable",
-                new FillRectangle(Game.UiManager, continueButton.Position, continueButton.Size,
+                new FillRectangle(Game.UiManager, newGameButton.Position, newGameButton.Size,
+                    Color.FromArgb(72, Color.Black)));
+            Game.UiManager.Add("disable2",
+                new FillRectangle(Game.UiManager, loadGameButton.Position, loadGameButton.Size,
+                    Color.FromArgb(72, Color.Black)));
+            Game.UiManager.Add("disable3",
+                new FillRectangle(Game.UiManager, multiplayerButton.Position, multiplayerButton.Size,
                     Color.FromArgb(72, Color.Black)));
 
             Game.UiManager.Add("spaceText",

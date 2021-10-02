@@ -70,8 +70,8 @@ namespace Spacebox
                 CenterWindow();
             
             //_activeScene = new IntroScene(this);
-            //_activeScene = new MenuScene(this);
-            _activeScene = new MainScene(this);
+            _activeScene = new MenuScene(this);
+            //_activeScene = new MainScene(this);
             _activeScene.Initialize();
 
             Console.WriteLine(WindowState);
