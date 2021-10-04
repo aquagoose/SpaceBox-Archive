@@ -49,7 +49,7 @@ namespace SpaceBox.Sandbox.Grids
 
         public void GeneratePhysics()
         {
-            using (CompoundBuilder builder = new CompoundBuilder(Physics.Simulation.BufferPool, Physics.Simulation.Shapes, 100))
+            using (CompoundBuilder builder = new CompoundBuilder(Physics.Simulation.BufferPool, Physics.Simulation.Shapes, 10))
             {
                 foreach (Block block in Blocks)
                 {

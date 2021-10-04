@@ -196,3 +196,5 @@ C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\SpaceBox.Sandbox.pdb
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\Cubic.Data.dll
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\Cubic.Data.pdb
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\Cubic.Data.dll
+C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Platforms.Windows\bin\Debug\net5.0-windows\Cubic.Data.pdb

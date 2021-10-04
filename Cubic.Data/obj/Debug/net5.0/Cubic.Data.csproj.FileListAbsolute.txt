@@ -10,3 +10,15 @@ D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Data\obj\Debug\net5.0\Cubic.Data.cspr
 D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Data\obj\Debug\net5.0\Cubic.Data.dll
 D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Data\obj\Debug\net5.0\ref\Cubic.Data.dll
 D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Data\obj\Debug\net5.0\Cubic.Data.pdb
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Data\bin\Debug\net5.0\Cubic.Data.deps.json
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Data\bin\Debug\net5.0\Cubic.Data.dll
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Data\bin\Debug\net5.0\ref\Cubic.Data.dll
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Data\bin\Debug\net5.0\Cubic.Data.pdb
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Data\obj\Debug\net5.0\Cubic.Data.csproj.AssemblyReference.cache
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Data\obj\Debug\net5.0\Cubic.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Data\obj\Debug\net5.0\Cubic.Data.AssemblyInfoInputs.cache
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Data\obj\Debug\net5.0\Cubic.Data.AssemblyInfo.cs
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Data\obj\Debug\net5.0\Cubic.Data.csproj.CoreCompileInputs.cache
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Data\obj\Debug\net5.0\Cubic.Data.dll
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Data\obj\Debug\net5.0\ref\Cubic.Data.dll
+C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Data\obj\Debug\net5.0\Cubic.Data.pdb
