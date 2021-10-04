@@ -4,6 +4,64 @@
     "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox\\SpaceBox.csproj": {}
   },
   "projects": {
+    "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\Cubic.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\Cubic.Data.csproj",
+        "projectName": "Cubic.Data",
+        "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\Cubic.Data.csproj",
+        "packagesPath": "C:\\Users\\ollie\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.GUI\\Cubic.GUI.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -315,7 +373,14 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\Cubic.Data.csproj": {
+                "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\Cubic.Data.csproj"
+              },
+              "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\SpaceBox.Sandbox.csproj": {
+                "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\SpaceBox.Sandbox.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -564,6 +629,10 @@
             "OpenTK": {
               "target": "Package",
               "version": "[4.6.7, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[5.0.2, )"
             }
           },
           "imports": [

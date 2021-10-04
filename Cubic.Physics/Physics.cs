@@ -62,7 +62,8 @@ namespace Cubic.Physics
                     Rotation = new Quaternion(reference.Pose.Orientation.X, reference.Pose.Orientation.Y,
                         reference.Pose.Orientation.Z, reference.Pose.Orientation.W),
                     Hit = true,
-                    Collidable = collidable
+                    Collidable = collidable,
+                    ChildIndex = childIndex
                 };
             }
             else
@@ -75,7 +76,8 @@ namespace Cubic.Physics
                     Rotation = new Quaternion(reference.Pose.Orientation.X, reference.Pose.Orientation.Y,
                         reference.Pose.Orientation.Z, reference.Pose.Orientation.W),
                     Hit = true,
-                    Collidable = collidable
+                    Collidable = collidable,
+                    ChildIndex = childIndex
                 };
             }
         }

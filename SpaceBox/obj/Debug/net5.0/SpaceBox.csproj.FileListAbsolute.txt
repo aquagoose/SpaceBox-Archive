@@ -106,3 +106,5 @@ C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Cubic.Physics.dll
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\SpaceBox.Sandbox.dll
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Cubic.Physics.pdb
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\SpaceBox.Sandbox.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Cubic.Data.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Cubic.Data.pdb

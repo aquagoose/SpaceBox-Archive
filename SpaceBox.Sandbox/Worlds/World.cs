@@ -13,13 +13,19 @@ namespace SpaceBox.Sandbox.Worlds
         /// <summary>
         /// All grids that this world contains.
         /// </summary>
-        public List<Grid> Grids;
+        public List<Grid> Grids { get; set; }
 
         public World()
         {
             Grids = new List<Grid>();
         }
 
-        public static World Instance { get; set; }
+        public void Update()
+        {
+            foreach (Grid grid in Grids)
+                grid.Update();
+        }
+
+        public static World CurrentWorld { get; set; }
     }
 }

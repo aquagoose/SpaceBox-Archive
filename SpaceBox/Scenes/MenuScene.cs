@@ -12,8 +12,10 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using SpaceBox.Data;
 using SpaceBox.GUI;
 using SpaceBox.GUI.Imgui;
+using SpaceBox.Sandbox.Grids;
 using Vector2 = OpenTK.Mathematics.Vector2;
 using Font = Cubic.GUI.Fonts.Font;
+using Quaternion = OpenTK.Mathematics.Quaternion;
 using Vector3 = OpenTK.Mathematics.Vector3;
 
 namespace Spacebox.Scenes
@@ -97,12 +99,9 @@ namespace Spacebox.Scenes
             Game.UiManager.Add("quitButton", quitButton);
 
             Game.UiManager.Add("disable",
-                new FillRectangle(Game.UiManager, newGameButton.Position, newGameButton.Size,
+                new FillRectangle(Game.UiManager, continueButton.Position, continueButton.Size,
                     Color.FromArgb(72, Color.Black)));
             Game.UiManager.Add("disable2",
-                new FillRectangle(Game.UiManager, loadGameButton.Position, loadGameButton.Size,
-                    Color.FromArgb(72, Color.Black)));
-            Game.UiManager.Add("disable3",
                 new FillRectangle(Game.UiManager, multiplayerButton.Position, multiplayerButton.Size,
                     Color.FromArgb(72, Color.Black)));
 
@@ -144,8 +143,8 @@ namespace Spacebox.Scenes
             {
                 if (_newGameWindow.Display())
                 {
-                    Data.SaveWorld(_newGameWindow.WorldName, Vector3.Zero, Vector3.Zero, new List<Vector3>());
-                    Game.SetScene(new MainSceneOld(Game, _newGameWindow.WorldName));
+                    Data.SaveWorld(_newGameWindow.WorldName, Vector3.Zero, Quaternion.Identity, new List<Grid>());
+                    Game.SetScene(new MainScene(Game, _newGameWindow.WorldName));
                 }
             }
 
@@ -154,7 +153,7 @@ namespace Spacebox.Scenes
                 if (_loadGameWindow.Display())
                 {
                     SaveGame game = Data.LoadSave(_loadGameWindow.WorldFiles[_loadGameWindow.SelectedWorld]);
-                    Game.SetScene(new MainSceneOld(Game, save: game));
+                    Game.SetScene(new MainScene(Game, save: game));
                 }
             }
         }

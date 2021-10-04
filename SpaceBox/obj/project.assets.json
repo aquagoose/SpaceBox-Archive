@@ -329,6 +329,16 @@
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
+      "Cubic.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Cubic.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cubic.Data.dll": {}
+        }
+      },
       "Cubic.GUI/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -392,7 +402,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "OpenTK": "4.6.7"
+          "Cubic.Data": "1.0.0",
+          "OpenTK": "4.6.7",
+          "SpaceBox.Sandbox": "1.0.0"
         },
         "compile": {
           "bin/placeholder/SpaceBox.Data.dll": {}
@@ -880,6 +892,11 @@
         "version.txt"
       ]
     },
+    "Cubic.Data/1.0.0": {
+      "type": "project",
+      "path": "../Cubic.Data/Cubic.Data.csproj",
+      "msbuildProject": "../Cubic.Data/Cubic.Data.csproj"
+    },
     "Cubic.GUI/1.0.0": {
       "type": "project",
       "path": "../Cubic.GUI/Cubic.GUI.csproj",
@@ -926,7 +943,8 @@
       "OpenTK >= 4.6.7",
       "SpaceBox.Data >= 1.0.0",
       "SpaceBox.GUI >= 1.0.0",
-      "SpaceBox.Sandbox >= 1.0.0"
+      "SpaceBox.Sandbox >= 1.0.0",
+      "System.Drawing.Common >= 5.0.2"
     ]
   },
   "packageFolders": {
@@ -1003,6 +1021,10 @@
           "OpenTK": {
             "target": "Package",
             "version": "[4.6.7, )"
+          },
+          "System.Drawing.Common": {
+            "target": "Package",
+            "version": "[5.0.2, )"
           }
         },
         "imports": [

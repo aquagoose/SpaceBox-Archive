@@ -21,8 +21,6 @@ namespace SpaceBox.Sandbox.Grids
         public Vector3 MaxCoord { get; set; }*/
         
         public Vector3 Coord { get; set; }
-        
-        public StaticHandle StaticHandle { get; set; }
 
         /*public Block(Vector3 minCoord, Vector3 maxCoord)
         {

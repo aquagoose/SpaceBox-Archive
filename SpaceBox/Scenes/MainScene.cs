@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using Cubic.Physics;
 using Cubic.Render;
 using Cubic.Utilities;
@@ -7,6 +9,7 @@ using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using SpaceBox.Data;
+using SpaceBox.Data.Serialization;
 using SpaceBox.Sandbox.Grids;
 using SpaceBox.Sandbox.Utilities;
 using SpaceBox.Sandbox.Worlds;
@@ -75,7 +78,18 @@ namespace Spacebox.Scenes
 
         private InputConfig _input;
 
-        public MainScene(SpaceboxGame game) : base(game) { }
+        private string _worldName;
+        private SaveGame _save;
+
+        public MainScene(SpaceboxGame game, string worldName = "", SaveGame save = null) : base(game)
+        {
+            _worldName = worldName;
+            if (save != null)
+            {
+                _save = save;
+                _worldName = save.WorldName;
+            }
+        }
 
         public override void Initialize()
         {
@@ -148,13 +162,38 @@ namespace Spacebox.Scenes
 
             _input = SpaceboxGame.Config.Input;
 
-            World.Instance = new World();
+            World.CurrentWorld = new World();
+
+            if (_save != null)
+            {
+                List<Block> blocks = new List<Block>();
+                
+                _camera.Position = _save.PlayerPosition.ToNormal();
+                _camera.Rotation = _save.PlayerRotation.ToNormal();
+                
+                foreach (SerializableGrid grid in _save.Grids)
+                {
+                    foreach (SerializableBlock block in grid.Blocks)
+                    {
+                        blocks.Add(new Block(block.Coord.ToNormal()) { Name = block.Name });
+                    }
+
+                    Grid newGrid = new Grid(grid.Position.ToNormal(), grid.Orientation.ToNormal(), grid.GridType,
+                        grid.GridSize);
+                    // I have to do this terribleness in order for the blocks not get deleted when I clear the list....
+                    newGrid.Blocks = blocks.ToList();
+                    newGrid.GeneratePhysics();
+                    
+                    World.CurrentWorld.Grids.Add(newGrid);
+                    blocks.Clear();
+                }
+            }
         }
 
         public override void Update()
         {
             base.Update();
-            
+
             const float rotSpeed = 1f;
             const float mouseRot = 0.01f;
 
@@ -189,8 +228,7 @@ namespace Spacebox.Scenes
             _camera.Rotation *= Quaternion.Normalize(Quaternion.FromAxisAngle(Vector3.UnitY, -Input.MouseDelta.X * mouseRot));
 
             _camera.PlaceCubeDistance += (int) Input.MouseState.ScrollDelta.Y;
-            
-            
+
             if (Input.IsKeyDown(Keys.PageDown))
                 _camera.PlaceCube.Rotation *= Quaternion.FromAxisAngle(Vector3.UnitY, 1 * Time.DeltaTime);
             if (Input.IsKeyDown(Keys.Delete))
@@ -199,13 +237,21 @@ namespace Spacebox.Scenes
                 _camera.PlaceCube.Rotation *= Quaternion.FromAxisAngle(Vector3.UnitZ, 1 * Time.DeltaTime);
             if (Input.IsKeyDown(Keys.End))
                 _camera.PlaceCube.Rotation *= Quaternion.FromAxisAngle(-Vector3.UnitZ, 1 * Time.DeltaTime);
-            
+
             if (Input.IsKeyPressed(Keys.Escape))
+            {
+                Data.SaveWorld(_worldName, _camera.Position, _camera.Rotation, World.CurrentWorld.Grids);
                 Game.SetScene(new MenuScene(Game));
+            }
 
             _camera.Update();
             
-            //Console.WriteLine(World.Instance.Grids.Count);
+            if (Input.IsKeyPressed(_input.SaveGame) && _worldName != "")
+                Data.SaveWorld(_worldName, _camera.Position, _camera.Rotation, World.CurrentWorld.Grids);
+
+            World.CurrentWorld.Update();
+
+            Physics.Simulate(1 / 60f);
         }
 
         public override void Draw()
@@ -225,10 +271,10 @@ namespace Spacebox.Scenes
             
             GL.BindVertexArray(_vao);
 
-            foreach (Grid grid in World.Instance.Grids)
+            foreach (Grid grid in World.CurrentWorld.Grids)
             {
                 Vector3 gridPos = grid.Position;
-                Matrix4 gridRot = Matrix4.CreateFromQuaternion(Quaternion.FromEulerAngles(grid.Orientation));
+                Matrix4 gridRot = Matrix4.CreateFromQuaternion(grid.Orientation);
                 
                 foreach (Block block in grid.Blocks)
                 {
@@ -249,6 +295,15 @@ namespace Spacebox.Scenes
                 Color.White, 0, _crosshair.Size.ToVector2() / 2, new Vector2(0.05f) * Game.UiManager.UiScale);
             Game.SpriteBatch.End();
             Game.UiManager.Draw();
+        }
+
+        public override void Unload()
+        {
+            base.Unload();
+            
+            _texture.Dispose();
+            _shader.Dispose();
+            _crosshair.Dispose();
         }
     }
 }

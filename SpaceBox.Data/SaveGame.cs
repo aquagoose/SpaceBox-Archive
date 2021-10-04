@@ -1,4 +1,6 @@
-﻿using OpenTK.Mathematics;
+﻿using Cubic.Data.Serialization;
+using OpenTK.Mathematics;
+using SpaceBox.Data.Serialization;
 
 namespace SpaceBox.Data
 {
@@ -6,9 +8,9 @@ namespace SpaceBox.Data
     {
         public string WorldName { get; set; }
         
-        public Vector3 PlayerPosition { get; set; }
-        public Vector3 PlayerRotation { get; set; }
+        public SerializableVector3 PlayerPosition { get; set; }
+        public SerializableQuaternion PlayerRotation { get; set; }
         
-        public Vector3[] BlockPositions { get; set; }
+        public SerializableGrid[] Grids { get; set; }
     }
 }

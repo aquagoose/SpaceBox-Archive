@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "O93sYHTH0xNo/MC7qsI01Gtf8CpvnMxnsW3w1gQD0G00ufwHKgtE60z4wdpy9KfR+jj50eZiPnQG1rL0cqKcCQ==",
+  "dgSpecHash": "1cQBG4INQslmAGU/PbdIhQXOUdSAY9l+6ubGxTjlT1kRmnGAagV8QtoyUABVZk883PmY1+/Yrs6ZGzilULeVHw==",
   "success": true,
   "projectFilePath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Data\\SpaceBox.Data.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ollie\\.nuget\\packages\\bepuphysics\\2.3.0\\bepuphysics.2.3.0.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\bepuutilities\\2.3.0\\bepuutilities.2.3.0.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\opentk\\4.6.7\\opentk.4.6.7.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\opentk.compute\\4.6.7\\opentk.compute.4.6.7.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\opentk.core\\4.6.7\\opentk.core.4.6.7.nupkg.sha512",
@@ -15,6 +17,8 @@
     "C:\\Users\\ollie\\.nuget\\packages\\opentk.windowing.common\\4.6.7\\opentk.windowing.common.4.6.7.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\opentk.windowing.desktop\\4.6.7\\opentk.windowing.desktop.4.6.7.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\opentk.windowing.graphicslibraryframework\\4.6.7\\opentk.windowing.graphicslibraryframework.4.6.7.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\ollie\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\ollie\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
   ],
   "logs": []

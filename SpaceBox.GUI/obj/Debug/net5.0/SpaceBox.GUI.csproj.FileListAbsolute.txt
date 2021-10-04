@@ -40,3 +40,9 @@ D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.GUI\bin\Debug\net5.0\SpaceBox.Data
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.GUI\bin\Debug\net5.0\SpaceBox.Data.pdb
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.GUI\bin\Debug\net5.0\SpaceBox.Data.dll
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.GUI\bin\Debug\net5.0\SpaceBox.Data.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.GUI\bin\Debug\net5.0\Cubic.Data.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.GUI\bin\Debug\net5.0\Cubic.Data.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.GUI\bin\Debug\net5.0\Cubic.Physics.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.GUI\bin\Debug\net5.0\SpaceBox.Sandbox.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.GUI\bin\Debug\net5.0\Cubic.Physics.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.GUI\bin\Debug\net5.0\SpaceBox.Sandbox.pdb

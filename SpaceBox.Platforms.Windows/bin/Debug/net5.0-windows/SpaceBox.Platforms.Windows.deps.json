@@ -339,6 +339,11 @@
           }
         }
       },
+      "Cubic.Data/1.0.0": {
+        "runtime": {
+          "Cubic.Data.dll": {}
+        }
+      },
       "Cubic.Forms/1.0.0": {
         "dependencies": {
           "Eto.Forms": "2.5.11"
@@ -396,7 +401,8 @@
           "OpenTK": "4.6.7",
           "SpaceBox.Data": "1.0.0",
           "SpaceBox.GUI": "1.0.0",
-          "SpaceBox.Sandbox": "1.0.0"
+          "SpaceBox.Sandbox": "1.0.0",
+          "System.Drawing.Common": "5.0.2"
         },
         "runtime": {
           "SpaceBox.dll": {}
@@ -404,7 +410,9 @@
       },
       "SpaceBox.Data/1.0.0": {
         "dependencies": {
-          "OpenTK": "4.6.7"
+          "Cubic.Data": "1.0.0",
+          "OpenTK": "4.6.7",
+          "SpaceBox.Sandbox": "1.0.0"
         },
         "runtime": {
           "SpaceBox.Data.dll": {}
@@ -626,6 +634,11 @@
       "sha512": "sha512-IVlZAP3MPktm/aNl0gptCAnfm0IblGvWu0J7b8zu7Di9Lc9Ep0ABu8757X1n5GACk/UIAg+tUCQGYQ2hWqWV7A==",
       "path": "windows7apicodepack-shell/1.1.0",
       "hashPath": "windows7apicodepack-shell.1.1.0.nupkg.sha512"
+    },
+    "Cubic.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Cubic.Forms/1.0.0": {
       "type": "project",

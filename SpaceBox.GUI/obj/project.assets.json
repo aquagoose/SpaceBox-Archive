@@ -2,6 +2,32 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "BepuPhysics/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "BepuUtilities": "2.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/BepuPhysics.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BepuPhysics.dll": {}
+        }
+      },
+      "BepuUtilities/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/BepuUtilities.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BepuUtilities.dll": {}
+        }
+      },
       "FreeTypeSharp/1.1.3": {
         "type": "package",
         "compile": {
@@ -276,7 +302,16 @@
           }
         }
       },
-      "System.Numerics.Vectors/4.4.0": {
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
+        }
+      },
+      "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
           "ref/netcoreapp2.0/_._": {}
@@ -294,6 +329,16 @@
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
+      "Cubic.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Cubic.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cubic.Data.dll": {}
+        }
+      },
       "Cubic.GUI/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -308,6 +353,20 @@
         },
         "runtime": {
           "bin/placeholder/Cubic.GUI.dll": {}
+        }
+      },
+      "Cubic.Physics/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "BepuPhysics": "2.3.0",
+          "OpenTK": "4.6.7"
+        },
+        "compile": {
+          "bin/placeholder/Cubic.Physics.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cubic.Physics.dll": {}
         }
       },
       "Cubic.Render/1.0.0": {
@@ -343,7 +402,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "OpenTK": "4.6.7"
+          "Cubic.Data": "1.0.0",
+          "OpenTK": "4.6.7",
+          "SpaceBox.Sandbox": "1.0.0"
         },
         "compile": {
           "bin/placeholder/SpaceBox.Data.dll": {}
@@ -351,10 +412,51 @@
         "runtime": {
           "bin/placeholder/SpaceBox.Data.dll": {}
         }
+      },
+      "SpaceBox.Sandbox/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Cubic.Physics": "1.0.0",
+          "Cubic.Utilities": "1.0.0",
+          "OpenTK": "4.6.7"
+        },
+        "compile": {
+          "bin/placeholder/SpaceBox.Sandbox.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SpaceBox.Sandbox.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "BepuPhysics/2.3.0": {
+      "sha512": "UxGVgCoHQTzTP6Xd6xk6ZGyuKqa9PyHJjfX7rRlqXnkA7WWHxo59/roS+oNh85JTkT9jNwAnPgHEuDrtOASoFA==",
+      "type": "package",
+      "path": "bepuphysics/2.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bepuphysics.2.3.0.nupkg.sha512",
+        "bepuphysics.nuspec",
+        "bepuphysicslogo256.png",
+        "lib/netstandard2.0/BepuPhysics.dll"
+      ]
+    },
+    "BepuUtilities/2.3.0": {
+      "sha512": "rR+Q5gawSKBU0r0d7Zs/3CZ3UUByQrcUnvKw36gHtXyDL+6UJ6hGbA+Seyurzgk8lzjEnD0tRqBh+9fF/d+WBw==",
+      "type": "package",
+      "path": "bepuutilities/2.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bepuphysicslogo256.png",
+        "bepuutilities.2.3.0.nupkg.sha512",
+        "bepuutilities.nuspec",
+        "lib/netstandard2.0/BepuUtilities.dll"
+      ]
+    },
     "FreeTypeSharp/1.1.3": {
       "sha512": "1JCuO0cbajKxEiuydA9Ms7EFfdSNnR3JTv4unw8PJSIOejkZnTs/9YQD0T2jxX9yZtAAcn1J6R/MZ33b0Snasg==",
       "type": "package",
@@ -675,10 +777,31 @@
         "version.txt"
       ]
     },
-    "System.Numerics.Vectors/4.4.0": {
-      "sha512": "UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ==",
+    "System.Memory/4.5.3": {
+      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
       "type": "package",
-      "path": "system.numerics.vectors/4.4.0",
+      "path": "system.memory/4.5.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "system.memory.4.5.3.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Numerics.Vectors/4.5.0": {
+      "sha512": "QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
+      "type": "package",
+      "path": "system.numerics.vectors/4.5.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -695,12 +818,15 @@
         "lib/netstandard2.0/System.Numerics.Vectors.xml",
         "lib/portable-net45+win8+wp8+wpa81/System.Numerics.Vectors.dll",
         "lib/portable-net45+win8+wp8+wpa81/System.Numerics.Vectors.xml",
+        "lib/uap10.0.16299/_._",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
         "lib/xamarintvos10/_._",
         "lib/xamarinwatchos10/_._",
         "ref/MonoAndroid10/_._",
         "ref/MonoTouch10/_._",
+        "ref/net45/System.Numerics.Vectors.dll",
+        "ref/net45/System.Numerics.Vectors.xml",
         "ref/net46/System.Numerics.Vectors.dll",
         "ref/net46/System.Numerics.Vectors.xml",
         "ref/netcoreapp2.0/_._",
@@ -708,11 +834,12 @@
         "ref/netstandard1.0/System.Numerics.Vectors.xml",
         "ref/netstandard2.0/System.Numerics.Vectors.dll",
         "ref/netstandard2.0/System.Numerics.Vectors.xml",
+        "ref/uap10.0.16299/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.numerics.vectors.4.4.0.nupkg.sha512",
+        "system.numerics.vectors.4.5.0.nupkg.sha512",
         "system.numerics.vectors.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -750,10 +877,20 @@
         "version.txt"
       ]
     },
+    "Cubic.Data/1.0.0": {
+      "type": "project",
+      "path": "../Cubic.Data/Cubic.Data.csproj",
+      "msbuildProject": "../Cubic.Data/Cubic.Data.csproj"
+    },
     "Cubic.GUI/1.0.0": {
       "type": "project",
       "path": "../Cubic.GUI/Cubic.GUI.csproj",
       "msbuildProject": "../Cubic.GUI/Cubic.GUI.csproj"
+    },
+    "Cubic.Physics/1.0.0": {
+      "type": "project",
+      "path": "../Cubic.Physics/Cubic.Physics.csproj",
+      "msbuildProject": "../Cubic.Physics/Cubic.Physics.csproj"
     },
     "Cubic.Render/1.0.0": {
       "type": "project",
@@ -769,6 +906,11 @@
       "type": "project",
       "path": "../SpaceBox.Data/SpaceBox.Data.csproj",
       "msbuildProject": "../SpaceBox.Data/SpaceBox.Data.csproj"
+    },
+    "SpaceBox.Sandbox/1.0.0": {
+      "type": "project",
+      "path": "../SpaceBox.Sandbox/SpaceBox.Sandbox.csproj",
+      "msbuildProject": "../SpaceBox.Sandbox/SpaceBox.Sandbox.csproj"
     }
   },
   "projectFileDependencyGroups": {
