@@ -5,6 +5,7 @@ using System.Linq;
 using Cubic.Physics;
 using Cubic.Render;
 using Cubic.Utilities;
+using Cubic.Windowing;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
@@ -13,6 +14,7 @@ using SpaceBox.Data.Serialization;
 using SpaceBox.Sandbox.Grids;
 using SpaceBox.Sandbox.Utilities;
 using SpaceBox.Sandbox.Worlds;
+using InputAction = Cubic.Windowing.InputAction;
 
 namespace Spacebox.Scenes
 {
@@ -95,7 +97,7 @@ namespace Spacebox.Scenes
         {
             base.Initialize();
 
-            _camera = new PlayerCamera(Vector3.Zero, Quaternion.Identity, Game.ClientSize.X / (float) Game.ClientSize.Y, 90,
+            _camera = new PlayerCamera(Vector3.Zero, Quaternion.Identity, Game.Size.Width / (float) Game.Size.Height, 90,
                 0.1f, 1000f);
             
             _vao = GL.GenVertexArray();
@@ -140,7 +142,7 @@ namespace Spacebox.Scenes
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
             //GL.BindBuffer(BufferTarget.ElementArrayBuffer, 0);
 
-            Game.CursorGrabbed = true;
+            Input.CursorState = CursorState.Captured;
             
             GL.Enable(EnableCap.DepthTest);
             GL.Enable(EnableCap.Blend);
@@ -188,6 +190,8 @@ namespace Spacebox.Scenes
                     blocks.Clear();
                 }
             }
+            
+            Input.RegisterAction("jPressed", new InputAction(new []{ Keys.J, Keys.D7 }));
         }
 
         public override void Update()
@@ -227,7 +231,7 @@ namespace Spacebox.Scenes
             _camera.Rotation *= Quaternion.Normalize(Quaternion.FromAxisAngle(Vector3.UnitX, Input.MouseDelta.Y * mouseRot));
             _camera.Rotation *= Quaternion.Normalize(Quaternion.FromAxisAngle(Vector3.UnitY, -Input.MouseDelta.X * mouseRot));
 
-            _camera.PlaceCubeDistance += (int) Input.MouseState.ScrollDelta.Y;
+            _camera.PlaceCubeDistance += (int) Input.ScrollDelta.Y;
 
             if (Input.IsKeyDown(Keys.PageDown))
                 _camera.PlaceCube.Rotation *= Quaternion.FromAxisAngle(Vector3.UnitY, 1 * Time.DeltaTime);
@@ -243,6 +247,9 @@ namespace Spacebox.Scenes
                 Data.SaveWorld(_worldName, _camera.Position, _camera.Rotation, World.CurrentWorld.Grids);
                 Game.SetScene(new MenuScene(Game));
             }
+            
+            if (Input.IsActionHeld("jPressed"))
+                Console.WriteLine("J is pressed!");
 
             _camera.Update();
             

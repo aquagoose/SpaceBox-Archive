@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Data\\SpaceBox.Data.csproj": {}
+    "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Data\\SpaceBox.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\Cubic.Data.csproj": {
+    "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\Cubic.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\Cubic.Data.csproj",
+        "projectUniqueName": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\Cubic.Data.csproj",
         "projectName": "Cubic.Data",
-        "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\Cubic.Data.csproj",
+        "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\Cubic.Data.csproj",
         "packagesPath": "C:\\Users\\ollie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\obj\\",
+        "outputPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,26 +58,32 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj": {
+    "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj",
+        "projectUniqueName": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj",
         "projectName": "Cubic.Physics",
-        "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj",
+        "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj",
         "packagesPath": "C:\\Users\\ollie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\obj\\",
+        "outputPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -114,26 +126,32 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj": {
+    "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj",
+        "projectUniqueName": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj",
         "projectName": "Cubic.Utilities",
-        "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj",
+        "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj",
         "packagesPath": "C:\\Users\\ollie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\obj\\",
+        "outputPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -172,37 +190,107 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Data\\SpaceBox.Data.csproj": {
+    "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Windowing\\Cubic.Windowing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Data\\SpaceBox.Data.csproj",
+        "projectUniqueName": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Windowing\\Cubic.Windowing.csproj",
+        "projectName": "Cubic.Windowing",
+        "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Windowing\\Cubic.Windowing.csproj",
+        "packagesPath": "C:\\Users\\ollie\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Windowing\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "OpenTK": {
+              "target": "Package",
+              "version": "[4.6.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Data\\SpaceBox.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Data\\SpaceBox.Data.csproj",
         "projectName": "SpaceBox.Data",
-        "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Data\\SpaceBox.Data.csproj",
+        "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Data\\SpaceBox.Data.csproj",
         "packagesPath": "C:\\Users\\ollie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Data\\obj\\",
+        "outputPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Data\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\Cubic.Data.csproj": {
-                "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\Cubic.Data.csproj"
+              "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\Cubic.Data.csproj": {
+                "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Data\\Cubic.Data.csproj"
               },
-              "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\SpaceBox.Sandbox.csproj": {
-                "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\SpaceBox.Sandbox.csproj"
+              "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\SpaceBox.Sandbox.csproj": {
+                "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\SpaceBox.Sandbox.csproj"
               }
             }
           }
@@ -237,37 +325,46 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\SpaceBox.Sandbox.csproj": {
+    "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\SpaceBox.Sandbox.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\SpaceBox.Sandbox.csproj",
+        "projectUniqueName": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\SpaceBox.Sandbox.csproj",
         "projectName": "SpaceBox.Sandbox",
-        "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\SpaceBox.Sandbox.csproj",
+        "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\SpaceBox.Sandbox.csproj",
         "packagesPath": "C:\\Users\\ollie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\obj\\",
+        "outputPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Sandbox\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj": {
-                "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj"
+              "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj": {
+                "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Physics\\Cubic.Physics.csproj"
               },
-              "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj": {
-                "projectPath": "C:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj"
+              "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj": {
+                "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Utilities\\Cubic.Utilities.csproj"
+              },
+              "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Windowing\\Cubic.Windowing.csproj": {
+                "projectPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\Cubic.Windowing\\Cubic.Windowing.csproj"
               }
             }
           }
@@ -302,7 +399,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

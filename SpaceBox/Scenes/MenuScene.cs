@@ -5,6 +5,7 @@ using System.Numerics;
 using Cubic.GUI;
 using Cubic.Render;
 using Cubic.Utilities;
+using Cubic.Windowing;
 using ImGuiNET;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
@@ -40,7 +41,7 @@ namespace Spacebox.Scenes
             base.Initialize();
             
             GL.Disable(EnableCap.DepthTest);
-            Game.CursorVisible = true;
+            Input.CursorState = CursorState.Visible;
 
             GL.ClearColor(Color.FromArgb(178, 178, 178));
 

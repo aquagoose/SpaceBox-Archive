@@ -28,3 +28,5 @@ C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Render\obj\Debug\net5.0\Cubic.Render.
 C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Render\obj\Debug\net5.0\Cubic.Render.dll
 C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Render\obj\Debug\net5.0\ref\Cubic.Render.dll
 C:\Users\ollie\Documents\C#\SpaceBox\Cubic.Render\obj\Debug\net5.0\Cubic.Render.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Render\bin\Debug\net5.0\Cubic.Windowing.dll
+D:\Users\ollie\Documents\C#\SpaceBox\Cubic.Render\bin\Debug\net5.0\Cubic.Windowing.pdb

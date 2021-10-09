@@ -40,3 +40,5 @@ C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Debug\net5.0\SpaceBox.San
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Debug\net5.0\Cubic.Physics.pdb
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Debug\net5.0\Cubic.Utilities.pdb
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Debug\net5.0\SpaceBox.Data.csproj.CopyComplete
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Debug\net5.0\Cubic.Windowing.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Debug\net5.0\Cubic.Windowing.pdb

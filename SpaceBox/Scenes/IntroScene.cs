@@ -3,6 +3,7 @@ using System.Drawing;
 using Cubic.GUI;
 using Cubic.Render;
 using Cubic.Utilities;
+using Cubic.Windowing;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
@@ -57,7 +58,7 @@ namespace Spacebox.Scenes
         {
             base.Update();
 
-            Game.CursorGrabbed = true;
+            Input.CursorState = CursorState.Captured;
             
             // The amount of time it takes for the image to fade, in seconds.
             const float fadeTime = 0.5f;

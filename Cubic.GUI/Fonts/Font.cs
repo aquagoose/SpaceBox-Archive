@@ -55,10 +55,14 @@ namespace Cubic.GUI.Fonts
             FT.FT_Set_Pixel_Sizes(_facePtr, 0, _storedFontSize);
             FreeTypeFaceFacade face = new FreeTypeFaceFacade(_library, _facePtr);
 
-            // C++. LOL
+            // Generate textures for the first 127 ASCII characters.
             for (uint c = 0; c < 128; c++)
             {
                 FT.FT_Load_Char(_facePtr, c, FT.FT_LOAD_RENDER);
+                // Generate our font texture
+                // We use separate textures for each font for now...
+                // This will be combined into a font atlas later.
+                // TODO combine into font atlas
                 int texture = GL.GenTexture();
                 GL.BindTexture(TextureTarget.Texture2D, texture);
                 GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.R8, (int)face.GlyphBitmap.width,
@@ -86,6 +90,8 @@ namespace Cubic.GUI.Fonts
             _vbo = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, _vbo);
 
+            // I'm not entirely sure but I think we do this so we only need one buffer for the entire font, instead of
+            // requiring a buffer for each character.
             GL.BufferData(BufferTarget.ArrayBuffer, 6 * 4 * sizeof(float), IntPtr.Zero, BufferUsageHint.DynamicDraw);
             
             _shader.Use();
@@ -110,6 +116,8 @@ namespace Cubic.GUI.Fonts
                 GetFont();
             }
 
+            // We disable & enable some stuff later so we check to see what is enabled etc, so it can be reset
+            // when we're done.
             bool isBlendCapEnabled = GL.IsEnabled(EnableCap.Blend);
             int currentBlendSrc = GL.GetInteger(GetPName.BlendSrc);
             int currentBlendDst = GL.GetInteger(GetPName.BlendDst);
@@ -139,11 +147,13 @@ namespace Cubic.GUI.Fonts
             {
                 Character ch = _characters[c];
 
+                // Set the position of the character.
                 Vector2 pos = new Vector2(position.X + ch.Bearing.X * scale.X,
                     position.Y - ch.Size.Y + (ch.Size.Y - ch.Bearing.Y) * scale.Y);
 
                 Vector2 wh = ch.Size * scale;
 
+                // Generate our vertices.
                 float[,] vertices = new float[,]
                 {
                     { pos.X, pos.Y + wh.Y, 0.0f, 1.0f },
@@ -166,6 +176,7 @@ namespace Cubic.GUI.Fonts
                 GL.BufferSubData(BufferTarget.ArrayBuffer, IntPtr.Zero, vertices.Length * sizeof(float), vertices);
                 GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
                 GL.DrawArrays(PrimitiveType.Triangles, 0, 6);
+                // Advance position.
                 position.X += ch.Advance * scale.X;
             }
             
@@ -189,6 +200,8 @@ namespace Cubic.GUI.Fonts
             
             Vector2 size = Vector2.Zero;
 
+            // Loop through each character, and add the width value to our size.
+            // The height value gets set to the largest character's height.
             foreach (char c in text)
             {
                 Character ch = _characters[c];
@@ -203,6 +216,7 @@ namespace Cubic.GUI.Fonts
         
         public void Dispose()
         {
+            // Dispose of characters.
             foreach (KeyValuePair<char, Character> c in _characters)
             {
                 GL.DeleteTexture(c.Value.TexId);

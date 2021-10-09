@@ -4,6 +4,7 @@ using Cubic.Utilities;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using Font = Cubic.GUI.Fonts.Font;
+using Cubic.Windowing;
 
 namespace Cubic.GUI
 {

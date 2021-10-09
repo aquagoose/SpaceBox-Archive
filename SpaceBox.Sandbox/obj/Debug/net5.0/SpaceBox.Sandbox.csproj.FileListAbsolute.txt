@@ -32,3 +32,5 @@ C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\obj\Debug\net5.0\SpaceBox.
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\obj\Debug\net5.0\SpaceBox.Sandbox.dll
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\obj\Debug\net5.0\ref\SpaceBox.Sandbox.dll
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\obj\Debug\net5.0\SpaceBox.Sandbox.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\bin\Debug\net5.0\Cubic.Windowing.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Sandbox\bin\Debug\net5.0\Cubic.Windowing.pdb

@@ -32,3 +32,5 @@ C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\obj\Debug\net5.0\Cubic.GUI.csproj
 C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\obj\Debug\net5.0\Cubic.GUI.dll
 C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\obj\Debug\net5.0\ref\Cubic.GUI.dll
 C:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\obj\Debug\net5.0\Cubic.GUI.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\bin\Debug\net5.0\Cubic.Windowing.dll
+D:\Users\ollie\Documents\C#\SpaceBox\Cubic.GUI\bin\Debug\net5.0\Cubic.Windowing.pdb

@@ -287,6 +287,7 @@
       "Cubic.Render/1.0.0": {
         "dependencies": {
           "Cubic.Utilities": "1.0.0",
+          "Cubic.Windowing": "1.0.0",
           "ImGui.NET": "1.78.0",
           "OpenTK": "4.6.7",
           "System.Drawing.Common": "5.0.2"
@@ -301,6 +302,14 @@
         },
         "runtime": {
           "Cubic.Utilities.dll": {}
+        }
+      },
+      "Cubic.Windowing/1.0.0": {
+        "dependencies": {
+          "OpenTK": "4.6.7"
+        },
+        "runtime": {
+          "Cubic.Windowing.dll": {}
         }
       }
     }
@@ -450,6 +459,11 @@
       "sha512": ""
     },
     "Cubic.Utilities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Cubic.Windowing/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.CompilerServices;
 using Cubic.Utilities;
 using ImGuiNET;
@@ -10,6 +11,7 @@ using OpenTK.Windowing.Desktop;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using Vector2 = System.Numerics.Vector2;
 using Vector4 = System.Numerics.Vector4;
+using Cubic.Windowing;
 
 namespace Cubic.Render
 {
@@ -39,15 +41,15 @@ namespace Cubic.Render
 
         private Keys[] _keysList;
 
-        public ImGuiRenderer(NativeWindow window)
+        public ImGuiRenderer(BaseGame game)
         {
             ScaleFactor = Vector2.One;
+
+            _windowWidth = game.Size.Width;
+            _windowHeight = game.Size.Height;
             
-            _windowWidth = window.ClientSize.X;
-            _windowHeight = window.ClientSize.Y;
-            
-            window.Resize += WindowOnResize;
-            window.TextInput += PressChar;
+            game.Resize += WindowOnResize;
+            game.CharInput += PressChar;
 
             _pressedChars = new List<char>();
             _keysList = (Keys[])Enum.GetValues(typeof(Keys));
@@ -67,10 +69,10 @@ namespace Cubic.Render
             _frameBegun = true;
         }
 
-        private void WindowOnResize(ResizeEventArgs obj)
+        private void WindowOnResize(Size size)
         {
-            _windowWidth = obj.Width;
-            _windowHeight = obj.Height;
+            _windowWidth = size.Width;
+            _windowHeight = size.Height;
         }
 
         public void DestroyDeviceObjects()
@@ -209,8 +211,8 @@ void main()
 
             io.MousePos = Input.MousePosition.ToSystemNumericsVector2() / ScaleFactor;
 
-            io.MouseWheel = Input.MouseScroll.Y - Input.MouseState.PreviousScroll.Y;
-            io.MouseWheelH = Input.MouseScroll.X - Input.MouseState.PreviousScroll.X;
+            io.MouseWheel = Input.ScrollDelta.Y;
+            io.MouseWheelH = Input.ScrollDelta.X;
 
             foreach (Keys key in _keysList)
             {
@@ -228,9 +230,9 @@ void main()
             io.KeySuper = Input.IsKeyDown(Keys.LeftSuper) || Input.IsKeyDown(Keys.RightSuper);
         }
 
-        private void PressChar(TextInputEventArgs obj)
+        private void PressChar(char chr)
         {
-            _pressedChars.Add((char) obj.Unicode);
+            _pressedChars.Add(chr);
         }
 
         private static void SetKeyMappings()

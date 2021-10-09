@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Drawing;
-using Cubic.Forms;
-using Eto.Forms;
-using OpenTK.Mathematics;
-using OpenTK.Windowing.Common;
+using Cubic.Windowing;
 using OpenTK.Windowing.Common.Input;
-using OpenTK.Windowing.Desktop;
 using SpaceBox.Data;
 using Image = OpenTK.Windowing.Common.Input.Image;
-using WindowState = OpenTK.Windowing.Common.WindowState;
 
 namespace Spacebox.Platforms.Windows
 {
@@ -39,16 +34,12 @@ namespace Spacebox.Platforms.Windows
                 Data.SaveSpaceBoxConfig(config, "spacebox.cfg");
             }
 
-            GameWindowSettings gameWindowSettings = GameWindowSettings.Default;
-
-            NativeWindowSettings nativeWindowSettings = new NativeWindowSettings()
+            WindowSettings windowSettings = new WindowSettings()
             {
-                Size = new Vector2i(config.Display.Resolution.Width, config.Display.Resolution.Height),
+                Size = config.Display.Resolution,
                 Title = "SpaceBox",
-                StartVisible = config.Display.Fullscreen,
-                NumberOfSamples = 32, // 8x MSAA
-                WindowBorder = WindowBorder.Fixed, // Uncomment as necessary
-                WindowState = config.Display.Fullscreen ? WindowState.Fullscreen : WindowState.Normal,
+                StartFullscreen = config.Display.Fullscreen,
+                SampleCount = 32,
                 Icon = new WindowIcon(new Image(icon.Width, icon.Height, image))
             };
             
@@ -56,7 +47,7 @@ namespace Spacebox.Platforms.Windows
 
             //try
             //{
-                using (SpaceboxGame game = new SpaceboxGame(gameWindowSettings, nativeWindowSettings, config))
+                using (SpaceboxGame game = new SpaceboxGame(windowSettings, config))
                     game.Run();
             //}
             //catch (Exception e)

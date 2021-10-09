@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Cubic.Render;
 using Cubic.Utilities;
+using Cubic.Windowing;
 using ImGuiNET;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
@@ -18,13 +19,13 @@ namespace SpaceBox.GUI.Imgui
     public class SettingsWindow
     {
         private SpaceboxConfig _config;
-        private NativeWindow _window;
+        private BaseGame _game;
         
         private Dictionary<string, string> _inputs;
         private List<string> _categories;
 
         private string[] _videoResolutions;
-        private Vector2i[] _resolutions;
+        private Size[] _resolutions;
         private int _selectedResolution;
         private int _originalResolution;
         private bool _fullscreen;
@@ -36,10 +37,10 @@ namespace SpaceBox.GUI.Imgui
 
         private float _startSeconds;
 
-        public SettingsWindow(SpaceboxConfig config, NativeWindow window)
+        public SettingsWindow(SpaceboxConfig config, BaseGame game)
         {
             _config = config;
-            _window = window;
+            _game = game;
             _originalFullscreen = config.Display.Fullscreen;
             _fullscreen = config.Display.Fullscreen;
             
@@ -86,18 +87,18 @@ namespace SpaceBox.GUI.Imgui
             {
                 VideoMode[] modes = GLFW.GetVideoModes(GLFW.GetPrimaryMonitor());
                 VideoMode* currentVideoMode = GLFW.GetVideoMode(GLFW.GetPrimaryMonitor());
-                List<Vector2i> resolutions = new List<Vector2i>();
+                List<Size> resolutions = new List<Size>();
                 List<string> resolutionStr = new List<string>();
                 int i = 0;
                 foreach (VideoMode mode in modes)
                 {
-                    Vector2i resolution = new Vector2i(mode.Width, mode.Height);
+                    Size resolution = new Size(mode.Width, mode.Height);
                     if (resolutions.Contains(resolution))
                         continue;
                     resolutions.Add(resolution);
                     resolutionStr.Add(
                         $"{mode.Width}x{mode.Height}{(mode.Width == currentVideoMode->Width && mode.Height == currentVideoMode->Height ? "*" : "")}");
-                    if (mode.Width == window.ClientSize.X && mode.Height == window.ClientSize.Y)
+                    if (mode.Width == game.Size.Width && mode.Height == game.Size.Height)
                         _selectedResolution = i;
                     i++;
                 }
@@ -158,11 +159,8 @@ namespace SpaceBox.GUI.Imgui
                         {
                             if (_selectedResolution != _originalResolution || _fullscreen != _originalFullscreen)
                             {
-                                _window.WindowState = _fullscreen ? WindowState.Fullscreen : WindowState.Normal;
-                                if (!_fullscreen)
-                                    _window.CenterWindow(_resolutions[_selectedResolution]);
-                                else
-                                    _window.Size = _resolutions[_selectedResolution];
+                                _game.Size = _resolutions[_selectedResolution];
+                                _game.Fullscreen = _fullscreen;
                                 _startSeconds = Time.ElapsedSeconds;
                                 _showDialog = true;
                                 ImGui.OpenPopup("Keep this resolution?");
@@ -178,9 +176,8 @@ namespace SpaceBox.GUI.Imgui
                             {
                                 _showDialog = false;
                                 _originalResolution = _selectedResolution;
+                                _config.Display.Resolution = _resolutions[_selectedResolution];
                                 _config.Display.Fullscreen = _fullscreen;
-                                _config.Display.Resolution = new Size(_resolutions[_selectedResolution].X,
-                                    _resolutions[_selectedResolution].Y);
                                 _originalFullscreen = _fullscreen;
                                 _originalResolution = _selectedResolution;
                                 Data.Data.SaveSpaceBoxConfig(_config, "spacebox.cfg");
@@ -188,10 +185,10 @@ namespace SpaceBox.GUI.Imgui
                             ImGui.SameLine();
                             if (ImGui.Button("No"))
                             {
-                                _window.WindowState = _originalFullscreen ? WindowState.Fullscreen : WindowState.Normal;
+                                _game.Fullscreen = _originalFullscreen;
                                 _fullscreen = _originalFullscreen;
                                 _showDialog = false;
-                                _window.CenterWindow(_resolutions[_originalResolution]);
+                                _game.Size = _resolutions[_originalResolution];
                                 _selectedResolution = _originalResolution;
                             }
 
@@ -199,9 +196,9 @@ namespace SpaceBox.GUI.Imgui
 
                             if ((int)(_startSeconds - Time.ElapsedSeconds + 11) <= 0)
                             {
-                                _window.WindowState = _originalFullscreen ? WindowState.Fullscreen : WindowState.Normal;
-                                _window.CenterWindow(_resolutions[_originalResolution]);
+                                _game.Fullscreen = _originalFullscreen;
                                 _fullscreen = _originalFullscreen;
+                                _game.Size = _resolutions[_originalResolution];
                                 _showDialog = false;
                                 _selectedResolution = _originalResolution;
                             }

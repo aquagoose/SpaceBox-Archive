@@ -2,17 +2,12 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Numerics;
-using System.Reflection;
 using Cubic.GUI;
 using Cubic.Render;
 using Cubic.Utilities;
+using Cubic.Windowing;
 using ImGuiNET;
 using OpenTK.Graphics.OpenGL4;
-using OpenTK.Mathematics;
-using OpenTK.Windowing.Common;
-using OpenTK.Windowing.Desktop;
-using OpenTK.Windowing.GraphicsLibraryFramework;
 using SpaceBox.Data;
 using SpaceBox.GUI.Imgui;
 using Spacebox.Scenes;
@@ -20,7 +15,7 @@ using PixelFormat = OpenTK.Graphics.OpenGL4.PixelFormat;
 
 namespace Spacebox
 {
-    public class SpaceboxGame : GameWindow
+    public class SpaceboxGame : BaseGame
     {
         private bool _disposed;
         
@@ -34,23 +29,16 @@ namespace Spacebox
         private Scene _transitionScene;
 
         private ImGuiRenderer _imGuiRenderer;
-        public ImFontPtr Arial;
 
-        private NativeWindowSettings _nativeWindowSettings;
-
-        public SpaceboxGame(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings,
-            SpaceboxConfig config) : base(gameWindowSettings, nativeWindowSettings)
+        public SpaceboxGame(WindowSettings settings, SpaceboxConfig config) : base(settings)
         {
             Config = config;
-            _nativeWindowSettings = nativeWindowSettings;
         }
 
-        protected override void OnLoad()
+        protected override void Initialize()
         {
-            base.OnLoad();
-            
-            Time.Start();
-            
+            base.Initialize();
+
             GL.ClearColor(Color.Black);
 
             SpriteBatch = new SpriteBatch(this);
@@ -61,32 +49,19 @@ namespace Spacebox
             ImGuiIOPtr io = ImGui.GetIO();
             ImGuiConfig.Fonts.Add("arial", io.Fonts.AddFontFromFileTTF("Content/Fonts/daggersquare.otf", 20));
             _imGuiRenderer.RecreateFontDeviceTexture();
-            
-            if (WindowState == WindowState.Fullscreen)
-                Size = _nativeWindowSettings.Size;
-            
-            // Only show the window once initialization has completed.
-            if (WindowState != WindowState.Fullscreen)
-                CenterWindow();
-            
+
             //_activeScene = new IntroScene(this);
             _activeScene = new MenuScene(this);
             //_activeScene = new MainScene(this);
             _activeScene.Initialize();
-
-            Console.WriteLine(WindowState);
             
-            IsVisible = true;
+            Resize += WindowResize;
         }
 
-        protected override void OnUpdateFrame(FrameEventArgs args)
+        protected override void Update()
         {
-            base.OnUpdateFrame(args);
-            
-            Time.Update();
+            base.Update();
 
-            Input.Update(KeyboardState, MouseState);
-            
             _imGuiRenderer.Update(Time.DeltaTime);
 
             _activeScene.Update();
@@ -95,11 +70,11 @@ namespace Spacebox
             
             if (Input.IsKeyPressed(Config.Input.TakeScreenshot))
             {
-                Bitmap bitmap = new Bitmap(ClientSize.X, ClientSize.Y);
+                Bitmap bitmap = new Bitmap(Size.Width, Size.Height);
                 BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
                     ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
                 
-                GL.ReadPixels(0, 0, ClientSize.X, ClientSize.Y, PixelFormat.Bgra, PixelType.UnsignedByte,
+                GL.ReadPixels(0, 0, Size.Width, Size.Height, PixelFormat.Bgra, PixelType.UnsignedByte,
                     data.Scan0);
                 
                 bitmap.UnlockBits(data);
@@ -131,24 +106,20 @@ namespace Spacebox
             }
         }
 
-        protected override void OnRenderFrame(FrameEventArgs args)
+        protected override void Draw()
         {
-            base.OnRenderFrame(args);
+            base.Draw();
             
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
 
             _activeScene.Draw();
 
             _imGuiRenderer.Render();
-
-            SwapBuffers();
         }
 
-        protected override void OnResize(ResizeEventArgs e)
+        private void WindowResize(Size size)
         {
-            base.OnResize(e);
-            
-            GL.Viewport(0, 0, e.Width, e.Height);
+            GL.Viewport(0, 0, size.Width, size.Height);
 
             Size winSize = new Size(UiManager.SpriteBatch.Width, UiManager.SpriteBatch.Height);
             float refSize = winSize.Width > winSize.Height ? winSize.Height : winSize.Width;
@@ -156,28 +127,22 @@ namespace Spacebox
             _imGuiRenderer.ScaleFactor = new System.Numerics.Vector2(refSize / (winSize.Width > winSize.Height
                 ? UiManager.ReferenceResolution.Height
                 : UiManager.ReferenceResolution.Width));
+            
+            Console.WriteLine(size);
 
             //Console.WriteLine("Resize");
             //OnRenderFrame(new FrameEventArgs(Time.DeltaTime));
         }
 
-        protected override void Dispose(bool disposing)
+        protected override void Unload()
         {
-            base.Dispose(disposing);
-
-            if (_disposed)
-                return;
+            base.Unload();
             
-            if (disposing)
-            {
-                _activeScene.Dispose();
-                UiManager.Clear();
-                SpriteBatch.Dispose();
-                _imGuiRenderer.Dispose();
-                DisposeManager.DisposeAll();
-            }
-
-            _disposed = true;
+            _activeScene.Dispose();
+            UiManager.Clear();
+            SpriteBatch.Dispose();
+            _imGuiRenderer.Dispose();
+            DisposeManager.DisposeAll();
         }
 
         public void SetScene(Scene scene)

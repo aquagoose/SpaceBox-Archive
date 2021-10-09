@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using Cubic.Windowing;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
@@ -42,7 +43,7 @@ namespace Cubic.Render
 
         private bool _begun;
         
-        public SpriteBatch(NativeWindow window)
+        public SpriteBatch(BaseGame game)
         {
             _vao = GL.GenVertexArray();
             GL.BindVertexArray(_vao);
@@ -58,7 +59,7 @@ namespace Cubic.Render
             _spriteShader = new Shader("Content/Shaders/2D/SpriteBatch.vert", "Content/Shaders/2D/SpriteBatch.frag", autoDispose: false);
             _spriteShader.Use();
             _spriteShader.SetUniform("uProjection",
-                Matrix4.CreateOrthographicOffCenter(0, window.ClientSize.X, window.ClientSize.Y, 0, -1, 1));
+                Matrix4.CreateOrthographicOffCenter(0, game.Size.Width, game.Size.Height, 0, -1, 1));
             _spriteShader.SetUniform("uTransform", Matrix4.Identity);
 
             int vertexLocation = _spriteShader.GetAttribLocation("aPosition");
@@ -76,18 +77,18 @@ namespace Cubic.Render
             //GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
             //GL.BindBuffer(BufferTarget.ElementArrayBuffer, 0);
 
-            window.Resize += WindowOnResize;
-            Width = window.ClientSize.X;
-            Height = window.ClientSize.Y;
+            game.Resize += WindowOnResize;
+            Width = game.Size.Width;
+            Height = game.Size.Height;
         }
 
-        private void WindowOnResize(ResizeEventArgs e)
+        private void WindowOnResize(Size size)
         {
             _activeShader.Use();
             _activeShader.SetUniform("uProjection",
-                Matrix4.CreateOrthographicOffCenter(0, e.Width, e.Height, 0, -1, 1));
-            Width = e.Width;
-            Height = e.Height;
+                Matrix4.CreateOrthographicOffCenter(0, size.Width, size.Height, 0, -1, 1));
+            Width = size.Width;
+            Height = size.Height;
             Resized?.Invoke();
         }
 

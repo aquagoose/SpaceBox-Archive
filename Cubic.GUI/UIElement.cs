@@ -2,6 +2,7 @@
 using System.Drawing;
 using Cubic.Render;
 using Cubic.Utilities;
+using Cubic.Windowing;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 
