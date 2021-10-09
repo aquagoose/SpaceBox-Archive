@@ -83,6 +83,8 @@ namespace Spacebox.Scenes
         private string _worldName;
         private SaveGame _save;
 
+        private bool _hideUi;
+
         public MainScene(SpaceboxGame game, string worldName = "", SaveGame save = null) : base(game)
         {
             _worldName = worldName;
@@ -191,7 +193,7 @@ namespace Spacebox.Scenes
                 }
             }
             
-            Input.RegisterAction("jPressed", new InputAction(new []{ Keys.J, Keys.D7 }));
+            //Input.RegisterAction("jPressed", new InputAction(new []{ Keys.J, Keys.D7 }));
         }
 
         public override void Update()
@@ -231,7 +233,10 @@ namespace Spacebox.Scenes
             _camera.Rotation *= Quaternion.Normalize(Quaternion.FromAxisAngle(Vector3.UnitX, Input.MouseDelta.Y * mouseRot));
             _camera.Rotation *= Quaternion.Normalize(Quaternion.FromAxisAngle(Vector3.UnitY, -Input.MouseDelta.X * mouseRot));
 
-            _camera.PlaceCubeDistance += (int) Input.ScrollDelta.Y;
+            if (Input.IsKeyDown(Keys.LeftControl))
+                _camSpeed += (int) Input.ScrollDelta.Y;
+            else
+                _camera.PlaceCubeDistance += (int) Input.ScrollDelta.Y;
 
             if (Input.IsKeyDown(Keys.PageDown))
                 _camera.PlaceCube.Rotation *= Quaternion.FromAxisAngle(Vector3.UnitY, 1 * Time.DeltaTime);
@@ -248,8 +253,11 @@ namespace Spacebox.Scenes
                 Game.SetScene(new MenuScene(Game));
             }
             
-            if (Input.IsActionHeld("jPressed"))
-                Console.WriteLine("J is pressed!");
+            //if (Input.IsActionHeld("jPressed"))
+            //    Console.WriteLine("J is pressed!");
+
+            if (Input.IsKeyPressed(Keys.Tab))
+                _hideUi = !_hideUi;
 
             _camera.Update();
             
@@ -291,6 +299,9 @@ namespace Spacebox.Scenes
                 }
             }
             
+            if (_hideUi)
+                return;
+
             _shader.SetUniform("uOpacity", 0.75f);
             _shader.SetUniform("uModel",
                 Matrix4.CreateFromQuaternion(_camera.PlaceCube.Rotation) *

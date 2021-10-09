@@ -72,7 +72,7 @@ namespace Spacebox
             {
                 Bitmap bitmap = new Bitmap(Size.Width, Size.Height);
                 BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
-                    ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+                    ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
                 
                 GL.ReadPixels(0, 0, Size.Width, Size.Height, PixelFormat.Bgra, PixelType.UnsignedByte,
                     data.Scan0);
