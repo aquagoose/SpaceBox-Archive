@@ -112,3 +112,7 @@ C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Cubic.Data.dll
 C:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Cubic.Data.pdb
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Cubic.Windowing.dll
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Cubic.Windowing.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Shaders\DepthMap.frag
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Shaders\DepthMap.vert
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Shaders\ModelBK.frag
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox\bin\Debug\net5.0\Content\Shaders\ModelBK.vert

@@ -55,6 +55,8 @@ namespace SpaceBox.Sandbox.Utilities
         {
             PlaceCube.Position = Position + Forward * PlaceCubeDistance;
 
+            Console.WriteLine(Position);
+            
             if (Physics.Raycast(Position, Forward, PlaceCubeDistance, out RaycastHit hit))
             {
                 // TODO: Use quadtree for efficiency
