@@ -13,50 +13,24 @@ namespace SpaceBox.Sandbox.Utilities
     /// <summary>
     /// A player camera deals with block placement, etc.
     /// </summary>
-    public class PlayerCamera
+    public class PlayerCamera : Camera
     {
-        public Player Player { get; }
-
         // The actual camera used to get the view & projection matrices.
-        public Camera CameraBase { get; }
-        
+
         public PlaceCube PlaceCube { get; }
-
-        public Vector3 Forward => CameraBase.Forward;
-        public Vector3 Backward => -CameraBase.Forward;
-        public Vector3 Right => CameraBase.Right;
-        public Vector3 Left => -CameraBase.Right;
-        public Vector3 Up => CameraBase.Up;
-        public Vector3 Down => -CameraBase.Up;
-
-        public Vector3 Position
-        {
-            get => CameraBase.Position;
-            set => CameraBase.Position = value;
-        }
-        
-        public Quaternion Rotation
-        {
-            get => CameraBase.Rotation;
-            set => CameraBase.Rotation = value;
-        }
 
         public int PlaceCubeDistance { get; set; } = 6;
 
-        public PlayerCamera(Vector3 position, Quaternion rotation, float aspectRatio, float fov, float near, float far)
+        public PlayerCamera(Vector3 position, Quaternion rotation, float aspectRatio, float fov, float near, float far) 
+            : base(position, rotation, aspectRatio, fov, near, far)
         {
-            CameraBase = new Camera(position, rotation, aspectRatio, fov, near, far);
-            Position = position;
-            Rotation = rotation;
             PlaceCube = new PlaceCube();
         }
 
-        public void Update()
+        public void Update(Player player = null)
         {
             PlaceCube.Position = Position + Forward * PlaceCubeDistance;
 
-            Console.WriteLine(Position);
-            
             if (Physics.Raycast(Position, Forward, PlaceCubeDistance, out RaycastHit hit))
             {
                 // TODO: Use quadtree for efficiency

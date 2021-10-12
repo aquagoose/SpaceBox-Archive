@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBox.Platforms.Windows", "SpaceBox.Platforms.Windows\SpaceBox.Platforms.Windows.csproj", "{4B5B1791-E1A9-43C3-8517-EDD0B2CC8D2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBox", "SpaceBox\SpaceBox.csproj", "{4E1752FA-1053-40C7-A61D-EDC013999621}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBox.Game", "SpaceBox.Game\SpaceBox.Game.csproj", "{4E1752FA-1053-40C7-A61D-EDC013999621}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cubic.Render", "Cubic.Render\Cubic.Render.csproj", "{1F0F330E-DED6-499B-9745-D5987B47F9AC}"
 EndProject

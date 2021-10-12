@@ -14,6 +14,8 @@ namespace Cubic.Render
     public class Texture2D : IDisposable
     {
         private int _handle;
+
+        private bool _disposed;
         
         /// <summary>
         /// The public OpenGL handle for this texture.
@@ -175,9 +177,11 @@ namespace Cubic.Render
         /// </summary>
         public void Dispose()
         {
+            if (_disposed) return;
             GL.DeleteTexture(_handle);
             Console.WriteLine($"Texture '{_handle}' disposed.");
             GC.SuppressFinalize(this);
+            _disposed = true;
         }
     }
 

@@ -17,6 +17,9 @@ namespace Cubic.Utilities
         public Vector3 Forward => _forward;
         public Vector3 Right => _right;
         public Vector3 Up => _up;
+        public Vector3 Back => -_forward;
+        public Vector3 Left => -_right;
+        public Vector3 Down => -_up;
 
         public Vector3 Position;
         
@@ -34,7 +37,7 @@ namespace Cubic.Utilities
 
         public Matrix4 ProjectionMatrix { get; private set; }
 
-        public Matrix4 ViewMatrix => Matrix4.LookAt(Position, Position + Forward, Up);
+        public Matrix4 ViewMatrix => Matrix4.LookAt(Position, Position + _forward, Up);
 
         public float AspectRatio
         {

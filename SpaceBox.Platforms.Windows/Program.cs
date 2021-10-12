@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Drawing;
+using Cubic.Forms;
 using Cubic.Windowing;
+using Eto.Forms;
 using OpenTK.Windowing.Common.Input;
 using SpaceBox.Data;
+using Spacebox.Game;
 using Image = OpenTK.Windowing.Common.Input.Image;
 
 namespace Spacebox.Platforms.Windows
@@ -45,15 +48,15 @@ namespace Spacebox.Platforms.Windows
             
             icon.Dispose();
 
-            //try
-            //{
+            try
+            {
                 using (SpaceboxGame game = new SpaceboxGame(windowSettings, config))
                     game.Run();
-            //}
-            //catch (Exception e)
-            //{
-            //    new Application(Eto.Platforms.WinForms).Run(new CrashForm(e));
-            //}
+            }
+            catch (Exception e)
+            {
+                new Application(Eto.Platforms.WinForms).Run(new CrashForm(e));
+            }
         }
     }
 }

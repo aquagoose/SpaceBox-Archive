@@ -262,6 +262,253 @@
           "bin/placeholder/SpaceBox.Sandbox.dll": {}
         }
       }
+    },
+    "net5.0/win-x86": {
+      "BepuPhysics/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "BepuUtilities": "2.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/BepuPhysics.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BepuPhysics.dll": {}
+        }
+      },
+      "BepuUtilities/2.3.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/BepuUtilities.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BepuUtilities.dll": {}
+        }
+      },
+      "OpenTK/4.6.7": {
+        "type": "package",
+        "dependencies": {
+          "OpenTK.Compute": "4.6.7",
+          "OpenTK.Core": "4.6.7",
+          "OpenTK.Graphics": "4.6.7",
+          "OpenTK.Input": "4.6.7",
+          "OpenTK.Mathematics": "4.6.7",
+          "OpenTK.OpenAL": "4.6.7",
+          "OpenTK.Windowing.Common": "4.6.7",
+          "OpenTK.Windowing.Desktop": "4.6.7",
+          "OpenTK.Windowing.GraphicsLibraryFramework": "4.6.7"
+        }
+      },
+      "OpenTK.Compute/4.6.7": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/OpenTK.Compute.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OpenTK.Compute.dll": {}
+        }
+      },
+      "OpenTK.Core/4.6.7": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/OpenTK.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/OpenTK.Core.dll": {}
+        }
+      },
+      "OpenTK.Graphics/4.6.7": {
+        "type": "package",
+        "dependencies": {
+          "OpenTK.Core": "[4.6.7, 4.7.0)",
+          "OpenTK.Mathematics": "[4.6.7, 4.7.0)"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/OpenTK.Graphics.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OpenTK.Graphics.dll": {}
+        }
+      },
+      "OpenTK.Input/4.6.7": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/OpenTK.Input.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/OpenTK.Input.dll": {}
+        }
+      },
+      "OpenTK.Mathematics/4.6.7": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "[5.0.0, 5.1.0)"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/OpenTK.Mathematics.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OpenTK.Mathematics.dll": {}
+        }
+      },
+      "OpenTK.OpenAL/4.6.7": {
+        "type": "package",
+        "dependencies": {
+          "OpenTK.Core": "[4.6.7, 4.7.0)",
+          "OpenTK.Mathematics": "[4.6.7, 4.7.0)"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/OpenTK.OpenAL.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OpenTK.OpenAL.dll": {}
+        }
+      },
+      "OpenTK.redist.glfw/3.3.0-pre20200830200122": {
+        "type": "package",
+        "native": {
+          "runtimes/win-x86/native/glfw3.dll": {}
+        }
+      },
+      "OpenTK.Windowing.Common/4.6.7": {
+        "type": "package",
+        "dependencies": {
+          "OpenTK.Core": "[4.6.7, 4.7.0)",
+          "OpenTK.Mathematics": "[4.6.7, 4.7.0)"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/OpenTK.Windowing.Common.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OpenTK.Windowing.Common.dll": {}
+        }
+      },
+      "OpenTK.Windowing.Desktop/4.6.7": {
+        "type": "package",
+        "dependencies": {
+          "OpenTK.Core": "[4.6.7, 4.7.0)",
+          "OpenTK.Mathematics": "[4.6.7, 4.7.0)",
+          "OpenTK.Windowing.Common": "[4.6.7, 4.7.0)",
+          "OpenTK.Windowing.GraphicsLibraryFramework": "[4.6.7, 4.7.0)"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/OpenTK.Windowing.Desktop.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OpenTK.Windowing.Desktop.dll": {}
+        }
+      },
+      "OpenTK.Windowing.GraphicsLibraryFramework/4.6.7": {
+        "type": "package",
+        "dependencies": {
+          "OpenTK.Core": "[4.6.7, 4.7.0)",
+          "OpenTK.redist.glfw": "[3.3.0-pre20200830200122, 3.4.0-pre)"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/OpenTK.Windowing.GraphicsLibraryFramework.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/OpenTK.Windowing.GraphicsLibraryFramework.dll": {}
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
+        }
+      },
+      "System.Numerics.Vectors/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/5.0.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
+      },
+      "Cubic.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Cubic.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cubic.Data.dll": {}
+        }
+      },
+      "Cubic.Physics/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "BepuPhysics": "2.3.0",
+          "OpenTK": "4.6.7"
+        },
+        "compile": {
+          "bin/placeholder/Cubic.Physics.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cubic.Physics.dll": {}
+        }
+      },
+      "Cubic.Utilities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "OpenTK": "4.6.7"
+        },
+        "compile": {
+          "bin/placeholder/Cubic.Utilities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cubic.Utilities.dll": {}
+        }
+      },
+      "Cubic.Windowing/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "OpenTK": "4.6.7"
+        },
+        "compile": {
+          "bin/placeholder/Cubic.Windowing.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cubic.Windowing.dll": {}
+        }
+      },
+      "SpaceBox.Sandbox/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Cubic.Physics": "1.0.0",
+          "Cubic.Utilities": "1.0.0",
+          "Cubic.Windowing": "1.0.0",
+          "OpenTK": "4.6.7"
+        },
+        "compile": {
+          "bin/placeholder/SpaceBox.Sandbox.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SpaceBox.Sandbox.dll": {}
+        }
+      }
     }
   },
   "libraries": {
@@ -589,7 +836,7 @@
   },
   "packageFolders": {
     "C:\\Users\\ollie\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet": {}
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -601,7 +848,7 @@
       "outputPath": "D:\\Users\\ollie\\Documents\\C#\\SpaceBox\\SpaceBox.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
         "C:\\Users\\ollie\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -653,12 +900,31 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
+            "version": "[5.0.4, 5.0.4]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Runtime.win-x86",
+            "version": "[5.0.4, 5.0.4]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
+            "version": "[5.0.4, 5.0.4]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+      }
+    },
+    "runtimes": {
+      "win-x86": {
+        "#import": []
       }
     }
   }

@@ -22,3 +22,14 @@ D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Release\net5.0\SpaceBox.D
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Release\net5.0\SpaceBox.Data.dll
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Release\net5.0\ref\SpaceBox.Data.dll
 D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Release\net5.0\SpaceBox.Data.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Release\net5.0\Cubic.Data.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Release\net5.0\Cubic.Physics.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Release\net5.0\Cubic.Utilities.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Release\net5.0\Cubic.Windowing.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Release\net5.0\SpaceBox.Sandbox.dll
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Release\net5.0\Cubic.Data.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Release\net5.0\SpaceBox.Sandbox.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Release\net5.0\Cubic.Physics.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Release\net5.0\Cubic.Utilities.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\bin\Release\net5.0\Cubic.Windowing.pdb
+D:\Users\ollie\Documents\C#\SpaceBox\SpaceBox.Data\obj\Release\net5.0\SpaceBox.Data.csproj.CopyComplete

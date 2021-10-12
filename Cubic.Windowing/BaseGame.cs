@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Reflection;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Windowing.Common.Input;
 using OpenTK.Windowing.GraphicsLibraryFramework;
@@ -18,6 +19,12 @@ namespace Cubic.Windowing
 
         private double _secondsPerFrame;
         private uint _targetFps;
+        
+        private readonly GLFWCallbacks.MouseButtonCallback _mouseButtonCallback;
+        private readonly GLFWCallbacks.KeyCallback _keyCallback;
+        private readonly GLFWCallbacks.ScrollCallback _scrollCallback;
+        private readonly GLFWCallbacks.CharCallback _charCallback;
+        private readonly GLFWCallbacks.WindowSizeCallback _windowSizeCallback;
         
         #endregion
 
@@ -61,16 +68,18 @@ namespace Cubic.Windowing
                 {
                     Monitor* primary = GLFW.GetPrimaryMonitor();
                     Size size = Size;
-                    //VideoMode* mode = GLFW.GetVideoMode(primary);
                     GLFW.SetWindowMonitor(_window, primary, 0, 0, size.Width, size.Height, GLFW.DontCare);
                 }
                 else
                 {
-                    VideoMode* mode = GLFW.GetVideoMode(GLFW.GetPrimaryMonitor());
                     // Get our size only once so we aren't calling the get method 4 times.
                     Size size = Size;
-                    GLFW.SetWindowMonitor(_window, null, (int) (mode->Width / 2f - size.Width / 2f),
-                        (int) (mode->Height / 2f - size.Height / 2f), size.Width, size.Height, GLFW.DontCare);
+                    GLFW.SetWindowMonitor(_window, null, 0, 0, size.Width, size.Height, GLFW.DontCare);
+                    VideoMode* mode = GLFW.GetVideoMode(GLFW.GetPrimaryMonitor());
+                    // Set our window position separately so we can return the monitor to its original video mode before
+                    // relocating the window, to ensure it is centered on the screen.
+                    GLFW.SetWindowPos(_window, (int) (mode->Width / 2f - size.Width / 2f),
+                        (int) (mode->Height / 2f - size.Height / 2f));
                 }
             }
         }
@@ -90,6 +99,11 @@ namespace Cubic.Windowing
         public BaseGame(WindowSettings settings)
         {
             _settings = settings;
+            _keyCallback = Input.KeyCallback;
+            _mouseButtonCallback = Input.MouseCallback;
+            _scrollCallback = Input.ScrollCallback;
+            _charCallback = CharCallback;
+            _windowSizeCallback = ResizeCallback;
         }
         
         #region Public methods
@@ -123,11 +137,11 @@ namespace Cubic.Windowing
                 throw new Exception("Window was not created.");
             }
 
-            GLFW.SetWindowSizeCallback(_window, ResizeCallback);
-            GLFW.SetKeyCallback(_window, Input.KeyCallback);
-            GLFW.SetCharCallback(_window, CharCallback);
-            GLFW.SetMouseButtonCallback(_window, Input.MouseCallback);
-            GLFW.SetScrollCallback(_window, Input.ScrollCallback);
+            GLFW.SetWindowSizeCallback(_window, _windowSizeCallback);
+            GLFW.SetKeyCallback(_window, _keyCallback);
+            GLFW.SetCharCallback(_window, _charCallback);
+            GLFW.SetMouseButtonCallback(_window, _mouseButtonCallback);
+            GLFW.SetScrollCallback(_window, _scrollCallback);
 
             VideoMode* mode = GLFW.GetVideoMode(GLFW.GetPrimaryMonitor());
             GLFW.SetWindowPos(_window, (int) (mode->Width / 2f - _settings.Size.Width / 2f),

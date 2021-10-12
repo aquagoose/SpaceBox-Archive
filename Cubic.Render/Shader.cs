@@ -16,6 +16,8 @@ namespace Cubic.Render
         private int _program;
         private Dictionary<string, int> _uniformLocations;
 
+        private bool _disposed;
+
         #region Constructors
         
         /// <summary>
@@ -198,9 +200,11 @@ namespace Cubic.Render
 
         public void Dispose()
         {
+            if (_disposed) return;
             GL.DeleteProgram(_program);
             Console.WriteLine($"Shader '{_program}' disposed.");
             GC.SuppressFinalize(this);
+            _disposed = true;
         }
     }
 

@@ -53,7 +53,7 @@ namespace SpaceBox.Sandbox.Grids
             {
                 foreach (Block block in Blocks)
                 {
-                    Console.WriteLine(block.Coord.ToSystemNumericsVector3() * 2);
+                    //Console.WriteLine(block.Coord.ToSystemNumericsVector3() * 2);
                     builder.Add(new Box(2, 2, 2), new RigidPose(block.Coord.ToSystemNumericsVector3() * 2), 0.1f);
                 }
 

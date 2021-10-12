@@ -3,7 +3,7 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net5.0-windows</TargetFramework>
-        <AssemblyName>SpaceBox.Platforms.Windows</AssemblyName>
+        <AssemblyName>SpaceBox</AssemblyName>
         <RootNamespace>Spacebox.Platforms.Windows</RootNamespace>
         <ApplicationIcon>Icon.ico</ApplicationIcon>
     </PropertyGroup>
@@ -16,7 +16,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Cubic.Forms\Cubic.Forms.csproj" />
       <ProjectReference Include="..\SpaceBox.Data\SpaceBox.Data.csproj" />
-      <ProjectReference Include="..\SpaceBox\SpaceBox.csproj" />
+      <ProjectReference Include="..\SpaceBox.Game\SpaceBox.Game.csproj" />
     </ItemGroup>
 
 </Project>
