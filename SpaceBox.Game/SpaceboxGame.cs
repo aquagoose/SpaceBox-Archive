@@ -56,7 +56,11 @@ namespace Spacebox.Game
             _imGuiRenderer.RecreateFontDeviceTexture();
 
             //_activeScene = new IntroScene(this);
+#if DEBUG
+            SceneManager.Initialize(this, new MenuScene(), SpriteBatch, UiManager);
+#else
             SceneManager.Initialize(this, new IntroScene(), SpriteBatch, UiManager);
+#endif
             //_activeScene = new MenuScene(this);
             //_activeScene = new MainScene(this);
             //_activeScene.Initialize();
@@ -112,7 +116,10 @@ namespace Spacebox.Game
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
 
             SceneManager.Draw(this);
-            
+
+#if !DEBUG
+            // Using ImGui here because I don't want to add 300 draw calls to the game which already suffers from enough
+            // of them.
             ImGui.PushFont(ImGuiConfig.Fonts["large"]);
             ImGui.PushStyleColor(ImGuiCol.WindowBg, ImGui.GetColorU32(new Vector4(0, 0, 0, 0.5f)));
             if (ImGui.Begin("E",
@@ -125,6 +132,8 @@ namespace Spacebox.Game
             }
             ImGui.PopFont();
             ImGui.PopStyleColor();
+
+#endif
 
             _imGuiRenderer.Render();
         }
