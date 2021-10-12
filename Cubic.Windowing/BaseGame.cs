@@ -19,6 +19,8 @@ namespace Cubic.Windowing
 
         private double _secondsPerFrame;
         private uint _targetFps;
+
+        private bool _vsync;
         
         private readonly GLFWCallbacks.MouseButtonCallback _mouseButtonCallback;
         private readonly GLFWCallbacks.KeyCallback _keyCallback;
@@ -94,6 +96,16 @@ namespace Cubic.Windowing
             }
         }
 
+        public bool VSync
+        {
+            get => _vsync;
+            set
+            {
+                _vsync = value;
+                GLFW.SwapInterval(value ? 1 : 0);
+            }
+        }
+
         #endregion
 
         public BaseGame(WindowSettings settings)
@@ -108,17 +120,11 @@ namespace Cubic.Windowing
         
         #region Public methods
 
-        public void Run(uint targetFps = default)
+        public void Run()
         {
             if (!GLFW.Init())
                 throw new Exception("GLFW could not initialize.");
 
-            if (targetFps != default)
-            {
-                TargetFps = targetFps;
-                LockFps = true;
-            }
-            
             GLFW.WindowHint(WindowHintBool.Visible, false);
             GLFW.WindowHint(WindowHintBool.Resizable, false);
             GLFW.WindowHint(WindowHintInt.Samples, (int) _settings.SampleCount);
@@ -147,6 +153,9 @@ namespace Cubic.Windowing
             GLFW.SetWindowPos(_window, (int) (mode->Width / 2f - _settings.Size.Width / 2f),
                 (int) (mode->Height / 2f - _settings.Size.Height / 2f));
 
+            LockFps = _settings.LockFps;
+            TargetFps = _settings.TargetFps == default ? (uint) mode->RefreshRate : _settings.TargetFps;
+
             List<Image> images = new List<Image>();
 
             foreach (OpenTK.Windowing.Common.Input.Image image in _settings.Icon.Images)
@@ -161,6 +170,8 @@ namespace Cubic.Windowing
             
             GLFW.MakeContextCurrent(_window);
             GL.LoadBindings(new GLFWBindingsContext());
+            
+            VSync = _settings.VSync;
             
             Input.Update(_window);
             Time.Start();
@@ -184,6 +195,8 @@ namespace Cubic.Windowing
 
                 Update();
                 Draw();
+                
+                Console.WriteLine(Time.Fps);
 
                 GLFW.SwapBuffers(_window);
             }

@@ -37,5 +37,21 @@ namespace Cubic.Windowing
         /// The icon that will be used for this window.
         /// </summary>
         public WindowIcon Icon { get; set; } = default;
+
+        /// <summary>
+        /// If true (default), the game will attempt to lock the FPS to whatever the <see cref="TargetFps"/> is set to.
+        /// </summary>
+        public bool LockFps { get; set; } = true;
+        
+        /// <summary>
+        /// The target FPS the game window should run at. This defaults to the monitor refresh rate if no value is provided.
+        /// </summary>
+        /// <remarks>This value is only used if <see cref="LockFps"/> is true.</remarks>
+        public uint TargetFps { get; set; } = default;
+
+        /// <summary>
+        /// Whether the graphics device should wait for vertical sync. By default, this is true.
+        /// </summary>
+        public bool VSync { get; set; } = true;
     }
 }

@@ -43,7 +43,7 @@ namespace Spacebox.Platforms.Windows
                 Title = "SpaceBox",
                 StartFullscreen = config.Display.Fullscreen,
                 SampleCount = 32,
-                Icon = new WindowIcon(new Image(icon.Width, icon.Height, image))
+                Icon = new WindowIcon(new Image(icon.Width, icon.Height, image)),
             };
             
             icon.Dispose();
