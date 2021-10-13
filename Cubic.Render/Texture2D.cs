@@ -28,6 +28,8 @@ namespace Cubic.Render
         public int Width => Size.Width;
         public int Height => Size.Height;
         
+        internal BitmapData BitmapData { get; }
+        
         public Size Size { get; }
 
         /// <summary>
@@ -49,15 +51,49 @@ namespace Cubic.Render
             {
                 bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
 
-                BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                BitmapData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
                     ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
 
                 GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, bitmap.Width, bitmap.Height, 0,
-                    OpenTK.Graphics.OpenGL4.PixelFormat.Bgra, PixelType.UnsignedByte, data.Scan0);
+                    OpenTK.Graphics.OpenGL4.PixelFormat.Bgra, PixelType.UnsignedByte, BitmapData.Scan0);
 
                 Size = bitmap.Size;
             }
             
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS,
+                (int) (wrap == TextureWrap.Repeat ? TextureWrapMode.Repeat : TextureWrapMode.ClampToEdge));
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT,
+                (int) (wrap == TextureWrap.Repeat ? TextureWrapMode.Repeat : TextureWrapMode.ClampToEdge));
+
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter,
+                (int) (filter == TextureFilter.Linear ? TextureMinFilter.Linear : TextureMinFilter.Nearest));
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter,
+                (int) (filter == TextureFilter.Linear ? TextureMagFilter.Linear : TextureMagFilter.Nearest));
+            
+            if (mipmap)
+                GL.GenerateMipmap(GenerateMipmapTarget.Texture2D);
+            
+            if (autoDispose) 
+                DisposeManager.Add(this);
+        }
+        
+        public Texture2D(Bitmap bitmap, TextureWrap wrap = TextureWrap.Repeat,
+            TextureFilter filter = TextureFilter.Linear, bool mipmap = true, bool autoDispose = true)
+        {
+            _handle = GL.GenTexture();
+            GL.ActiveTexture(TextureUnit.Texture0);
+            GL.BindTexture(TextureTarget.Texture2D, _handle);
+            
+            bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
+
+            BitmapData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+
+            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, bitmap.Width, bitmap.Height, 0,
+                OpenTK.Graphics.OpenGL4.PixelFormat.Bgra, PixelType.UnsignedByte, BitmapData.Scan0);
+
+            Size = bitmap.Size;
+
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS,
                 (int) (wrap == TextureWrap.Repeat ? TextureWrapMode.Repeat : TextureWrapMode.ClampToEdge));
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT,
@@ -175,7 +211,7 @@ namespace Cubic.Render
             GL.BindTexture(TextureTarget.Texture2D, _handle);
         }
         
-        internal static Bitmap[] LoadCTF(string path)
+        public static Bitmap[] LoadCTF(string path)
         {
             List<Bitmap> bitmaps = new List<Bitmap>();
 
@@ -191,6 +227,9 @@ namespace Cubic.Render
                     ushort mipLevels = reader.ReadUInt16();
                     bool compressed = reader.ReadBoolean();
                     bool locked = reader.ReadBoolean();
+
+                    if (!locked)
+                        throw new Exception($"Unsupported texture file at {path}.");
 
                     reader.ReadUInt16();
                     uint mipWidth = reader.ReadUInt32();

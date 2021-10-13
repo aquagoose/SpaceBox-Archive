@@ -195,8 +195,6 @@ namespace Cubic.Windowing
 
                 Update();
                 Draw();
-                
-                Console.WriteLine(Time.Fps);
 
                 GLFW.SwapBuffers(_window);
             }

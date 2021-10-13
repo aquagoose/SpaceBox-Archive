@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using Cubic.Forms;
+using Cubic.Render;
 using Cubic.Windowing;
 using Eto.Forms;
 using OpenTK.Windowing.Common.Input;
@@ -15,7 +16,8 @@ namespace Spacebox.Platforms.Windows
         [STAThread]
         static void Main(string[] args)
         {
-            Bitmap icon = new Bitmap("Content/Textures/Images/Icon.bmp");
+            //Bitmap icon = new Bitmap("Content/Textures/Images/Icon.bmp");
+            Bitmap icon = Texture2D.LoadCTF("Content/Textures/Images/Icon.ctf")[0];
             byte[] image = new byte[icon.Width * icon.Height * 4];
             for (int x = 0; x < icon.Width; x++)
             {

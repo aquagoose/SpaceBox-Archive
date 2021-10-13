@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using Cubic.Data;
 using Cubic.GUI;
 using Cubic.Render;
 using Cubic.Windowing;
@@ -39,7 +40,7 @@ namespace Spacebox.Game.Scenes
 
             _font = new Font("Content/Fonts/inversionz.ttf", SpriteBatch);
 
-            Texture2D _bg = new Texture2D("Content/Textures/Images/Menu/spacebox-blurred.ctf");
+            Texture2D _bg = Content.LoadedTextures["spacebox-blurred"];
             UiManager.Add("bg",
                 new Cubic.GUI.Image(UiManager, _bg,
                     new Position(DockType.Center, -new Vector2(_bg.Width, _bg.Height) / 2 + new Vector2(300, 50)), Vector2.One, Color.White));

@@ -62,23 +62,15 @@ namespace Cubic.Render
         private int _ebo;
         private Shader _shader;
         
-        public Skybox(string[] textures)
+        public Skybox(Texture2D[] textures)
         {
             _texture = GL.GenTexture();
             GL.BindTexture(TextureTarget.TextureCubeMap, _texture);
 
             for (int i = 0; i < textures.Length; i++)
             {
-                using (Bitmap bitmap = Path.GetExtension(textures[i]) == ".ctf"
-                    ? Texture2D.LoadCTF(textures[i])[0]
-                    : new Bitmap(textures[i]))
-                {
-                    BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
-                        ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
-
-                    GL.TexImage2D(TextureTarget.TextureCubeMapPositiveX + i, 0, PixelInternalFormat.Rgba, bitmap.Width,
-                        bitmap.Height, 0, OpenTK.Graphics.OpenGL4.PixelFormat.Bgra, PixelType.UnsignedByte, data.Scan0);
-                }
+                GL.TexImage2D(TextureTarget.TextureCubeMapPositiveX + i, 0, PixelInternalFormat.Rgba, textures[i].Width,
+                        textures[i].Height, 0, OpenTK.Graphics.OpenGL4.PixelFormat.Bgra, PixelType.UnsignedByte, data.Scan0);
             }
 
             GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureMinFilter,

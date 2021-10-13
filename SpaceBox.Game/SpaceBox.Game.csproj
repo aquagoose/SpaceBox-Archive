@@ -33,9 +33,6 @@
       <None Update="Content\Textures\Images\ismlogo.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Content\Textures\Images\Icon.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
       <None Update="Content\Fonts\arial.ttf">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
@@ -157,6 +154,9 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
       <None Update="Content\Textures\crosshair.ctf">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Content\Textures\Images\icon.ctf">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>

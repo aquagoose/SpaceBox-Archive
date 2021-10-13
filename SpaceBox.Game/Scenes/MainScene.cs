@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using Cubic.Data;
 using Cubic.Physics;
 using Cubic.Render;
 using Cubic.Utilities;
@@ -187,8 +188,8 @@ namespace Spacebox.Game.Scenes
             GL.VertexAttribPointer(normalsLocation, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float),
                 3 * sizeof(float));
 
-            _texture = new Texture2D("Content/Textures/Blocks/stainless-steel.ctf");
-            _crosshair = new Texture2D("Content/Textures/crosshair.ctf");
+            _texture = Content.LoadedTextures["stainless-steel"];
+            _crosshair = Content.LoadedTextures["crosshair"];
 
             GL.BindVertexArray(0);
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);

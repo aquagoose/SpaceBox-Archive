@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using Cubic.Data;
 using Cubic.GUI;
 using Cubic.Render;
 using Cubic.Utilities;
@@ -29,6 +34,10 @@ namespace Spacebox.Game.Scenes
         private float _endTime = -1;
 
         private bool _hasLoaded;
+        private bool _hasGotFiles;
+        private bool _filesLoaded;
+
+        private Dictionary<string, Bitmap[]> _loaded;
 
         public override void Initialize(SpaceboxGame game)
         {
@@ -52,6 +61,8 @@ namespace Spacebox.Game.Scenes
 
             _startTime = Time.ElapsedSeconds;
             _alpha = 0;
+
+            _loaded = new Dictionary<string, Bitmap[]>();
         }
 
         public override void Update(SpaceboxGame game)
@@ -78,10 +89,27 @@ namespace Spacebox.Game.Scenes
                 {
                     _rotAlpha = 1;
                     UiManager.GetElement<Label>("loading").Visible = true;
+
+                    if (!_hasGotFiles)
+                    {
+                        Console.WriteLine("Loading!");
+                        _hasGotFiles = true;
+                        
+                        LoadTextures();
+                    }
+
                     if (_endTime < 0)
                         _endTime = Time.ElapsedSeconds;
-                    if (Input.IsKeyDown(Keys.Space) || Time.ElapsedSeconds - _endTime >= 5)
+                    if (_filesLoaded)
                     {
+                        Console.WriteLine("Finalising...");
+                        foreach (KeyValuePair<string, Bitmap[]> bp in _loaded)
+                        {
+                            Console.WriteLine($"Setting {bp.Key}...");
+                            Content.LoadedTextures.Add(bp.Key, new Texture2D(bp.Value[0]));
+                        }
+                    
+                        Console.WriteLine("Loading done!");
                         _hasLoaded = true;
                         _rotAlpha = 0;
                         UiManager.GetElement<Label>("loading").Visible = false;
@@ -133,6 +161,21 @@ namespace Spacebox.Game.Scenes
             
             _ismLogo.Dispose();
             _spaceboxLogo.Dispose();
+        }
+
+        public async Task LoadTextures()
+        {
+            string[] files = Directory.GetFiles("Content/Textures", "*.ctf", SearchOption.AllDirectories);
+            _hasGotFiles = true;
+            foreach (string file in files)
+            {
+                Console.WriteLine($"Loading {file}...");
+                string key = Path.GetFileNameWithoutExtension(file);
+                Bitmap[] bp = await Task.Run(() => Texture2D.LoadCTF(file));
+                _loaded.Add(key, bp);
+            }
+
+            _filesLoaded = true;
         }
     }
 }
