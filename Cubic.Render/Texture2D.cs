@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
+using System.IO.Compression;
 using Cubic.Utilities;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
@@ -42,7 +45,7 @@ namespace Cubic.Render
             GL.ActiveTexture(TextureUnit.Texture0);
             GL.BindTexture(TextureTarget.Texture2D, _handle);
 
-            using (Bitmap bitmap = new Bitmap(path))
+            using (Bitmap bitmap = Path.GetExtension(path) == ".ctf" ? LoadCTF(path)[0] : new Bitmap(path))
             {
                 bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
 
@@ -170,6 +173,48 @@ namespace Cubic.Render
         {
             GL.ActiveTexture(unit);
             GL.BindTexture(TextureTarget.Texture2D, _handle);
+        }
+        
+        internal static Bitmap[] LoadCTF(string path)
+        {
+            List<Bitmap> bitmaps = new List<Bitmap>();
+
+            using (DeflateStream deflateStream =
+                new DeflateStream(File.Open(path, FileMode.Open), CompressionMode.Decompress))
+            {
+                using (BinaryReader reader = new BinaryReader(deflateStream))
+                {
+                    string fmt = new string(reader.ReadChars(4));
+                    ushort version = reader.ReadUInt16();
+                    uint imageWidth = reader.ReadUInt32();
+                    uint imageHeight = reader.ReadUInt32();
+                    ushort mipLevels = reader.ReadUInt16();
+                    bool compressed = reader.ReadBoolean();
+                    bool locked = reader.ReadBoolean();
+
+                    reader.ReadUInt16();
+                    uint mipWidth = reader.ReadUInt32();
+                    uint mipHeight = reader.ReadUInt32();
+                    long length = reader.ReadInt64();
+                    byte[] data = reader.ReadBytes((int)length);
+
+                    Bitmap bp = new Bitmap((int)mipWidth, (int)mipHeight);
+
+                    for (int x = 0; x < mipWidth; x++)
+                    {
+                        for (int y = 0; y < mipHeight; y++)
+                        {
+                            bp.SetPixel(x, y,
+                                Color.FromArgb(data[(y * mipWidth + x) * 4 + 3], data[(y * mipWidth + x) * 4],
+                                    data[(y * mipWidth + x) * 4 + 1], data[(y * mipWidth + x) * 4 + 2]));
+                        }
+                    }
+
+                    bitmaps.Add(bp);
+                }
+            }
+
+            return bitmaps.ToArray();
         }
 
         /// <summary>

@@ -48,6 +48,10 @@ namespace Spacebox.Platforms.Windows
             
             icon.Dispose();
 
+#if DEBUG
+            using (SpaceboxGame game = new SpaceboxGame(windowSettings, config))
+                game.Run();
+#else
             try
             {
                 using (SpaceboxGame game = new SpaceboxGame(windowSettings, config))
@@ -57,6 +61,7 @@ namespace Spacebox.Platforms.Windows
             {
                 new Application(Eto.Platforms.WinForms).Run(new CrashForm(e));
             }
+#endif
         }
     }
 }

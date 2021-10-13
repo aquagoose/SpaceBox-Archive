@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using Cubic.GUI;
 using Cubic.Render;
 using Cubic.Utilities;
@@ -35,10 +36,12 @@ namespace Spacebox.Game.Scenes
             
             GL.ClearColor(Color.Black);
             
-            _ismLogo = new Texture2D("Content/Textures/Images/ismlogo.png", autoDispose: false);
-            _spaceboxLogo = new Texture2D("Content/Textures/Images/spaceboxlogo.png", autoDispose: false);
+            Console.WriteLine("LOADING CTF... (This may take a while!");
+
+            _ismLogo = new Texture2D("Content/Textures/Images/ismlogo.ctf", autoDispose: false);
+            _spaceboxLogo = new Texture2D("Content/Textures/Images/spaceboxlogo.ctf", autoDispose: false);
             
-            _load = new Texture2D("Content/Textures/Images/loading2.png", autoDispose: false);
+            _load = new Texture2D("Content/Textures/Images/loading2.ctf", autoDispose: false);
             
             UiManager.Add("loading", new Label(UiManager, new Position(DockType.BottomRight, new Vector2(-435, -75)), "Loading, please wait...")
             {

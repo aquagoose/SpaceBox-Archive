@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using Cubic.Utilities;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
@@ -68,7 +69,9 @@ namespace Cubic.Render
 
             for (int i = 0; i < textures.Length; i++)
             {
-                using (Bitmap bitmap = new Bitmap(textures[i]))
+                using (Bitmap bitmap = Path.GetExtension(textures[i]) == ".ctf"
+                    ? Texture2D.LoadCTF(textures[i])[0]
+                    : new Bitmap(textures[i]))
                 {
                     BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
                         ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
