@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType Condition="'$(Configuration)' == 'Publish'">WinExe</OutputType>
+        <OutputType Condition="'$(Configuration)' == 'Debug' Or '$(Configuration)' == 'Release'">Exe</OutputType>
+        <AssemblyName>SpaceBox</AssemblyName>
+        <RootNamespace>Spacebox</RootNamespace>
+        <ApplicationIcon>Icon.ico</ApplicationIcon>
+        <TargetFrameworks>net5.0;net5.0-windows</TargetFrameworks>
+        <Configurations>Debug;Release;Publish</Configurations>
+        <Platforms>AnyCPU</Platforms>
+
+        <DefineConstants Condition="'$(TargetFramework)' == 'net5.0-windows'">WINDOWS</DefineConstants>
+        <DefineConstants Condition="'$(TargetFramework)' == 'net5.0'">LINUX</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Publish' ">
+      <DebugType>none</DebugType>
+      <Optimize>true</Optimize>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Eto.Platform.Windows" Version="2.5.11" Condition="'$(TargetFramework)' == 'net5.0-windows'" />
+      <PackageReference Include="Eto.Platform.Gtk" Version="2.5.11" Condition="'$(TargetFramework)' == 'net5.0'" />  
+      <PackageReference Include="OpenTK" Version="4.6.7" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Cubic.Forms\Cubic.Forms.csproj" />
+      <ProjectReference Include="..\SpaceBox.Data\SpaceBox.Data.csproj" />
+      <ProjectReference Include="..\SpaceBox.Game\SpaceBox.Game.csproj" />
+    </ItemGroup>
+
+</Project>

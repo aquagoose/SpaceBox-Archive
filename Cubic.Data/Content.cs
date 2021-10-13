@@ -1,23 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
+using System.Threading.Tasks;
 using Cubic.Render;
 
 namespace Cubic.Data
 {
     public static class Content
     {
-        public static Dictionary<string, Texture2D> LoadedTextures = new Dictionary<string, Texture2D>();
+        public static bool Loaded { get; private set; }
+        public static Dictionary<string, Bitmap[]> LoadedTextures = new Dictionary<string, Bitmap[]>();
 
-        public static void LoadAllTextures(string entryPath)
+        public static async void LoadAllTextures(string entryPath)
         {
-            string[] files = Directory.GetFiles(entryPath, "*.ctf", SearchOption.AllDirectories);
+            Console.WriteLine("Loading textures...");
+            Loaded = false;
+            string[] files = Directory.GetFiles("Content/Textures", "*.ctf", SearchOption.AllDirectories);
             foreach (string file in files)
             {
                 Console.WriteLine($"Loading {file}...");
                 string key = Path.GetFileNameWithoutExtension(file);
-                Texture2D value = new Texture2D(file);
+                Bitmap[] bp = await Task.Run(() => Texture2D.LoadCTF(file));
+                foreach (Bitmap b in bp)
+                    b.RotateFlip(RotateFlipType.RotateNoneFlipY);
+                LoadedTextures.Add(key, bp);
             }
+
+            Loaded = true;
+            Console.WriteLine("Loading done!");
         }
     }
 }

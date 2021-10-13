@@ -95,21 +95,13 @@ namespace Spacebox.Game.Scenes
                         Console.WriteLine("Loading!");
                         _hasGotFiles = true;
                         
-                        LoadTextures();
+                        Content.LoadAllTextures("Content/Textures");
                     }
 
                     if (_endTime < 0)
                         _endTime = Time.ElapsedSeconds;
-                    if (_filesLoaded)
+                    if (Content.Loaded)
                     {
-                        Console.WriteLine("Finalising...");
-                        foreach (KeyValuePair<string, Bitmap[]> bp in _loaded)
-                        {
-                            Console.WriteLine($"Setting {bp.Key}...");
-                            Content.LoadedTextures.Add(bp.Key, new Texture2D(bp.Value[0]));
-                        }
-                    
-                        Console.WriteLine("Loading done!");
                         _hasLoaded = true;
                         _rotAlpha = 0;
                         UiManager.GetElement<Label>("loading").Visible = false;
@@ -172,7 +164,9 @@ namespace Spacebox.Game.Scenes
                 Console.WriteLine($"Loading {file}...");
                 string key = Path.GetFileNameWithoutExtension(file);
                 Bitmap[] bp = await Task.Run(() => Texture2D.LoadCTF(file));
-                _loaded.Add(key, bp);
+                foreach (Bitmap b in bp)
+                    b.RotateFlip(RotateFlipType.RotateNoneFlipY);
+                Content.LoadedTextures.Add(key, bp);
             }
 
             _filesLoaded = true;

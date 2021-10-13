@@ -5,6 +5,13 @@
         <RootNamespace>Spacebox.Game</RootNamespace>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <PackageId>SpaceBox.Game</PackageId>
+        <Configurations>Debug;Release;Publish</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Publish' ">
+      <DebugType>none</DebugType>
+      <Optimize>true</Optimize>
     </PropertyGroup>
 
     <ItemGroup>

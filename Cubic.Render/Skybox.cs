@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Runtime.InteropServices;
 using Cubic.Utilities;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
@@ -62,15 +63,25 @@ namespace Cubic.Render
         private int _ebo;
         private Shader _shader;
         
-        public Skybox(Texture2D[] textures)
+        public Skybox(Bitmap[] textures)
         {
             _texture = GL.GenTexture();
             GL.BindTexture(TextureTarget.TextureCubeMap, _texture);
 
             for (int i = 0; i < textures.Length; i++)
             {
+                Bitmap bp = new Bitmap(textures[i]);
+                
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    bp.RotateFlip(RotateFlipType.RotateNoneFlipY);
+
+                BitmapData data = bp.LockBits(new Rectangle(0, 0, bp.Width, bp.Height), ImageLockMode.ReadOnly,
+                    PixelFormat.Format32bppArgb);
+                
                 GL.TexImage2D(TextureTarget.TextureCubeMapPositiveX + i, 0, PixelInternalFormat.Rgba, textures[i].Width,
                         textures[i].Height, 0, OpenTK.Graphics.OpenGL4.PixelFormat.Bgra, PixelType.UnsignedByte, data.Scan0);
+                
+                bp.UnlockBits(data);
             }
 
             GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureMinFilter,

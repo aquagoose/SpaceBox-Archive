@@ -140,7 +140,7 @@ namespace Cubic.Render
                             Matrix4.CreateTranslation(new Vector3(position));
             _activeShader.SetUniform("uModel", model);
             _activeShader.SetUniform("uColor", color);
-            
+
             GL.BindVertexArray(_vao);
             GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.UnsignedInt, 0);
         }

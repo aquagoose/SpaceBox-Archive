@@ -188,8 +188,8 @@ namespace Spacebox.Game.Scenes
             GL.VertexAttribPointer(normalsLocation, 3, VertexAttribPointerType.Float, false, 8 * sizeof(float),
                 3 * sizeof(float));
 
-            _texture = Content.LoadedTextures["stainless-steel"];
-            _crosshair = Content.LoadedTextures["crosshair"];
+            _texture = new Texture2D(Content.LoadedTextures["stainless-steel"][0]);
+            _crosshair = new Texture2D(Content.LoadedTextures["crosshair"][0]);
 
             GL.BindVertexArray(0);
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
@@ -224,12 +224,12 @@ namespace Spacebox.Game.Scenes
             
             _skybox = new Skybox(new[]
             {
-                "Content/Textures/Skybox/right.ctf",
-                "Content/Textures/Skybox/left.ctf",
-                "Content/Textures/Skybox/top.ctf",
-                "Content/Textures/Skybox/bottom.ctf",
-                "Content/Textures/Skybox/front.ctf",
-                "Content/Textures/Skybox/back.ctf"
+                Content.LoadedTextures["right"][0],
+                Content.LoadedTextures["left"][0],
+                Content.LoadedTextures["top"][0],
+                Content.LoadedTextures["bottom"][0],
+                Content.LoadedTextures["front"][0],
+                Content.LoadedTextures["back"][0]
             });
             
             Physics.Initialize();

@@ -48,10 +48,12 @@ namespace Cubic.GUI
                     if (!_isClicked)
                     {
                         _isClicked = true;
+                        // This will immediately invoke the OnClick event if ExecuteOnRelease is disabled.
                         if (!ExecuteOnRelease)
                             OnClick?.Invoke();
                     }
                 }
+                // Invokes the OnClick event if ExecuteOnRelease is enabled.
                 else if (_isClicked && ExecuteOnRelease)
                 {
                     _isClicked = false;

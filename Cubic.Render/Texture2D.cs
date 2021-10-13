@@ -27,9 +27,7 @@ namespace Cubic.Render
 
         public int Width => Size.Width;
         public int Height => Size.Height;
-        
-        internal BitmapData BitmapData { get; }
-        
+
         public Size Size { get; }
 
         /// <summary>
@@ -51,11 +49,11 @@ namespace Cubic.Render
             {
                 bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
 
-                BitmapData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
                     ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
 
                 GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, bitmap.Width, bitmap.Height, 0,
-                    OpenTK.Graphics.OpenGL4.PixelFormat.Bgra, PixelType.UnsignedByte, BitmapData.Scan0);
+                    OpenTK.Graphics.OpenGL4.PixelFormat.Bgra, PixelType.UnsignedByte, data.Scan0);
 
                 Size = bitmap.Size;
             }
@@ -83,14 +81,14 @@ namespace Cubic.Render
             _handle = GL.GenTexture();
             GL.ActiveTexture(TextureUnit.Texture0);
             GL.BindTexture(TextureTarget.Texture2D, _handle);
-            
-            bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
 
-            BitmapData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+            BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
                 ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
 
             GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, bitmap.Width, bitmap.Height, 0,
-                OpenTK.Graphics.OpenGL4.PixelFormat.Bgra, PixelType.UnsignedByte, BitmapData.Scan0);
+                OpenTK.Graphics.OpenGL4.PixelFormat.Bgra, PixelType.UnsignedByte, data.Scan0);
+            
+            bitmap.UnlockBits(data);
 
             Size = bitmap.Size;
 

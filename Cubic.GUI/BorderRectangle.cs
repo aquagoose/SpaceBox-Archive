@@ -15,6 +15,7 @@ namespace Cubic.GUI
             size, color)
         {
             Color[] pixels = new Color[size.Width * size.Height];
+            // Generate pixels around the border.
             for (int x = 0; x < size.Width; x++)
             {
                 for (int y = 0; y < size.Height; y++)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using Cubic.Forms;
 using Cubic.Render;
 using Cubic.Windowing;
@@ -9,7 +10,7 @@ using SpaceBox.Data;
 using Spacebox.Game;
 using Image = OpenTK.Windowing.Common.Input.Image;
 
-namespace Spacebox.Platforms.Windows
+namespace Spacebox
 {
     class Program
     {
@@ -17,7 +18,7 @@ namespace Spacebox.Platforms.Windows
         static void Main(string[] args)
         {
             //Bitmap icon = new Bitmap("Content/Textures/Images/Icon.bmp");
-            Bitmap icon = Texture2D.LoadCTF("Content/Textures/Images/Icon.ctf")[0];
+            Bitmap icon = Texture2D.LoadCTF("Content/Textures/Images/icon.ctf")[0];
             byte[] image = new byte[icon.Width * icon.Height * 4];
             for (int x = 0; x < icon.Width; x++)
             {
@@ -61,7 +62,11 @@ namespace Spacebox.Platforms.Windows
             }
             catch (Exception e)
             {
-                new Application(Eto.Platforms.WinForms).Run(new CrashForm(e));
+#if WINDOWS
+                    new Application(Eto.Platforms.WinForms).Run(new CrashForm(e));
+#elif LINUX
+                    new Application(Eto.Platforms.Gtk).Run(new CrashForm(e));
+#endif
             }
 #endif
         }
