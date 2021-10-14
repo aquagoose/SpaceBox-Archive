@@ -63,8 +63,10 @@ namespace Cubic.Render
         private int _ebo;
         private Shader _shader;
         
-        public Skybox(Bitmap[] textures)
+        public Skybox(Shader skyboxShader, Bitmap[] textures)
         {
+            _shader = skyboxShader;
+            
             _texture = GL.GenTexture();
             GL.BindTexture(TextureTarget.TextureCubeMap, _texture);
 
@@ -108,7 +110,7 @@ namespace Cubic.Render
             GL.BufferData(BufferTarget.ElementArrayBuffer, _indices.Length * sizeof(uint), _indices,
                 BufferUsageHint.StaticDraw);
 
-            _shader = new Shader("Content/Shaders/Skybox.vert", "Content/Shaders/Skybox.frag");
+            //_shader = new Shader("Content/Shaders/Skybox.vert", "Content/Shaders/Skybox.frag");
             _shader.Use();
 
             int vertexLocation = _shader.GetAttribLocation("aPosition");

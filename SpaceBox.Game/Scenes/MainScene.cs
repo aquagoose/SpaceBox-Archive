@@ -222,7 +222,7 @@ namespace Spacebox.Game.Scenes
             GL.Enable(EnableCap.Blend);
             GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
             
-            _skybox = new Skybox(new[]
+            _skybox = new Skybox(new Shader("Content/Shaders/Skybox.vert", "Content/Shaders/Skybox.frag"), new[]
             {
                 Content.LoadedTextures["right"][0],
                 Content.LoadedTextures["left"][0],
