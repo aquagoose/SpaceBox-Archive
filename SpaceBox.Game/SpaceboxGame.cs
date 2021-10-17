@@ -3,11 +3,12 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Numerics;
-using Cubic.Data;
-using Cubic.GUI;
-using Cubic.Render;
-using Cubic.Utilities;
-using Cubic.Windowing;
+using Cubic.Engine;
+using Cubic.Engine.Data;
+using Cubic.Engine.GUI;
+using Cubic.Engine.Render;
+using Cubic.Engine.Utilities;
+using Cubic.Engine.Windowing;
 using ImGuiNET;
 using OpenTK.Graphics.OpenGL4;
 using SpaceBox.Data;
@@ -58,7 +59,7 @@ namespace Spacebox.Game
 
             //_activeScene = new IntroScene(this);
 #if DEBUG
-            Content.LoadAllTextures("Content/Textures");
+            Content.LoadContent("Content/Textures");
             while (!Content.Loaded)
                 continue;
             SceneManager.Initialize(this, new MenuScene(), SpriteBatch, UiManager);

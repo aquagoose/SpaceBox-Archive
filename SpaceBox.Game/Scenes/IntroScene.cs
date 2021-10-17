@@ -4,11 +4,12 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Cubic.Data;
-using Cubic.GUI;
-using Cubic.Render;
-using Cubic.Utilities;
-using Cubic.Windowing;
+using Cubic.Engine;
+using Cubic.Engine.Data;
+using Cubic.Engine.GUI;
+using Cubic.Engine.Render;
+using Cubic.Engine.Utilities;
+using Cubic.Engine.Windowing;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
@@ -95,7 +96,7 @@ namespace Spacebox.Game.Scenes
                         Console.WriteLine("Loading!");
                         _hasGotFiles = true;
                         
-                        Content.LoadAllTextures("Content/Textures");
+                        Content.LoadContent("Content/Textures");
                     }
 
                     if (_endTime < 0)

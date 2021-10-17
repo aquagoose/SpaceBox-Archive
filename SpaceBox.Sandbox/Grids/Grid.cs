@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using BepuPhysics;
 using BepuPhysics.Collidables;
 using BepuUtilities.Memory;
-using Cubic.Physics;
-using Cubic.Utilities;
+using Cubic.Engine.Physics;
+using Cubic.Engine.Utilities;
 using OpenTK.Mathematics;
 
 namespace SpaceBox.Sandbox.Grids

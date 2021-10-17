@@ -1,5 +1,5 @@
-﻿using Cubic.GUI;
-using Cubic.Render;
+﻿using Cubic.Engine.GUI;
+using Cubic.Engine.Render;
 
 namespace Spacebox.Game.Scenes
 {

@@ -1,8 +1,9 @@
 ﻿using BepuPhysics;
 using BepuPhysics.Collidables;
-using Cubic.Physics;
-using Cubic.Utilities;
-using Cubic.Windowing;
+using Cubic.Engine;
+using Cubic.Engine.Physics;
+using Cubic.Engine.Utilities;
+using Cubic.Engine.Windowing;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 

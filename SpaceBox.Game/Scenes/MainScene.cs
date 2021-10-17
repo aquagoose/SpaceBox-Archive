@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using Cubic.Data;
-using Cubic.Physics;
-using Cubic.Render;
-using Cubic.Utilities;
-using Cubic.Windowing;
+using Cubic.Engine;
+using Cubic.Engine.Data;
+using Cubic.Engine.Physics;
+using Cubic.Engine.Render;
+using Cubic.Engine.Utilities;
+using Cubic.Engine.Windowing;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;

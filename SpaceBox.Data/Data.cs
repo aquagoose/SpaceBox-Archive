@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
-using Cubic.Data.Serialization;
 using OpenTK.Mathematics;
 using SpaceBox.Data.Serialization;
 using SpaceBox.Sandbox.Grids;

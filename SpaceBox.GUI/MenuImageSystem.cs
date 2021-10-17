@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using Cubic.GUI;
-using Cubic.Render;
-using Cubic.Utilities;
-using Cubic.Windowing;
+using Cubic.Engine.Utilities;
+using Cubic.Engine;
+using Cubic.Engine.GUI;
+using Cubic.Engine.Render;
+using Cubic.Engine.Windowing;
 using OpenTK.Mathematics;
 
 namespace SpaceBox.GUI

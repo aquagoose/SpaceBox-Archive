@@ -1,4 +1,4 @@
-﻿using Cubic.Data.Serialization;
+﻿using Cubic.Engine.Data.Serialization;
 using OpenTK.Mathematics;
 
 namespace SpaceBox.Data.Serialization

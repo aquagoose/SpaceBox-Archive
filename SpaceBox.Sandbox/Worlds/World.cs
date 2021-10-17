@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Cubic.Physics;
 using SpaceBox.Sandbox.Grids;
 
 namespace SpaceBox.Sandbox.Worlds

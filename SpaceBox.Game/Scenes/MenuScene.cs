@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
-using Cubic.Data;
-using Cubic.GUI;
-using Cubic.Render;
-using Cubic.Windowing;
+using Cubic.Engine;
+using Cubic.Engine.Data;
+using Cubic.Engine.GUI;
+using Cubic.Engine.Render;
+using Cubic.Engine.Windowing;
 using OpenTK.Graphics.OpenGL4;
 using SpaceBox.Data;
 using SpaceBox.GUI;
 using SpaceBox.GUI.Imgui;
 using SpaceBox.Sandbox.Grids;
 using Vector2 = OpenTK.Mathematics.Vector2;
-using Font = Cubic.GUI.Fonts.Font;
+using Font = Cubic.Engine.GUI.Fonts.Font;
 using Quaternion = OpenTK.Mathematics.Quaternion;
 using Vector3 = OpenTK.Mathematics.Vector3;
 
@@ -42,7 +43,7 @@ namespace Spacebox.Game.Scenes
 
             Texture2D _bg = new Texture2D(Content.LoadedTextures["spacebox-blurred"][0]);
             UiManager.Add("bg",
-                new Cubic.GUI.Image(UiManager, _bg,
+                new Cubic.Engine.GUI.Image(UiManager, _bg,
                     new Position(DockType.Center, -new Vector2(_bg.Width, _bg.Height) / 2 + new Vector2(300, 50)), Vector2.One, Color.White));
 
             const int gap = 10;

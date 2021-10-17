@@ -1,5 +1,5 @@
 ﻿using System.Xml.Serialization;
-using Cubic.Data.Serialization;
+using Cubic.Engine.Data.Serialization;
 
 namespace SpaceBox.Data.Serialization
 {

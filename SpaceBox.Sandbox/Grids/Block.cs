@@ -1,5 +1,4 @@
 ﻿using BepuPhysics;
-using Cubic.Physics;
 using OpenTK.Mathematics;
 
 namespace SpaceBox.Sandbox.Grids
