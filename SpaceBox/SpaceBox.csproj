@@ -9,9 +9,6 @@
         <TargetFrameworks>net5.0;net5.0-windows</TargetFrameworks>
         <Configurations>Debug;Release;Publish</Configurations>
         <Platforms>AnyCPU</Platforms>
-
-        <DefineConstants Condition="'$(TargetFramework)' == 'net5.0-windows'">WINDOWS</DefineConstants>
-        <DefineConstants Condition="'$(TargetFramework)' == 'net5.0'">LINUX</DefineConstants>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Publish' ">
