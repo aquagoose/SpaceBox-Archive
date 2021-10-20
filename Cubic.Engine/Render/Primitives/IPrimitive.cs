@@ -1,6 +1,6 @@
-﻿namespace Cubic.Engine.Primitives
+﻿namespace Cubic.Engine.Render.Primitives
 {
-    public class Quad : IPrimitive
+    public interface IPrimitive
     {
         public float[] Vertices { get; }
         public uint[] Indices { get; }
