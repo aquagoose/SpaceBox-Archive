@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Cubic.Data\Cubic.Data.csproj" />
+      <ProjectReference Include="..\Cubic.Engine\Cubic.Engine.csproj" />
       <ProjectReference Include="..\SpaceBox.Sandbox\SpaceBox.Sandbox.csproj" />
     </ItemGroup>
 

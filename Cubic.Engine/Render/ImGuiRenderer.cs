@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.CompilerServices;
+using Cubic.Engine.Render.Shaders;
 using Cubic.Engine.Utilities;
 using Cubic.Engine.Windowing;
 using ImGuiNET;

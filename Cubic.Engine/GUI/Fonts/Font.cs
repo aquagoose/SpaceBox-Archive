@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using Cubic.Engine.Render;
+using Cubic.Engine.Render.Shaders;
 using FreeTypeSharp;
 using FreeTypeSharp.Native;
 using OpenTK.Graphics.OpenGL4;

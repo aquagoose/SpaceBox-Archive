@@ -17,9 +17,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Cubic.Engine\Cubic.Engine.csproj" />
-      <ProjectReference Include="..\Cubic.Physics\Cubic.Physics.csproj" />
-      <ProjectReference Include="..\Cubic.Utilities\Cubic.Utilities.csproj" />
-      <ProjectReference Include="..\Cubic.Windowing\Cubic.Windowing.csproj" />
     </ItemGroup>
 
 </Project>

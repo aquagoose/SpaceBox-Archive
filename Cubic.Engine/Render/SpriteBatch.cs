@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using Cubic.Engine.Render.Shaders;
 using Cubic.Engine.Windowing;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;

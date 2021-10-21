@@ -14,7 +14,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Cubic.Engine\Cubic.Engine.csproj" />
-      <ProjectReference Include="..\Cubic.GUI\Cubic.GUI.csproj" />
       <ProjectReference Include="..\SpaceBox.Data\SpaceBox.Data.csproj" />
     </ItemGroup>
 

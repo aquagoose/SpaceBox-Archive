@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Text;
 using Cubic.Engine.Utilities;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 
-namespace Cubic.Engine.Render
+namespace Cubic.Engine.Render.Shaders
 {
     /// <summary>
     /// Represents a GLSL shader program.
@@ -180,6 +181,24 @@ namespace Cubic.Engine.Render
             GL.GetProgram(program, GetProgramParameterName.LinkStatus, out int status);
             if (status != 1)
                 throw new ShaderException(ShaderExceptionType.Linking, program, GL.GetProgramInfoLog(program));
+        }
+
+        /// <summary>
+        /// Run a pre-processor on the given shader code.
+        /// </summary>
+        /// <param name="code"></param>
+        private static void PreProcess(string code)
+        {
+            StringBuilder newCode = new StringBuilder(code);
+            newCode.Insert(0, "#version 330 core");
+
+            foreach (string line in newCode.ToString().Split('\n'))
+            {
+                if (line.StartsWith("#include"))
+                {
+                    
+                }
+            }
         }
 
         /// <summary>

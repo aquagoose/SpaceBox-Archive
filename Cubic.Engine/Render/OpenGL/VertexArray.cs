@@ -1,20 +1,34 @@
 ﻿using System;
 using OpenTK.Graphics.OpenGL4;
+using Buffer = System.Buffer;
 
 namespace Cubic.Engine.Render.OpenGL
 {
     public class VertexArray : GLObject
     {
+        internal int VertexBufferDataLength;
+        internal int IndexBufferDataLength;
+        
         public VertexArray() : base(GL.GenVertexArray())
         {
         }
 
-        public void SetBuffer<T>(Buffer<T> buffer) where T : struct
+        public void SetVertexBuffer(Buffer<float> vertex)
         {
             Bind();
-            buffer.Bind();
+            vertex.Bind(BufferTarget.ArrayBuffer);
             Unbind();
-            buffer.Unbind();
+            vertex.Unbind();
+            VertexBufferDataLength = vertex.DataLength;
+        }
+
+        public void SetIndexBuffer(Buffer<uint> index)
+        {
+            Bind();
+            index.Bind(BufferTarget.ElementArrayBuffer);
+            Unbind();
+            index.Unbind();
+            IndexBufferDataLength = index.DataLength;
         }
 
         internal void Bind()
