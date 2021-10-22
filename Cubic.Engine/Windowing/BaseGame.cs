@@ -148,6 +148,7 @@ namespace Cubic.Engine.Windowing
             GLFW.SetScrollCallback(_window, _scrollCallback);
 
             VideoMode* mode = GLFW.GetVideoMode(GLFW.GetPrimaryMonitor());
+            
             GLFW.SetWindowPos(_window, (int) (mode->Width / 2f - _settings.Size.Width / 2f),
                 (int) (mode->Height / 2f - _settings.Size.Height / 2f));
 

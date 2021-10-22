@@ -2,10 +2,12 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using Cubic.Engine.Render;
+using Cubic.Engine.Render.Shaders;
 using Cubic.Engine.Windowing;
 using Cubic.Forms;
 using Eto.Forms;
 using OpenTK.Windowing.Common.Input;
+using OpenTK.Windowing.GraphicsLibraryFramework;
 using SpaceBox.Data;
 using Spacebox.Game;
 using Image = OpenTK.Windowing.Common.Input.Image;

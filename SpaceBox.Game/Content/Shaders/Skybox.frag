@@ -1,6 +1,4 @@
-﻿#version 330 core
-
-in vec3 frag_texCoords;
+﻿in vec3 frag_texCoords;
 
 out vec4 out_color;
 

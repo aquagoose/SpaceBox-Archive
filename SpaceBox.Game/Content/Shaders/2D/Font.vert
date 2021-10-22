@@ -1,6 +1,4 @@
-﻿#version 330 core
-
-in vec4 aPosition;
+﻿in vec4 aPosition;
 
 out vec2 frag_texCoords;
 

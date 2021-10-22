@@ -72,10 +72,9 @@ namespace Cubic.Engine.Render
 
             for (int i = 0; i < textures.Length; i++)
             {
-                Bitmap bp = new Bitmap(textures[i]);
+                textures[i].RotateFlip(RotateFlipType.RotateNoneFlipY);
                 
-                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                    bp.RotateFlip(RotateFlipType.RotateNoneFlipY);
+                Bitmap bp = new Bitmap(textures[i]);
 
                 BitmapData data = bp.LockBits(new Rectangle(0, 0, bp.Width, bp.Height), ImageLockMode.ReadOnly,
                     PixelFormat.Format32bppArgb);

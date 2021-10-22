@@ -1,6 +1,4 @@
-﻿#version 330 core
-
-in vec3 aPosition;
+﻿in vec3 aPosition;
 
 uniform mat4 uLightSpace;
 uniform mat4 uModel;

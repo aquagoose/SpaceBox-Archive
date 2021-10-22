@@ -98,8 +98,6 @@ namespace Cubic.Engine.Render
             RecreateFontDeviceTexture();
 
             const string vertexSource = @"
-#version 330 core
-
 in vec2 aPosition;
 in vec2 aTexCoords;
 in vec4 aColor;
@@ -117,8 +115,6 @@ void main()
 }";
 
             const string fragmentSource = @"
-#version 330 core
-
 in vec4 frag_color;
 in vec2 frag_texCoords;
 

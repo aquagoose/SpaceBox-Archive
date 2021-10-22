@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Text;
+using Cubic.Engine.Data;
 using Cubic.Engine.Utilities;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
@@ -38,13 +39,13 @@ namespace Cubic.Engine.Render.Shaders
             {
                 case ShaderLoadType.File:
                     // If the shader is a file, then load the file text, then set the shader source.
-                    GL.ShaderSource(vertexShader, File.ReadAllText(vertex));
-                    GL.ShaderSource(fragmentShader, File.ReadAllText(fragment));
+                    GL.ShaderSource(vertexShader, PreProcess(File.ReadAllText(vertex), vertex));
+                    GL.ShaderSource(fragmentShader, PreProcess(File.ReadAllText(fragment), fragment));
                     break;
                 case ShaderLoadType.String:
                     // Otherwise, just set the shader source directly.
-                    GL.ShaderSource(vertexShader, vertex);
-                    GL.ShaderSource(fragmentShader, fragment);
+                    GL.ShaderSource(vertexShader, PreProcess(vertex));
+                    GL.ShaderSource(fragmentShader, PreProcess(fragment));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(loadType));
@@ -187,18 +188,52 @@ namespace Cubic.Engine.Render.Shaders
         /// Run a pre-processor on the given shader code.
         /// </summary>
         /// <param name="code"></param>
-        private static void PreProcess(string code)
+        private static string PreProcess(string code, string path = "", bool includeHeader = true)
         {
-            StringBuilder newCode = new StringBuilder(code);
-            newCode.Insert(0, "#version 330 core");
+            StringBuilder newCode = new StringBuilder();
 
-            foreach (string line in newCode.ToString().Split('\n'))
+            const string header = @"#define CUBIC_MAX_POINT_LIGHTS 8
+struct Camera
+{
+    mat4 model;
+    mat4 view;
+    mat4 projection;
+    vec3 position;
+};
+uniform Camera cubic_Camera;";
+
+            if (includeHeader)
             {
+                newCode.AppendLine("#version 330 core");
+                newCode.AppendLine(header);
+            }
+
+            string[] codeLines = code.Split('\n');
+            for (int i = 0; i < codeLines.Length; i++)
+            {
+                string line = codeLines[i];
                 if (line.StartsWith("#include"))
                 {
-                    
+                    string newLine = line["#include".Length..].Trim();
+                    if (newLine.StartsWith('"') && newLine.EndsWith('"'))
+                    {
+                        string filePath = newLine.Trim('"');
+                        DirectoryInfo directoryInfo = new FileInfo(path).Directory;
+                        if (directoryInfo == null)
+                        {
+                            throw new ShaderException("Path cannot be null");
+                        }
+
+                        newCode.AppendLine(PreProcess(File.ReadAllText(Path.Combine(directoryInfo.FullName, filePath)), path, false));
+                    }
+                }
+                else
+                {
+                    newCode.AppendLine(line);
                 }
             }
+            
+            return newCode.ToString();
         }
 
         /// <summary>
