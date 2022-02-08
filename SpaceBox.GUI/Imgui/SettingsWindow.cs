@@ -144,7 +144,7 @@ namespace SpaceBox.GUI.Imgui
                         ImGui.EndTabItem();
                         
                         ImGui.SetCursorPosY(460);
-                        ImGui.Separator();
+                        /*ImGui.Separator();
                         ImGui.Button("OK");
                         ImGui.SameLine();
                         if (ImGui.Button("Cancel"))
@@ -153,13 +153,13 @@ namespace SpaceBox.GUI.Imgui
                             ImGui.OpenPopup("Cancel?");
                         }
 
-                        ImGui.SameLine();
+                        ImGui.SameLine();*/
                         if (ImGui.Button("Apply"))
                         {
                             if (_selectedResolution != _originalResolution || _fullscreen != _originalFullscreen)
                             {
-                                _game.Size = _resolutions[_selectedResolution];
                                 _game.Fullscreen = _fullscreen;
+                                _game.Size = _resolutions[_selectedResolution];
                                 _startSeconds = Time.ElapsedSeconds;
                                 _showDialog = true;
                                 ImGui.OpenPopup("Keep this resolution?");

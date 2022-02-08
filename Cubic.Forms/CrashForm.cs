@@ -16,7 +16,7 @@ namespace Cubic.Forms
                 new StackLayoutItem(new Label()
                 {
                     Text =
-                        "Whoops! SpaceBox has crashed. Please see the error log below, and send the error to me on my Discord, or on my email ollie@ollierobinson.co.uk"
+                        "Whoops! SpaceBox has crashed. Please see the error log below, and, if you wish, create an issue on the GitHub. However this issue is unlikely to be fixed, it is more for the interest of the developer."
                 }),
                 new StackLayoutItem(new TextArea() { ReadOnly = true, Text = exception.ToString(), Size = new Size(500, 470)})
             });

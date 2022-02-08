@@ -12,4 +12,5 @@ void main()
     // Model-view-projection multiplication of sprite.
     gl_Position = vec4(aPosition, 0.0, 1.0) * uModel * uTransform * uProjection;
     frag_texCoords = aTexCoords;
+    frag_texCoords.y *= -1;
 }

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <RootNamespace>Spacebox.Game</RootNamespace>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <PackageId>SpaceBox.Game</PackageId>
@@ -18,7 +18,6 @@
       <PackageReference Include="BepuPhysics" Version="2.3.0" />
       <PackageReference Include="ImGui.NET" Version="1.78.0" />
       <PackageReference Include="OpenTK" Version="4.6.7" />
-      <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
     </ItemGroup>
 
     <ItemGroup>

@@ -53,9 +53,7 @@ namespace Cubic.Engine.Windowing
             set
             {
                 GLFW.SetWindowSize(_window, value.Width, value.Height);
-                VideoMode* mode = GLFW.GetVideoMode(GLFW.GetPrimaryMonitor());
-                GLFW.SetWindowPos(_window, (int) (mode->Width / 2f - value.Width / 2f),
-                    (int) (mode->Height / 2f - value.Height / 2f));
+                CenterWindow();
             }
         }
 
@@ -75,11 +73,7 @@ namespace Cubic.Engine.Windowing
                     // Get our size only once so we aren't calling the get method 4 times.
                     Size size = Size;
                     GLFW.SetWindowMonitor(_window, null, 0, 0, size.Width, size.Height, GLFW.DontCare);
-                    VideoMode* mode = GLFW.GetVideoMode(GLFW.GetPrimaryMonitor());
-                    // Set our window position separately so we can return the monitor to its original video mode before
-                    // relocating the window, to ensure it is centered on the screen.
-                    GLFW.SetWindowPos(_window, (int) (mode->Width / 2f - size.Width / 2f),
-                        (int) (mode->Height / 2f - size.Height / 2f));
+                    CenterWindow();
                 }
             }
         }
@@ -149,8 +143,7 @@ namespace Cubic.Engine.Windowing
 
             VideoMode* mode = GLFW.GetVideoMode(GLFW.GetPrimaryMonitor());
             
-            GLFW.SetWindowPos(_window, (int) (mode->Width / 2f - _settings.Size.Width / 2f),
-                (int) (mode->Height / 2f - _settings.Size.Height / 2f));
+            CenterWindow();
 
             LockFps = _settings.LockFps;
             TargetFps = _settings.TargetFps == default ? (uint) mode->RefreshRate : _settings.TargetFps;
@@ -212,6 +205,14 @@ namespace Cubic.Engine.Windowing
             if (!_hasUnloaded)
                 Unload();
             GC.SuppressFinalize(this);
+        }
+
+        public void CenterWindow()
+        {
+            Monitor* monitor = GLFW.GetPrimaryMonitor();
+            VideoMode* mode = GLFW.GetVideoMode(monitor);
+            GLFW.GetMonitorPos(monitor, out int x, out int y);
+            GLFW.SetWindowPos(_window, x + mode->Width / 2 - Size.Width / 2, y + mode->Height / 2 - Size.Height / 2);
         }
         
         #endregion

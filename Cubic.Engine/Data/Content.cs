@@ -24,8 +24,8 @@ namespace Cubic.Engine.Data
                 Console.WriteLine($"Loading {file}...");
                 string key = Path.GetFileNameWithoutExtension(file);
                 Bitmap[] bp = await Task.Run(() => Texture2D.LoadCTF(file));
-                foreach (Bitmap b in bp)
-                    b.RotateFlip(RotateFlipType.RotateNoneFlipY);
+                //foreach (Bitmap b in bp)
+                //    b.RotateFlip(RotateFlipType.RotateNoneFlipY);
                 LoadedTextures.Add(key, bp);
             }
 

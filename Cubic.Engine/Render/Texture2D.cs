@@ -6,7 +6,6 @@ using System.IO;
 using System.IO.Compression;
 using Cubic.Engine.Utilities;
 using OpenTK.Graphics.OpenGL4;
-using PixelFormat = System.Drawing.Imaging.PixelFormat;
 
 namespace Cubic.Engine.Render
 {
@@ -44,19 +43,13 @@ namespace Cubic.Engine.Render
             GL.ActiveTexture(TextureUnit.Texture0);
             GL.BindTexture(TextureTarget.Texture2D, _handle);
 
-            using (Bitmap bitmap = Path.GetExtension(path) == ".ctf" ? LoadCTF(path)[0] : new Bitmap(path))
-            {
-                bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
-
-                BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
-                    ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
-
-                GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, bitmap.Width, bitmap.Height, 0,
-                    OpenTK.Graphics.OpenGL4.PixelFormat.Bgra, PixelType.UnsignedByte, data.Scan0);
-
-                Size = bitmap.Size;
-            }
+            Bitmap bitmap = Path.GetExtension(path) == ".ctf" ? LoadCTF(path)[0] : new Bitmap(path);
             
+            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, bitmap.Size.Width, bitmap.Size.Height, 0,
+                OpenTK.Graphics.OpenGL4.PixelFormat.Rgba, PixelType.UnsignedByte, bitmap.Data);
+
+            Size = bitmap.Size;
+
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS,
                 (int) (wrap == TextureWrap.Repeat ? TextureWrapMode.Repeat : TextureWrapMode.ClampToEdge));
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT,
@@ -81,13 +74,8 @@ namespace Cubic.Engine.Render
             GL.ActiveTexture(TextureUnit.Texture0);
             GL.BindTexture(TextureTarget.Texture2D, _handle);
 
-            BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
-                ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
-
-            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, bitmap.Width, bitmap.Height, 0,
-                OpenTK.Graphics.OpenGL4.PixelFormat.Bgra, PixelType.UnsignedByte, data.Scan0);
-            
-            bitmap.UnlockBits(data);
+            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, bitmap.Size.Width, bitmap.Size.Height, 0,
+                OpenTK.Graphics.OpenGL4.PixelFormat.Rgba, PixelType.UnsignedByte, bitmap.Data);
 
             Size = bitmap.Size;
 
@@ -234,17 +222,7 @@ namespace Cubic.Engine.Render
                     long length = reader.ReadInt64();
                     byte[] data = reader.ReadBytes((int)length);
 
-                    Bitmap bp = new Bitmap((int)mipWidth, (int)mipHeight);
-
-                    for (int x = 0; x < mipWidth; x++)
-                    {
-                        for (int y = 0; y < mipHeight; y++)
-                        {
-                            bp.SetPixel(x, y,
-                                Color.FromArgb(data[(y * mipWidth + x) * 4 + 3], data[(y * mipWidth + x) * 4],
-                                    data[(y * mipWidth + x) * 4 + 1], data[(y * mipWidth + x) * 4 + 2]));
-                        }
-                    }
+                    Bitmap bp = new Bitmap((int)mipWidth, (int)mipHeight, data);
 
                     bitmaps.Add(bp);
                 }

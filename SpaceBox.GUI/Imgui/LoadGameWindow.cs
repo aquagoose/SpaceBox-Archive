@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Numerics;
+using System.Runtime.InteropServices;
 using ImGuiNET;
 
 namespace SpaceBox.GUI.Imgui
@@ -22,14 +24,25 @@ namespace SpaceBox.GUI.Imgui
             string directory = Path.Combine(Data.Data.SpaceBoxFolderLocation, Data.Data.SpaceBoxFolderName,
                 Data.Data.SavesFolderName);
 
-            if (!Directory.Exists(directory))
-                return;
+            // Oh my god why the heck did I make this, this causes a crash, idiot!!!
+            //if (!Directory.Exists(directory))
+            //    return;
 
-            WorldFiles = Directory.GetFiles(directory, "*.world");
+            WorldFiles = Directory.Exists(directory) ? Directory.GetFiles(directory, "*.world") : Array.Empty<string>();
             
             List<string> worlds = new List<string>();
-            foreach (string world in WorldFiles)
-                worlds.Add(world.Split('\\')[^1].Replace(".world", "").Replace('_', ' '));
+            // Windows uses backslashes for some unknown reason so we do whichever is right for the platform.
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                foreach (string world in WorldFiles)
+                    worlds.Add(world.Split('\\')[^1].Replace(".world", "").Replace('_', ' '));
+            }
+            else
+            {
+                foreach (string world in WorldFiles)
+                    worlds.Add(world.Split('/')[^1].Replace(".world", "").Replace('_', ' '));
+            }
+
             _worlds = worlds.ToArray();
         }
         

@@ -21,25 +21,16 @@ namespace Spacebox
         {
             //Bitmap icon = new Bitmap("Content/Textures/Images/Icon.bmp");
             Bitmap icon = Texture2D.LoadCTF("Content/Textures/Images/icon.ctf")[0];
-            byte[] image = new byte[icon.Width * icon.Height * 4];
-            for (int x = 0; x < icon.Width; x++)
-            {
-                for (int y = 0; y < icon.Height; y++)
-                {
-                    Color color = icon.GetPixel(x, y);
-                    image[(y * icon.Width + x) * 4] = color.R;
-                    image[((y * icon.Width + x) * 4) + 1] = color.G;
-                    image[((y * icon.Width + x) * 4) + 2] = color.B;
-                    image[((y * icon.Width + x) * 4) + 3] = color.A;
-                }
-            }
 
+            bool createConfig = false;
+            
             SpaceboxConfig config = Data.GetSpaceBoxConfig("spacebox.cfg");
             if (config == null)
             {
                 Console.WriteLine("SpaceBox config is missing! Creating new config.");
                 config = new SpaceboxConfig();
                 Data.SaveSpaceBoxConfig(config, "spacebox.cfg");
+                createConfig = true;
             }
 
             WindowSettings windowSettings = new WindowSettings()
@@ -48,27 +39,24 @@ namespace Spacebox
                 Title = "SpaceBox",
                 StartFullscreen = config.Display.Fullscreen,
                 SampleCount = 32,
-                Icon = new WindowIcon(new Image(icon.Width, icon.Height, image)),
+                Icon = new WindowIcon(new Image(icon.Size.Width, icon.Size.Height, icon.Data)),
             };
-            
-            icon.Dispose();
 
 #if DEBUG
-            using (SpaceboxGame game = new SpaceboxGame(windowSettings, config))
+            using (SpaceboxGame game = new SpaceboxGame(windowSettings, config, createConfig))
                 game.Run();
 #else
             try
             {
-                using (SpaceboxGame game = new SpaceboxGame(windowSettings, config))
+                using (SpaceboxGame game = new SpaceboxGame(windowSettings, config, createConfig))
                     game.Run();
             }
             catch (Exception e)
             {
-#if WINDOWS
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                     new Application(Eto.Platforms.WinForms).Run(new CrashForm(e));
-#elif LINUX
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
                     new Application(Eto.Platforms.Gtk).Run(new CrashForm(e));
-#endif
             }
 #endif
         }

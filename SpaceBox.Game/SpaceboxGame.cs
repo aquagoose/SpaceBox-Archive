@@ -11,6 +11,7 @@ using Cubic.Engine.Utilities;
 using Cubic.Engine.Windowing;
 using ImGuiNET;
 using OpenTK.Graphics.OpenGL4;
+using OpenTK.Windowing.GraphicsLibraryFramework;
 using SpaceBox.Data;
 using Spacebox.Game.Scenes;
 using SpaceBox.GUI.Imgui;
@@ -32,11 +33,14 @@ namespace Spacebox.Game
 
         private static bool _shouldClose;
 
+        private bool _createConfig;
+
         //private OpenGLDebugger _debugger;
 
-        public SpaceboxGame(WindowSettings settings, SpaceboxConfig config) : base(settings)
+        public SpaceboxGame(WindowSettings settings, SpaceboxConfig config, bool hadCreateConfig) : base(settings)
         {
             Config = config;
+            _createConfig = hadCreateConfig;
         }
 
         protected override void Initialize()
@@ -64,7 +68,23 @@ namespace Spacebox.Game
                 continue;
             SceneManager.Initialize(this, new MenuScene(), SpriteBatch, UiManager);
 #else
-            SceneManager.Initialize(this, new IntroScene(), SpriteBatch, UiManager);
+            if (_createConfig)
+            {
+                unsafe
+                {
+                    VideoMode* mode = GLFW.GetVideoMode(GLFW.GetPrimaryMonitor());
+                    Size res = new Size(mode->Width, mode->Height);
+                    Size = res;
+                    Fullscreen = true;
+                    Config.Display.Resolution = res;
+                    Config.Display.Fullscreen = true;
+                    Data.SaveSpaceBoxConfig(Config, "spacebox.cfg");
+                }
+
+                SceneManager.Initialize(this, new WelcomeScene(), SpriteBatch, UiManager);
+            }
+            else
+                SceneManager.Initialize(this, new IntroScene(), SpriteBatch, UiManager);
 #endif
 
             Resize += WindowResize;
@@ -80,7 +100,7 @@ namespace Spacebox.Game
 
             UiManager.Update();
             
-            if (Input.IsKeyPressed(Config.Input.TakeScreenshot))
+            /*if (Input.IsKeyPressed(Config.Input.TakeScreenshot))
             {
                 Bitmap bitmap = new Bitmap(Size.Width, Size.Height);
                 BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
@@ -105,7 +125,7 @@ namespace Spacebox.Game
                 bitmap.Dispose();
 
                 Console.WriteLine("Saved screenshot.");
-            }
+            }*/
 
             if (_shouldClose)
                 Close();
@@ -122,7 +142,7 @@ namespace Spacebox.Game
 #if !DEBUG
             // Using ImGui here because I don't want to add 300 draw calls to the game which already suffers from enough
             // of them.
-            ImGui.PushFont(ImGuiConfig.Fonts["large"]);
+            /*ImGui.PushFont(ImGuiConfig.Fonts["large"]);
             ImGui.PushStyleColor(ImGuiCol.WindowBg, ImGui.GetColorU32(new Vector4(0, 0, 0, 0.5f)));
             if (ImGui.Begin("E",
                 ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoCollapse |
@@ -133,7 +153,8 @@ namespace Spacebox.Game
                 ImGui.End();
             }
             ImGui.PopFont();
-            ImGui.PopStyleColor();
+            ImGui.PopStyleColor();*/
+            // Removed as there is no point in having it.
 
 #endif
 

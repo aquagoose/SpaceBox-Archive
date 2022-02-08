@@ -6,9 +6,10 @@
         <AssemblyName>SpaceBox</AssemblyName>
         <RootNamespace>Spacebox</RootNamespace>
         <ApplicationIcon>Icon.ico</ApplicationIcon>
-        <TargetFrameworks>net5.0;net5.0-windows</TargetFrameworks>
         <Configurations>Debug;Release;Publish</Configurations>
         <Platforms>AnyCPU</Platforms>
+        <TargetFramework>net6.0</TargetFramework>
+        <TieredCompilation>false</TieredCompilation>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Publish' ">
@@ -18,7 +19,7 @@
 
     <ItemGroup>
       <!--<PackageReference Include="Eto.Platform.Windows" Version="2.5.11" Condition="'$(TargetFramework)' == 'net5.0-windows'" />-->
-      <PackageReference Include="Eto.Platform.Gtk" Version="2.5.11" Condition="'$(TargetFramework)' == 'net5.0'" />  
+      <PackageReference Include="Eto.Platform.Gtk" Version="2.5.11" />  
       <PackageReference Include="OpenTK" Version="4.6.7" />
     </ItemGroup>
 

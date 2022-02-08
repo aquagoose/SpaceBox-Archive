@@ -6,7 +6,6 @@ using Cubic.Engine.Render.Shaders;
 using Cubic.Engine.Utilities;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
-using PixelFormat = System.Drawing.Imaging.PixelFormat;
 
 namespace Cubic.Engine.Render
 {
@@ -72,17 +71,15 @@ namespace Cubic.Engine.Render
 
             for (int i = 0; i < textures.Length; i++)
             {
-                textures[i].RotateFlip(RotateFlipType.RotateNoneFlipY);
+                //textures[i].RotateFlip(RotateFlipType.RotateNoneFlipY);
                 
                 Bitmap bp = new Bitmap(textures[i]);
 
-                BitmapData data = bp.LockBits(new Rectangle(0, 0, bp.Width, bp.Height), ImageLockMode.ReadOnly,
-                    PixelFormat.Format32bppArgb);
+                //BitmapData data = bp.LockBits(new Rectangle(0, 0, bp.Width, bp.Height), ImageLockMode.ReadOnly,
+                //    PixelFormat.Format32bppArgb);
                 
-                GL.TexImage2D(TextureTarget.TextureCubeMapPositiveX + i, 0, PixelInternalFormat.Rgba, textures[i].Width,
-                        textures[i].Height, 0, OpenTK.Graphics.OpenGL4.PixelFormat.Bgra, PixelType.UnsignedByte, data.Scan0);
-                
-                bp.UnlockBits(data);
+                GL.TexImage2D(TextureTarget.TextureCubeMapPositiveX + i, 0, PixelInternalFormat.Rgba, textures[i].Size.Width,
+                        textures[i].Size.Height, 0, OpenTK.Graphics.OpenGL4.PixelFormat.Rgba, PixelType.UnsignedByte, textures[i].Data);
             }
 
             GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureMinFilter,
